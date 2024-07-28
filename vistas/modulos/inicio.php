@@ -5,12 +5,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Blank Page</h1>
+          <h1>Tablero</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Blank Page</li>
+            <li class="breadcrumb-item"><a href="/inicio">Home</a></li>
+            <li class="breadcrumb-item active">Panel de Control</li>
           </ol>
         </div>
       </div>
@@ -19,32 +19,32 @@
 
   <!-- Main content -->
   <section class="content">
+    <div class="container-fluid">
+      <!-- Small boxes (Stat box) -->
+      <div class="row">
+        <?php
+        include_once 'inicio/cajas-superiores.php';
+        ?>
 
-    <!-- Default box -->
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">Title</h3>
+      </div>
+      <!-- /.row -->
 
-        <div class="card-tools">
-          <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-            <i class="fas fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-            <i class="fas fa-times"></i>
-          </button>
+      <div class="row">
+        <div class="col-12">
+          <?php include_once 'reportes/grafico-ventas.php'; ?>
         </div>
       </div>
-      <div class="card-body">
-        Start creating your amazing application!
-      </div>
-      <!-- /.card-body -->
-      <div class="card-footer">
-        Footer
-      </div>
-      <!-- /.card-footer-->
-    </div>
-    <!-- /.card -->
 
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <?php include_once 'reportes/productos-mas-vendidos.php'; ?>
+        </div>
+        <div class="col-12 col-md-6">
+          <?php include_once 'inicio/productos-recientes.php'; ?>
+        </div>
+      </div>
+
+    </div>
   </section>
   <!-- /.content -->
 </div>
