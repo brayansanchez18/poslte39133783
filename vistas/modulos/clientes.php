@@ -6,14 +6,14 @@
       <!-- Small boxes (Stat box) -->
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Usuarios</h1>
+          <h1>Administrar Clientes</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item">
               <a href="/">Inicio</a>
             </li>
-            <li class="breadcrumb-item active">Usuarios</li>
+            <li class="breadcrumb-item active">Clientes</li>
           </ol>
         </div>
       </div>
@@ -26,8 +26,8 @@
   <section class="content">
     <div class="card">
       <div class="card-header">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarUsuario">
-          Agregar Usuario <i class="ml-2 fas fa-user-plus"></i>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCliente">
+          Agregar Cliente <i class="ml-2 fas fa-user-plus"></i>
         </button>
       </div>
       <div class="card-body">
@@ -36,30 +36,28 @@
             <tr>
               <th style="width: 10px">#</th>
               <th>Nombre</th>
-              <th>Usuario</th>
-              <th>Foto</th>
-              <th>Perfil</th>
-              <th>Estado</th>
-              <th>Ultimo Ingreso</th>
+              <th>Correo</th>
+              <th>Telefono</th>
+              <th>Direccion</th>
+              <th>Total Compras</th>
+              <th>Ultima Compra</th>
+              <th>Fecha de Registro</th>
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>1</td>
-              <td>Brayan Emanuel Sanchez Ramirez</td>
-              <td>emanuel@correo.com</td>
-              <td>
-                <img class="img-circle" src="vistas/dist/img/avatar.png" width="60px" />
-              </td>
-              <td>Administrador</td>
-              <td>
-                <button class="btn btn-xs btn-danger">Activo</button>
-              </td>
-              <td>24-06-2024 12:12:12</td>
+              <td>Gonzalo Pérez</td>
+              <td>gonzalo@yahoo.com</td>
+              <td>722-222-2222</td>
+              <td>Carrera 34 # 56 - 34</td>
+              <td>30</td>
+              <td>2024-02-06 17:47:02</td>
+              <td>2018-02-06 16:47:02</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditarUsuario">
+                  <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditarCliente">
                     <i class="fa fa-edit"></i>
                   </button>
                   <button class="btn btn-danger">
@@ -70,19 +68,36 @@
             </tr>
             <tr>
               <td>2</td>
-              <td>Jazmin Montserrath Santiago Jilote</td>
-              <td>jazmin@correo.com</td>
-              <td>
-                <img class="img-circle" src="vistas/dist/img/avatar3.png" width="60px" />
-              </td>
-              <td>Editor</td>
-              <td>
-                <button class="btn btn-xs btn-success">Inactivo</button>
-              </td>
-              <td>24-06-2024 12:12:12</td>
+              <td>Pedro Pérez</td>
+              <td>pedro@yahoo.com</td>
+              <td>722-222-2222</td>
+              <td>Carrera 34 # 56 - 34</td>
+              <td>34</td>
+              <td>2024-02-06 17:47:02</td>
+              <td>2018-02-06 16:47:02</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditarUsuario">
+                  <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditarClientea">
+                    <i class="fa fa-edit"></i>
+                  </button>
+                  <button class="btn btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Stella Jaramillo</td>
+              <td>stella@yahoo.com</td>
+              <td>722-222-2222</td>
+              <td>Carrera 34 # 56 - 34</td>
+              <td>34</td>
+              <td>2024-02-06 17:47:02</td>
+              <td>2018-02-06 16:47:02</td>
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditarCliente">
                     <i class="fa fa-edit"></i>
                   </button>
                   <button class="btn btn-danger">
@@ -103,16 +118,16 @@
 <!-- /.content-wrapper -->
 
 <!-- -------------------------------------------------------------------------- */
-/*                            MODAL AGREGAR USUARIO                            */
+/*                            MODAL AGREGAR CLIENTE                            */
 /* -------------------------------------------------------------------------- -->
 
-<div class="modal fade" id="modalAgregarUsuario" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modalAgregarCliente" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <form role="form" method="post" enctype="multipart/form-data">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">
-            Agregar Usuario
+            Agregar Cliente
           </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -123,52 +138,38 @@
           <div class="input-group mb-2">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">
-                <i class="fa fa-user"></i>
+                <i class="fas fa-user"></i>
               </span>
             </div>
-            <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required />
+            <input type="text" class="form-control input-lg" name="nuevoCliente" placeholder="Ingresar nombre" required />
           </div>
 
           <div class="input-group mb-2">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">
-                <i class="fa fa-envelope"></i>
+                <i class="fas fa-envelope"></i>
               </span>
             </div>
-            <input type="email" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar Correo Electronico" required />
+            <input type="text" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar email" required />
           </div>
 
           <div class="input-group mb-2">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">
-                <i class="fas fa-key"></i>
+                <i class="fas fa-mobile-alt"></i>
               </span>
             </div>
-            <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar Contraseña" required />
+
+            <input type="text" id="numeroCliente" name="nuevoTelefono" class="numeroCliente form-control input-lg" placeholder="Ingresar teléfono" required />
           </div>
 
           <div class="input-group mb-2">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">
-                <i class="fas fa-lock"></i>
+                <i class="fas fa-map-marker-alt"></i>
               </span>
             </div>
-            <select class="form-control input-lg" name="nuevoPerfil">
-              <option value="">Perfil</option>
-              <option value="metepec">Administrador</option>
-              <option value="metepec">Especial</option>
-              <option value="metepec">Vendedor</option>
-            </select>
-          </div>
-
-          <div class="mb-2">
-            <img src="vistas/dist/img/avatar3.png" class="img-thumbnail previsualizar" width="200px" />
-          </div>
-
-          <div class="mb-2">
-            <div class="panel">SUBIR FOTO</div>
-            <input type="file" class="form-control input-lg nuevaFoto" name="nuevaFoto" />
-            <p class="help-block">Peso máximo del documento 4MB</p>
+            <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar dirección" required />
           </div>
         </div>
         <div class="modal-footer">
@@ -176,7 +177,7 @@
             Cerrar
           </button>
           <button type="submit" class="btn btn-primary">
-            Crear Usuario
+            Crear Cliente
           </button>
         </div>
       </form>
@@ -184,19 +185,19 @@
   </div>
 </div>
 
-<!-- ----------------------- End of MODAL AGREGAR USUARIO ---------------------- -->
+<!-- ----------------------- End of MODAL AGREGAR CATEGORIA ---------------------- -->
 
 <!-- -------------------------------------------------------------------------- */
-/*                            MODAL EDITAR PRESTATARIO                            */
+/*                            MODAL EDITAR CLIENTE                            */
 /* -------------------------------------------------------------------------- -->
 
-<div class="modal fade" id="modalEditarUsuario" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modalEditarCliente" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <form role="form" method="post" enctype="multipart/form-data">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">
-            Editar Usuario
+            Editar Cliente
           </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -207,55 +208,38 @@
           <div class="input-group mb-2">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">
-                <i class="fa fa-user"></i>
+                <i class="fas fa-user"></i>
               </span>
             </div>
-            <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required />
+            <input type="text" class="form-control input-lg" name="nuevoCliente" placeholder="Ingresar nombre" required />
           </div>
 
           <div class="input-group mb-2">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">
-                <i class="fa fa-envelope"></i>
+                <i class="fas fa-envelope"></i>
               </span>
             </div>
-            <input type="email" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar Correo Electronico" required />
+            <input type="text" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar email" required />
           </div>
 
           <div class="input-group mb-2">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">
-                <i class="fas fa-key"></i>
+                <i class="fas fa-mobile-alt"></i>
               </span>
             </div>
-            <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar Contraseña" required />
+
+            <input type="text" id="numeroCliente" name="nuevoTelefono" class="numeroCliente form-control input-lg" placeholder="Ingresar teléfono" required />
           </div>
 
           <div class="input-group mb-2">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">
-                <i class="fas fa-lock"></i>
+                <i class="fas fa-map-marker-alt"></i>
               </span>
             </div>
-            <select class="form-control input-lg" name="nuevoPerfil">
-              <option value="">Perfil</option>
-              <option value="metepec">Administrador</option>
-              <option value="metepec">Especial</option>
-              <option value="metepec">Vendedor</option>
-            </select>
-          </div>
-
-          <div class="mb-2">
-            <div class="panel">SUBIR FOTO</div>
-            <input type="file" class="form-control input-lg nuevaFoto custom-file-input" id="customFile" name="nuevaFoto" />
-            <p class="help-block">Peso máximo de la foto 4MB</p>
-            <img src="vistas/dist/img/avatar3.png" class="img-thumbnail previsualizar" width="200px" />
-          </div>
-
-          <div class="mb-2">
-            <div class="panel">SUBIR DOCUMENTOS</div>
-            <input type="file" class="form-control input-lg nuevaFoto" name="nuevaFoto" />
-            <p class="help-block">Peso máximo del documento 4MB</p>
+            <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar dirección" required />
           </div>
         </div>
         <div class="modal-footer">
@@ -263,7 +247,7 @@
             Cerrar
           </button>
           <button type="submit" class="btn btn-primary">
-            Editar Usuario
+            Editar Cliente
           </button>
         </div>
       </form>
@@ -271,4 +255,4 @@
   </div>
 </div>
 
-<!-- ----------------------- End of MODAL EDITAR USUARIO ---------------------- -->
+<!-- ----------------------- End of MODAL EDITAR CLIENTE ---------------------- -->

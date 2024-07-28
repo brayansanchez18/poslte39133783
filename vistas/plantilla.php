@@ -21,6 +21,8 @@
   <link rel="stylesheet" href="vistas/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="vistas/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="vistas/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="vistas/plugins/icheck-bootstrap/icheck-bootstrap.css">
 
   <!-- ------------------------------- PLUGINS CSS ------------------------------ -->
 
@@ -35,6 +37,7 @@
   <!-- AdminLTE App -->
   <script src="vistas/dist/js/adminlte.min.js"></script>
   <script src="vistas/plugins/chart.js/Chart.min.js"></script>
+
 
   <!-- <script src="vsitas/plugins/jszip/jszip.min.js"></script>
   <script src="vistas/plugins/pdfmake/pdfmake.min.js"></script>
@@ -97,6 +100,8 @@
   <script src="vistas/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
   <script src="vistas/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
   <script src="vistas/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+  <!-- InputMask -->
+  <script src="vistas/plugins/inputmask/jquery.inputmask.min.js"></script>
   <script src="vistas/js/plantilla.js"></script>
 </body>
 

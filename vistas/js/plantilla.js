@@ -29,3 +29,5 @@ $("#tables").DataTable({
     },
   },
 });
+
+$("#numeroCliente").inputmask("999-999-9999");
