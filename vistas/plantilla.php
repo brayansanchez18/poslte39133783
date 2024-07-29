@@ -50,11 +50,12 @@
   <!-- ------------------------------- PLUGINS JS ------------------------------- -->
 </head>
 
-<body class="hold-transition sidebar-mini sidebar-collapse">
 
-  <?php
 
-  // if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == 'ok') {
+<?php
+
+if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == 'ok') {
+  echo '<body class="hold-transition sidebar-mini sidebar-collapse">';
   echo '<div class="wrapper">';
   include_once 'modulos/header.php';
   include_once 'modulos/lateral.php';
@@ -88,21 +89,22 @@
 
   /* -------------------------------- CONTENIDO ------------------------------- */
   echo '</div';
-  // } else {
-  //   include_once 'modulos/login.php';
-  // }
+} else {
+  echo '<body class="hold-transition sidebar-mini sidebar-collapse login-page">';
+  include_once 'modulos/login.php';
+}
 
-  ?>
-  <!-- DataTables  & Plugins -->
-  <script src="vistas/plugins/datatables/jquery.dataTables.min.js"></script>
-  <script src="vistas/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-  <script src="vistas/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-  <script src="vistas/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-  <script src="vistas/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-  <script src="vistas/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-  <!-- InputMask -->
-  <script src="vistas/plugins/inputmask/jquery.inputmask.min.js"></script>
-  <script src="vistas/js/plantilla.js"></script>
+?>
+<!-- DataTables  & Plugins -->
+<script src="vistas/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="vistas/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="vistas/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="vistas/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="vistas/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="vistas/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<!-- InputMask -->
+<script src="vistas/plugins/inputmask/jquery.inputmask.min.js"></script>
+<script src="vistas/js/plantilla.js"></script>
 </body>
 
 </html>
