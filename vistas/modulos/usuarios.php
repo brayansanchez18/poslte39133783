@@ -31,7 +31,7 @@
         </button>
       </div>
       <div class="card-body">
-        <table id="tables" class="table table-bordered table-striped dt-responsive tabla" width="100%">
+        <table id="tablaUsuarios" class="table table-bordered table-striped dt-responsive" width="100%">
           <thead>
             <tr>
               <th style="width: 10px">#</th>
@@ -155,14 +155,14 @@
             </div>
             <select class="form-control input-lg" name="nuevoPerfil">
               <option value="">Perfil</option>
-              <option value="metepec">Administrador</option>
-              <option value="metepec">Especial</option>
-              <option value="metepec">Vendedor</option>
+              <option value="administrador">Administrador</option>
+              <option value="especial">Especial</option>
+              <option value="vendedor">Vendedor</option>
             </select>
           </div>
 
           <div class="mb-2">
-            <img src="vistas/dist/img/avatar3.png" class="img-thumbnail previsualizar" width="200px" />
+            <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="150px" />
           </div>
 
           <div class="mb-2">
@@ -239,21 +239,18 @@
             </div>
             <select class="form-control input-lg" name="nuevoPerfil">
               <option value="">Perfil</option>
-              <option value="metepec">Administrador</option>
-              <option value="metepec">Especial</option>
-              <option value="metepec">Vendedor</option>
+              <option value="administrador">Administrador</option>
+              <option value="especial">Especial</option>
+              <option value="vendedor">Vendedor</option>
             </select>
           </div>
 
           <div class="mb-2">
-            <div class="panel">SUBIR FOTO</div>
-            <input type="file" class="form-control input-lg nuevaFoto custom-file-input" id="customFile" name="nuevaFoto" />
-            <p class="help-block">Peso máximo de la foto 4MB</p>
-            <img src="vistas/dist/img/avatar3.png" class="img-thumbnail previsualizar" width="200px" />
+            <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="150px" />
           </div>
 
           <div class="mb-2">
-            <div class="panel">SUBIR DOCUMENTOS</div>
+            <div class="panel">SUBIR FOTO</div>
             <input type="file" class="form-control input-lg nuevaFoto" name="nuevaFoto" />
             <p class="help-block">Peso máximo del documento 4MB</p>
           </div>
@@ -266,6 +263,10 @@
             Editar Usuario
           </button>
         </div>
+        <?php
+        $crearUsuario = new ControladorUsuarios();
+        $crearUsuario->ctrCrearUsuario();
+        ?>
       </form>
     </div>
   </div>

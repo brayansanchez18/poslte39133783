@@ -23,6 +23,8 @@
   <link rel="stylesheet" href="vistas/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="vistas/plugins/icheck-bootstrap/icheck-bootstrap.css">
+  <!-- SWEETALERT -->
+  <link rel="stylesheet" href="vistas/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
 
   <!-- ------------------------------- PLUGINS CSS ------------------------------ -->
 
@@ -37,6 +39,8 @@
   <!-- AdminLTE App -->
   <script src="vistas/dist/js/adminlte.min.js"></script>
   <script src="vistas/plugins/chart.js/Chart.min.js"></script>
+  <!-- SWEETALERT -->
+  <script src="vistas/plugins/sweetalert2/sweetalert2.min.js"></script>
 
 
   <!-- <script src="vsitas/plugins/jszip/jszip.min.js"></script>
@@ -105,6 +109,7 @@ if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == 'ok') {
 <!-- InputMask -->
 <script src="vistas/plugins/inputmask/jquery.inputmask.min.js"></script>
 <script src="vistas/js/plantilla.js"></script>
+<script src="vistas/js/usuarios.js"></script>
 </body>
 
 </html>
