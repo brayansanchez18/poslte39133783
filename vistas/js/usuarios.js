@@ -82,3 +82,43 @@ $(".nuevaFoto").change(function () {
 });
 
 /* ---------------------- SUBIENDO LA FOTO DEL USUARIO ---------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                               EDITAR USUARIO                               */
+/* -------------------------------------------------------------------------- */
+
+$(document).on("click", ".btnEditarUsuario", function () {
+  var idUsuario = $(this).attr("idUsuario");
+  var datos = new FormData();
+  datos.append("idUsuario", idUsuario);
+
+  $.ajax({
+    url: "ajax/usuarios.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType: "json",
+    success: function (respuesta) {
+      // console.log(respuesta);
+      $("#editarNombre").val(respuesta["nombre"]);
+      $("#editarUsuario").val(respuesta["usuario"]);
+      $("#editarPerfil").html(respuesta["perfil"]);
+      $("#editarPerfil").val(respuesta["perfil"]);
+      $("#fotoActual").val(respuesta["foto"]);
+      $("#passwordActual").val(respuesta["pass"]);
+
+      if (respuesta["foto"] != "") {
+        $(".previsualizar").attr("src", respuesta["foto"]);
+      } else {
+        $(".previsualizar").attr(
+          "src",
+          "vistas/img/usuarios/default/anonymous.png"
+        );
+      }
+    },
+  });
+});
+
+/* ----------------------------- EDITAR USUARIO ----------------------------- */

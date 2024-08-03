@@ -45,7 +45,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <!-- <tr>
               <td>1</td>
               <td>Brayan Emanuel Sanchez Ramirez</td>
               <td>emanuel@correo.com</td>
@@ -90,7 +90,7 @@
                   </button>
                 </div>
               </td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
@@ -155,9 +155,9 @@
             </div>
             <select class="form-control input-lg" name="nuevoPerfil">
               <option value="">Perfil</option>
-              <option value="administrador">Administrador</option>
-              <option value="especial">Especial</option>
-              <option value="vendedor">Vendedor</option>
+              <option value="Administrador">Administrador</option>
+              <option value="Especial">Especial</option>
+              <option value="Vendedor">Vendedor</option>
             </select>
           </div>
 
@@ -210,7 +210,7 @@
                 <i class="fa fa-user"></i>
               </span>
             </div>
-            <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required />
+            <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="" required />
           </div>
 
           <div class="input-group mb-2">
@@ -219,7 +219,7 @@
                 <i class="fa fa-envelope"></i>
               </span>
             </div>
-            <input type="email" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar Correo Electronico" required />
+            <input type="email" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" placeholder="Ingresar Correo Electronico" readonly />
           </div>
 
           <div class="input-group mb-2">
@@ -228,7 +228,8 @@
                 <i class="fas fa-key"></i>
               </span>
             </div>
-            <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar Contraseña" required />
+            <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Ingresar nueva contraseña" />
+            <input type="hidden" id="passwordActual" name="passwordActual">
           </div>
 
           <div class="input-group mb-2">
@@ -237,21 +238,22 @@
                 <i class="fas fa-lock"></i>
               </span>
             </div>
-            <select class="form-control input-lg" name="nuevoPerfil">
-              <option value="">Perfil</option>
-              <option value="administrador">Administrador</option>
-              <option value="especial">Especial</option>
-              <option value="vendedor">Vendedor</option>
+            <select class="form-control input-lg" name="EditarPerfil">
+              <option value="" id="editarPerfil"></option>
+              <option value="Administrador">Administrador</option>
+              <option value="Especial">Especial</option>
+              <option value="Vendedor">Vendedor</option>
             </select>
           </div>
 
           <div class="mb-2">
             <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="150px" />
+            <input type="hidden" name="fotoActual" id="fotoActual">
           </div>
 
           <div class="mb-2">
             <div class="panel">SUBIR FOTO</div>
-            <input type="file" class="form-control input-lg nuevaFoto" name="nuevaFoto" />
+            <input type="file" class="form-control input-lg nuevaFoto" name="editarFoto" />
             <p class="help-block">Peso máximo del documento 4MB</p>
           </div>
         </div>
@@ -265,7 +267,7 @@
         </div>
         <?php
         $crearUsuario = new ControladorUsuarios();
-        $crearUsuario->ctrCrearUsuario();
+        $crearUsuario->ctrEditarUsuario();
         ?>
       </form>
     </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-07-2024 a las 07:59:54
+-- Tiempo de generación: 03-08-2024 a las 04:46:49
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.1.17
 
@@ -175,7 +175,7 @@ CREATE TABLE `usuarios` (
   `pass` text NOT NULL,
   `perfil` text NOT NULL,
   `foto` text NOT NULL,
-  `estado` int(11) NOT NULL,
+  `estado` int(11) NOT NULL DEFAULT 1,
   `ultimologin` datetime NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -185,10 +185,11 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `pass`, `perfil`, `foto`, `estado`, `ultimologin`, `fecha`) VALUES
-(1, 'Brayan Sánchez', 'admin@admin.com', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Administrador', 'vistas/img/usuarios/admin/303.png', 1, '2024-07-28 23:57:10', '2024-07-29 05:57:10'),
+(1, 'Brayan Sánchez', 'admin@admin.com', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG', '', 'vistas/img/usuarios/admin@admin.com/472.jpg', 1, '2024-08-02 20:44:03', '2024-08-03 02:46:16'),
 (8, 'Sandra Gomez', 'sandra_gomez@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Vendedor', 'vistas/img/usuarios/sandra_gomez@tuempresa.com/615.jpg', 1, '2021-04-09 16:15:26', '2021-04-09 21:15:26'),
 (9, 'Pedro Faro', 'pedro@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Especial', 'vistas/img/usuarios/pedro@tuempresa.com/625.png', 1, '2021-04-15 16:51:38', '2021-04-16 03:14:51'),
-(11, 'Diana Alvarez', 'diana@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Vendedor', 'vistas/img/usuarios/diana@tuempresa.com/668.jpg', 1, '0000-00-00 00:00:00', '2021-04-16 03:13:37');
+(11, 'Diana Alvarez', 'diana@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Vendedor', 'vistas/img/usuarios/diana@tuempresa.com/981.png', 1, '0000-00-00 00:00:00', '2024-08-02 03:32:41'),
+(17, 'Usuario Prueba', 'usuario.prueba@gmail.com', '$2a$07$asxx54ahjppf45sd87a5auF3SxTPxKrykQWP2opioJ/PI/QjcniEW', 'Vendedor', 'vistas/img/usuarios/usuario.prueba@gmail.com/812.jpg', 1, '0000-00-00 00:00:00', '2024-08-03 02:15:24');
 
 -- --------------------------------------------------------
 
@@ -282,7 +283,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
