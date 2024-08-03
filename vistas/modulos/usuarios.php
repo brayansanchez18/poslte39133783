@@ -238,7 +238,7 @@
                 <i class="fas fa-lock"></i>
               </span>
             </div>
-            <select class="form-control input-lg" name="EditarPerfil">
+            <select class="form-control input-lg" name="editarPerfil">
               <option value="" id="editarPerfil"></option>
               <option value="Administrador">Administrador</option>
               <option value="Especial">Especial</option>
