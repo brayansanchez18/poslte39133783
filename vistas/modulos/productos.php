@@ -31,7 +31,7 @@
         </button>
       </div>
       <div class="card-body">
-        <table id="tables" class="table table-bordered table-striped dt-responsive tabla" width="100%">
+        <table id="tablaProductos" class="table table-bordered table-striped dt-responsive tabla" width="100%">
           <thead>
             <tr>
               <th style="width: 10px">#</th>
@@ -47,7 +47,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <!-- <tr>
               <td>1</td>
               <td>
                 <img src="https://pos.tutorialesatualcance.com/vistas/img/productos/517/746.jpg" width="40px" alt="">
@@ -122,6 +122,7 @@
                 </div>
               </td>
             </tr>
+          </tbody> -->
         </table>
       </div>
       <!-- /.card-body -->
