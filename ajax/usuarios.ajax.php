@@ -23,6 +23,26 @@ class AjaxUsuarios
   /* -------------------------- FIN DE EDITAR USUARIO ------------------------- */
 
   /* -------------------------------------------------------------------------- */
+  /*                               ACTIVAR USUARIO                              */
+  /* -------------------------------------------------------------------------- */
+
+  public $activarUsuario;
+  public $activarId;
+
+  public function ajaxActivarUsuario()
+  {
+    $tabla = 'usuarios';
+    $item1 = 'estado';
+    $valor1 = $this->activarUsuario;
+    $item2 = 'id';
+    $valor2 = $this->activarId;
+    $respuesta = ModeloUsuarios::mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2);
+    echo $respuesta;
+  }
+
+  /* ------------------------- FIN DE ACTIVAR USUARIO ------------------------- */
+
+  /* -------------------------------------------------------------------------- */
   /*                         VALIDAR NO REPETIR USUARIO                         */
   /* -------------------------------------------------------------------------- */
 
@@ -50,6 +70,19 @@ if (isset($_POST['idUsuario'])) {
 }
 
 /* -------------------------- FIN DE EDITAR USUARIO ------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                               ACTIVAR USUARIO                              */
+/* -------------------------------------------------------------------------- */
+
+if (isset($_POST['activarUsuario'])) {
+  $activarUsuario = new AjaxUsuarios();
+  $activarUsuario->activarUsuario = base64_decode($_POST['activarUsuario']);
+  $activarUsuario->activarId = base64_decode($_POST['activarId']);
+  $activarUsuario->ajaxActivarUsuario();
+}
+
+/* ------------------------- FIN DE ACTIVAR USUARIO ------------------------- */
 
 /* -------------------------------------------------------------------------- */
 /*                         VALIDAR NO REPETIR USUARIO                         */

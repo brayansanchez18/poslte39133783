@@ -135,7 +135,7 @@
                 <i class="fa fa-envelope"></i>
               </span>
             </div>
-            <input type="email" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar Correo Electronico" required />
+            <input type="email" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar Correo Electronico" id="nuevoUsuario" required />
           </div>
 
           <div class="input-group mb-2">

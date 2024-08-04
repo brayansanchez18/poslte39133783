@@ -59,7 +59,7 @@ class TablaUsuarios
         /* -------------------------- TRAEMOS LAS ACCIONES -------------------------- */
 
         $datosJson .= '[
-          "' . $usuarios[$i]['id'] . '",
+          "' . ($i + 1) . '",
           "' . $usuarios[$i]['nombre'] . '",
           "' . $usuarios[$i]['usuario'] . '",
           "' . $foto . '",

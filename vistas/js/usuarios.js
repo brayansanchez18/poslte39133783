@@ -122,3 +122,91 @@ $(document).on("click", ".btnEditarUsuario", function () {
 });
 
 /* ----------------------------- EDITAR USUARIO ----------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                               ACTIVAR USUARIO                              */
+/* -------------------------------------------------------------------------- */
+
+$(document).on("click", ".btnActivar", function () {
+  var idUsuario = $(this).attr("idUsuario");
+  var estadoUsuario = $(this).attr("estadoUsuario");
+
+  var datos = new FormData();
+  datos.append("activarId", idUsuario);
+  datos.append("activarUsuario", estadoUsuario);
+
+  $.ajax({
+    url: "ajax/usuarios.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (respuesta) {
+      if (window.matchMedia("(max-width:767px)").matches) {
+        Swal.fire({
+          icon: "success",
+          title: "OK",
+          text: "El estado ha sido actualizado",
+          showConfirmButton: true,
+          confirmButtonText: "Cerrar",
+        }).then(function (result) {
+          if (result.value) {
+            window.location = "/usuarios";
+          }
+        });
+      }
+    },
+  });
+
+  if (atob(estadoUsuario) == 0) {
+    $(this).removeClass("btn-success");
+    $(this).addClass("btn-danger");
+    $(this).html("Inactivo");
+    $(this).attr("estadoUsuario", 1);
+  } else {
+    $(this).removeClass("btn-danger");
+    $(this).addClass("btn-success");
+    $(this).html("Activo");
+    $(this).attr("estadoUsuario", 0);
+  }
+});
+
+/* ----------------------------- ACTIVAR USUARIO ---------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                  REVISAR SI EL USUARIO YA ESTÁ REGISTRADO                  */
+/* -------------------------------------------------------------------------- */
+
+$("#nuevoUsuario").change(function () {
+  $(".alert").remove();
+
+  var usuario = $(this).val();
+  console.log(usuario);
+  var datos = new FormData();
+  datos.append("validarUsuario", usuario);
+
+  $.ajax({
+    url: "ajax/usuarios.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType: "json",
+    success: function (respuesta) {
+      console.log(respuesta);
+      if (respuesta) {
+        $("#nuevoUsuario")
+          .parent()
+          .after(
+            '<div class="alert alert-warning">Este usuario ya existe en la base de datos</div>'
+          );
+
+        $("#nuevoUsuario").val("");
+      }
+    },
+  });
+});
+
+/* ---------------- REVISAR SI EL USUARIO YA ESTÁ REGISTRADO ---------------- */
