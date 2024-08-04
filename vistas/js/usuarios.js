@@ -2,12 +2,12 @@
 /*                      CARGAR TABLA DINAMICA DE USUARIOS                     */
 /* -------------------------------------------------------------------------- */
 
-$.ajax({
-  url: "ajax/gestorUsuarios.ajax.php",
-  success: function (respuesta) {
-    // console.log("respuesta", respuesta);
-  },
-});
+// $.ajax({
+//   url: "ajax/gestorUsuarios.ajax.php",
+//   success: function (respuesta) {
+//     // console.log("respuesta", respuesta);
+//   },
+// });
 
 $("#tablaUsuarios").DataTable({
   ajax: "ajax/gestorUsuarios.ajax.php",

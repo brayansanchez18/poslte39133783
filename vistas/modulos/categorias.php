@@ -31,7 +31,7 @@
         </button>
       </div>
       <div class="card-body">
-        <table id="tables" class="table table-bordered table-striped dt-responsive tabla" width="100%">
+        <table id="tablaCategorias" class="table table-bordered table-striped dt-responsive tabla" width="100%">
           <thead>
             <tr>
               <th style="width: 10px">#</th>
@@ -39,7 +39,7 @@
               <th>Acciones</th>
             </tr>
           </thead>
-          <tbody>
+          <!-- <tbody>
             <tr>
               <td>1</td>
               <td>Equipos Electromecánicos</td>
@@ -110,7 +110,7 @@
                 </div>
               </td>
             </tr>
-          </tbody>
+          </tbody> -->
         </table>
       </div>
       <!-- /.card-body -->
@@ -145,7 +145,7 @@
                 <i class="fas fa-boxes"></i>
               </span>
             </div>
-            <input type="text" class="form-control input-lg" name="nuevaCategoria" placeholder="Nombre Categoria" required />
+            <input type="text" class="nuevaCategoria form-control input-lg" name="nuevaCategoria" placeholder="Nombre Categoria" required />
           </div>
         </div>
         <div class="modal-footer">
@@ -156,6 +156,10 @@
             Crear Categoria
           </button>
         </div>
+        <?php
+        $crearCategoria = new ControladorCategorias();
+        $crearCategoria->ctrCrearCategorias();
+        ?>
       </form>
     </div>
   </div>
@@ -187,7 +191,8 @@
                 <i class="fas fa-boxes"></i>
               </span>
             </div>
-            <input type="text" class="form-control input-lg" name="nuevaCategoria" placeholder="Nombre Categoria" required />
+            <input type="text" class="form-control input-lg" name="editarCategoria" id="editarCategoria" required />
+            <input type="hidden" name="idCategoria" id="idCategoria" required>
           </div>
         </div>
         <div class="modal-footer">
@@ -198,9 +203,18 @@
             Editar Categoria
           </button>
         </div>
+        <?php
+        $editarCategoria = new ControladorCategorias();
+        $editarCategoria->ctrEditarCategoria();
+        ?>
       </form>
     </div>
   </div>
 </div>
 
 <!-- ----------------------- End of MODAL EDITAR CATEGORIA ---------------------- -->
+
+<?php
+$borrarCategoria = new ControladorCategorias();
+$borrarCategoria->ctrBorrarCategoria();
+?>
