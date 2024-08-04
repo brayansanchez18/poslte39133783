@@ -54,7 +54,7 @@ class TablaUsuarios
         /*                            TRAEMOS LAS ACCIONES                            */
         /* -------------------------------------------------------------------------- */
 
-        $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarUsuario' idUsuario='" . base64_encode($usuarios[$i]["id"]) . "' data-toggle='modal' data-target='#modalEditarUsuario'><i class='fa fa-edit'></i></button><button class='btn btn-danger btnEliminarUsuario' idUsuario='" . base64_encode($usuarios[$i]["id"]) . "'><i class='fas fa-trash-alt'></i></button></div>";
+        $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarUsuario' idUsuario='" . base64_encode($usuarios[$i]["id"]) . "' data-toggle='modal' data-target='#modalEditarUsuario'><i class='fa fa-edit'></i></button><button class='btn btn-danger btnEliminarUsuario' idUsuario='" . base64_encode($usuarios[$i]["id"]) . "' usuario='" . base64_encode($usuarios[$i]["usuario"]) . "' fotoUsuario='" . base64_encode($usuarios[$i]['foto']) . "'><i class='fas fa-trash-alt'></i></button></div>";
 
         /* -------------------------- TRAEMOS LAS ACCIONES -------------------------- */
 

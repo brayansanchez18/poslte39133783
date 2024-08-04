@@ -109,7 +109,7 @@
 <div class="modal fade" id="modalAgregarUsuario" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <form role="form" method="post" enctype="multipart/form-data">
+      <form role="form" method="POST" enctype="multipart/form-data">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">
             Agregar Usuario
@@ -167,7 +167,7 @@
 
           <div class="mb-2">
             <div class="panel">SUBIR FOTO</div>
-            <input type="file" class="form-control input-lg nuevaFoto" name="nuevaFoto" />
+            <input type="file" class="form-control input-lg nuevaFoto" name="nuevaFoto" required />
             <p class="help-block">Peso máximo del documento 4MB</p>
           </div>
         </div>
@@ -179,6 +179,10 @@
             Crear Usuario
           </button>
         </div>
+        <?php
+        $crearUsuario = new ControladorUsuarios();
+        $crearUsuario->ctrCrearUsuario();
+        ?>
       </form>
     </div>
   </div>
@@ -275,3 +279,8 @@
 </div>
 
 <!-- ----------------------- End of MODAL EDITAR USUARIO ---------------------- -->
+
+<?php
+$borrarUsuario = new ControladorUsuarios();
+$borrarUsuario->ctrBorrarUsuario();
+?>

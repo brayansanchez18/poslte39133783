@@ -338,4 +338,61 @@ class ControladorUsuarios
   }
 
   /* ----------------------------- EDITAR USUARIO ----------------------------- */
+
+  /* -------------------------------------------------------------------------- */
+  /*                               BORRAR USUARIO                               */
+  /* -------------------------------------------------------------------------- */
+
+  static public function ctrBorrarUsuario()
+  {
+
+    if (isset($_GET["idUsuario"])) {
+
+      if (base64_decode($_GET["idUsuario"]) == 1 || base64_decode($_GET["idUsuario"]) == 2) {
+        echo '<script>
+                Swal.fire({
+                  icon: "error",
+                  title: "ERROR",
+                  text: "El usuario principal no puede ser eliminado",
+                  showConfirmButton: true,
+                  confirmButtonText: "Cerrar"
+                }).then(function(result){
+                  if(result.value){
+                    window.location = "/usuarios";
+                  }
+                });
+              </script>';
+      } else {
+        $tabla = "usuarios";
+        $datos = base64_decode($_GET["idUsuario"]);
+
+        if ($_GET["fotoUsuario"] != "") {
+
+          unlink(base64_decode($_GET["fotoUsuario"]));
+          rmdir('vistas/img/usuarios/' . base64_decode($_GET["usuario"]));
+        }
+
+        $respuesta = ModeloUsuarios::mdlBorrarUsuario($tabla, $datos);
+
+        if ($respuesta == "ok") {
+
+          echo '<script>
+                Swal.fire({
+                  icon: "success",
+                  title: "BORRADO",
+                  text: "El usuario ha sido eliminado!",
+                  showConfirmButton: true,
+                  confirmButtonText: "Cerrar"
+                }).then(function(result){
+                  if(result.value){
+                    window.location = "/usuarios";
+                  }
+                });
+              </script>';
+        }
+      }
+    }
+  }
+
+  /* ----------------------------- BORRAR USUARIO ----------------------------- */
 }
