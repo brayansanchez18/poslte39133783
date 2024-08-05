@@ -77,7 +77,7 @@ class ControladorCategorias
 
         $tabla = 'categorias';
         $datos = [
-          'categoria' => $_POST['editarCategoria'],
+          'categoria' => ucfirst($_POST['editarCategoria']),
           'id' => base64_decode($_POST['idCategoria'])
         ];
 

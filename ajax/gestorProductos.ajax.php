@@ -67,7 +67,7 @@ class TablaProductos
       /*                            TRAEMOS LAS ACCIONES                            */
       /* -------------------------------------------------------------------------- */
 
-      $botones = "<div class='btn-group'><button class='btn btn-warning' data-toggle='modal' data-target='#modalEditarProducto'><i class='fa fa-edit'></i></button><button class='btn btn-danger'><i class='fas fa-trash-alt'></i></button></div>";
+      $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idproducto='" . base64_encode($productos[$i]['id']) . "' data-toggle='modal' data-target='#modalEditarProducto'><i class='fa fa-edit'></i></button><button class='btn btn-danger btnEliminarProducto' idproducto='" . base64_encode($productos[$i]["id"]) . "' codigo='" . base64_encode($productos[$i]["codigo"]) . "' imagen='" . base64_encode($productos[$i]["imagen"]) . "'><i class='fas fa-trash-alt'></i></button></div>";
 
       /* ----------------------- FIN DE TRAEMOS LAS ACCIONES ---------------------- */
 

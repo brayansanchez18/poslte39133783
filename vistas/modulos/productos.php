@@ -154,7 +154,143 @@
           <div class="input-group mb-2">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">
-                <i class="fas fa-lock"></i>
+                <i class="fas fa-boxes"></i>
+              </span>
+            </div>
+            <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria">
+              <option value="">Seleccionar Categoria</option>
+              <?php
+              $item = null;
+              $valor = null;
+              $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+              ?>
+              <?php foreach ($categorias as $key => $value) : ?>
+                <option value="<?= base64_encode($value['id']) ?>"><?= $value['categoria'] ?></option>
+              <?php endforeach ?>
+            </select>
+          </div>
+
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fas fa-hashtag"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control input-lg" id="nuevoCodigo" name="nuevoCodigo" placeholder="Codigo Producto" readonly required />
+          </div>
+
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fas fa-info-circle"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control input-lg" name="nuevaDescripcion" placeholder="Ingresar descripción" required />
+          </div>
+
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fas fa-cubes"></i>
+              </span>
+            </div>
+            <input type="number" class="form-control input-lg" name="nuevoStock" min="0" placeholder="Stock" required>
+          </div>
+
+          <div class="row">
+            <div class="input-group mt-2 mb-2 col-12 col-md-6">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                  <i class="fas fa-dollar-sign"></i>
+                </span>
+              </div>
+              <input type="number" class="form-control input-lg" id="nuevoPrecioCompra" name="nuevoPrecioCompra" step="any" min="0" placeholder="Precio de compra" required>
+            </div>
+
+            <div class="input-group mt-2 mb-2 col-12 col-md-6">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                  <i class="fas fa-tags"></i>
+                </span>
+              </div>
+              <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" step="any" min="0" placeholder="Precio de venta" required>
+            </div>
+
+            <br>
+
+            <!-- CHECKBOX PARA PORCENTAJE -->
+            <div class="col-12 col-md-6 d-flex float-righ ml-auto">
+              <div class="input-group mt-2 mb-2 col-6">
+                <div class="icheck-primary d-inline">
+                  <input type="checkbox" id="porcentaje" class="porcentaje" checked>
+                  <label for="porcentaje">Utilizar Procentaje</label>
+                </div>
+              </div>
+
+              <!-- ENTRADA PARA PORCENTAJE -->
+
+              <div class="input-group mt-2 mb-2 col-6" style="padding:0">
+                <input type="number" class="form-control input-lg nuevoPorcentaje" min="0" value="40" required>
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">
+                    <i class="fas fa-percentage"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-2 mt-3">
+            <img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="150px" />
+          </div>
+
+          <div class="mb-2">
+            <div class="panel">SUBIR IMAGEN</div>
+            <input type="file" class="form-control input-lg nuevaImagen" name="nuevaImagen" />
+            <p class="help-block">Peso máximo del documento 4MB</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cerrar
+          </button>
+          <button type="submit" class="btn btn-primary">
+            Crear Producto
+          </button>
+        </div>
+        <?php
+        $crearProducto = new ControladorProductos();
+        $crearProducto->ctrCrearProducto();
+        ?>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ----------------------- End of MODAL AGREGAR PRODUCTO ---------------------- -->
+
+<!-- -------------------------------------------------------------------------- */
+/*                            MODAL EDITAR PRODUCTO                            */
+/* -------------------------------------------------------------------------- -->
+
+<div class="modal fade" id="modalEditarProducto" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <form role="form" method="post" enctype="multipart/form-data">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Agregar Producto
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="fas fa-boxes"></i>
               </span>
             </div>
             <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria">
@@ -171,7 +307,7 @@
           <div class="input-group mb-2">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">
-                <i class="fa fa-user"></i>
+                <i class="fas fa-hashtag"></i>
               </span>
             </div>
             <input type="text" class="form-control input-lg" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar código" required />
@@ -180,7 +316,7 @@
           <div class="input-group mb-2">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">
-                <i class="fa fa-user"></i>
+                <i class="fas fa-info-circle"></i>
               </span>
             </div>
             <input type="text" class="form-control input-lg" name="nuevaDescripcion" placeholder="Ingresar descripción" required />
@@ -189,7 +325,7 @@
           <div class="input-group mb-2">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">
-                <i class="fa fa-user"></i>
+                <i class="fas fa-cubes"></i>
               </span>
             </div>
             <input type="number" class="form-control input-lg" name="nuevoStock" min="0" placeholder="Stock" required>
@@ -199,7 +335,7 @@
             <div class="input-group mt-2 mb-2 col-12 col-md-6">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">
-                  <i class="fa fa-user"></i>
+                  <i class="fas fa-dollar-sign"></i>
                 </span>
               </div>
               <input type="number" class="form-control input-lg" id="nuevoPrecioCompra" name="nuevoPrecioCompra" step="any" min="0" placeholder="Precio de compra" required>
@@ -208,7 +344,7 @@
             <div class="input-group mt-2 mb-2 col-12 col-md-6">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">
-                  <i class="fa fa-user"></i>
+                  <i class="fas fa-tags"></i>
                 </span>
               </div>
               <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" step="any" min="0" placeholder="Precio de venta" required>
@@ -217,22 +353,23 @@
             <br>
 
             <!-- CHECKBOX PARA PORCENTAJE -->
-
-            <div class="input-group mt-2 mb-2 col-12 col-md-6">
-              <div class="checkbox icheck-belizehole">
-                <input type="checkbox" checked id="porcentaje" class="porcentaje" />
-                <label for="porcentaje">Utilizar Porcentaje</label>
+            <div class="col-12 col-md-6 d-flex float-righ ml-auto">
+              <div class="input-group mt-2 mb-2 col-6">
+                <div class="checkbox icheck-belizehole">
+                  <input type="checkbox" checked id="porcentaje" class="porcentaje" />
+                  <label for="porcentaje">Utilizar Porcentaje</label>
+                </div>
               </div>
-            </div>
 
-            <!-- ENTRADA PARA PORCENTAJE -->
+              <!-- ENTRADA PARA PORCENTAJE -->
 
-            <div class="input-group mt-2 mb-2 col-12 col-md-6" style="padding:0">
-              <input type="number" class="form-control input-lg nuevoPorcentaje" min="0" value="40" required>
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">
-                  <i class="fa fa-percent"></i>
-                </span>
+              <div class="input-group mt-2 mb-2 col-6" style="padding:0">
+                <input type="number" class="form-control input-lg nuevoPorcentaje" min="0" value="40" required>
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">
+                    <i class="fas fa-percentage"></i>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -253,135 +390,6 @@
           </button>
           <button type="submit" class="btn btn-primary">
             Crear Producto
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- ----------------------- End of MODAL AGREGAR PRODUCTO ---------------------- -->
-
-<!-- -------------------------------------------------------------------------- */
-/*                            MODAL EDITAR PRODUCTO                            */
-/* -------------------------------------------------------------------------- -->
-
-<div class="modal fade" id="modalEditarProducto" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <form role="form" method="post" enctype="multipart/form-data">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">
-            Editar Producto
-          </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <div class="modal-body">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">
-                <i class="fas fa-lock"></i>
-              </span>
-            </div>
-            <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria">
-              <option value="">Seleccionar Categoria</option>
-              <option value="1">Equipos Electromecánicos</option>
-              <option value="2">Taladros</option>
-              <option value="3">Andamios</option>
-              <option value="4">Generadores de energía</option>
-              <option value="5">Equipos para construcción</option>
-              <option value="6">Martillos mecánicos</option>
-            </select>
-          </div>
-
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">
-                <i class="fa fa-user"></i>
-              </span>
-            </div>
-            <input type="text" class="form-control input-lg" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar código" required />
-          </div>
-
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">
-                <i class="fa fa-user"></i>
-              </span>
-            </div>
-            <input type="text" class="form-control input-lg" name="nuevaDescripcion" placeholder="Ingresar descripción" required />
-          </div>
-
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">
-                <i class="fa fa-user"></i>
-              </span>
-            </div>
-            <input type="number" class="form-control input-lg" name="nuevoStock" min="0" placeholder="Stock" required>
-          </div>
-
-          <div class="row">
-            <div class="input-group mt-2 mb-2 col-12 col-md-6">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">
-                  <i class="fa fa-user"></i>
-                </span>
-              </div>
-              <input type="number" class="form-control input-lg" id="nuevoPrecioCompra" name="nuevoPrecioCompra" step="any" min="0" placeholder="Precio de compra" required>
-            </div>
-
-            <div class="input-group mt-2 mb-2 col-12 col-md-6">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">
-                  <i class="fa fa-user"></i>
-                </span>
-              </div>
-              <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" step="any" min="0" placeholder="Precio de venta" required>
-            </div>
-
-            <br>
-
-            <!-- CHECKBOX PARA PORCENTAJE -->
-
-            <div class="input-group mt-2 mb-2 col-12 col-md-6">
-              <div class="checkbox icheck-belizehole">
-                <input type="checkbox" checked id="porcentaje" class="porcentaje" />
-                <label for="porcentaje">Utilizar Porcentaje</label>
-              </div>
-            </div>
-
-            <!-- ENTRADA PARA PORCENTAJE -->
-
-            <div class="input-group mt-2 mb-2 col-12 col-md-6" style="padding:0">
-              <input type="number" class="form-control input-lg nuevoPorcentaje" min="0" value="40" required>
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">
-                  <i class="fa fa-percent"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="mb-2">
-            <img src="vistas/dist/img/avatar3.png" class="img-thumbnail previsualizar" width="200px" />
-          </div>
-
-          <div class="mb-2">
-            <div class="panel">SUBIR IMAGEN</div>
-            <input type="file" class="form-control input-lg nuevaFoto" name="nuevaFoto" />
-            <p class="help-block">Peso máximo del documento 4MB</p>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Cerrar
-          </button>
-          <button type="submit" class="btn btn-primary">
-            Editar Producto
           </button>
         </div>
       </form>

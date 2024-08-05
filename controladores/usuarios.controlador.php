@@ -103,9 +103,12 @@ class ControladorUsuarios
         /*                               VALIDAR IMAGEN                               */
         /* -------------------------------------------------------------------------- */
 
-        $ruta = '';
+        $ruta = 'vistas/img/usuarios/default/anonymous.png';
 
-        if (isset($_FILES['nuevaFoto']['tmp_name'])) {
+        if (
+          isset($_FILES['nuevaFoto']['tmp_name']) &&
+          !empty($_FILES['nuevaFoto']['tmp_name'])
+        ) {
 
           list($ancho, $alto) = getimagesize($_FILES['nuevaFoto']['tmp_name']);
           $nuevoAncho = 500;
@@ -149,6 +152,8 @@ class ControladorUsuarios
             imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
             imagepng($destino, $ruta);
           }
+        } else {
+          $ruta = 'vistas/img/usuarios/default/anonymous.png';
         }
 
         $tabla = 'usuarios';
@@ -366,7 +371,10 @@ class ControladorUsuarios
         $tabla = "usuarios";
         $datos = base64_decode($_GET["idUsuario"]);
 
-        if ($_GET["fotoUsuario"] != "") {
+        if (
+          $_GET["fotoUsuario"] != "" &&
+          base64_decode($_GET["fotoUsuario"]) != 'vistas/img/usuarios/default/anonymous.png'
+        ) {
 
           unlink(base64_decode($_GET["fotoUsuario"]));
           rmdir('vistas/img/usuarios/' . base64_decode($_GET["usuario"]));

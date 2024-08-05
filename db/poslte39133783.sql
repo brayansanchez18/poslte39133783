@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-08-2024 a las 03:30:51
+-- Tiempo de generación: 05-08-2024 a las 08:59:24
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.1.17
 
@@ -38,13 +38,11 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id`, `categoria`, `fecha`) VALUES
-(1, 'Equipos Electromecanicos', '2021-03-27 19:42:24'),
+(1, 'Equipos Electromecanicos editado', '2024-08-04 03:09:29'),
 (2, 'Taladros', '2021-03-27 19:23:47'),
 (3, 'Andamios', '2021-03-27 19:24:07'),
 (4, 'Generadores de energía', '2021-03-27 19:24:23'),
-(5, 'Equipos para construcción', '2021-03-27 19:24:45'),
-(7, 'Martillos mecánicos', '2021-03-27 19:48:02'),
-(8, 'Herreria', '2021-04-16 03:14:06');
+(5, 'Equipos para construcción', '2021-03-27 19:24:45');
 
 -- --------------------------------------------------------
 
@@ -160,7 +158,12 @@ INSERT INTO `productos` (`id`, `idCategoria`, `codigo`, `descripcion`, `imagen`,
 (59, 5, '516', 'Cono slump', '', 20, 140, 196, 0, '2021-03-27 23:32:02'),
 (60, 5, '517', 'Cortadora de Baldosin', '', 20, 930, 1302, 0, '2021-03-27 23:32:02'),
 (61, 2, '208', 'taladro truper', '', 400, 500, 845, 0, '2021-03-28 21:58:18'),
-(63, 2, '209', 'taladro de piso', 'vistas/img/productos/209/245.jpg', 234, 1450, 2175, 0, '2021-04-16 03:17:41');
+(63, 2, '209', 'taladro de piso', 'vistas/img/productos/209/245.jpg', 234, 1450, 2175, 0, '2021-04-16 03:17:41'),
+(64, 2, '210', 'Taladro de prueba', 'vistas/img/productos/default/anonymous.png', 12, 3450, 4000, 0, '2024-08-05 06:28:42'),
+(65, 2, '211', 'Taladro de prueba 2', 'vistas/img/productos/211/669.jpg', 345, 10, 14, 0, '2024-08-05 06:30:58'),
+(66, 4, '409', 'Generador a base de gasolina', 'vistas/img/productos/409/380.jpg', 6, 123, 172.2, 0, '2024-08-05 06:31:46'),
+(67, 2, '212', 'Taladro de prueba 3 con decimales', 'vistas/img/productos/212/327.jpg', 234, 3.33, 4.662, 0, '2024-08-05 06:43:22'),
+(68, 2, '213', 'Producto de prueba sin foto', 'vistas/img/productos/default/anonymous.png', 34, 34, 47.6, 0, '2024-08-05 06:59:06');
 
 -- --------------------------------------------------------
 
@@ -185,7 +188,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `pass`, `perfil`, `foto`, `estado`, `ultimologin`, `fecha`) VALUES
-(1, 'Brayan Sánchez', 'admin@admin.com', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG', 'Administrador', 'vistas/img/usuarios/admin@admin.com/472.jpg', 1, '2024-08-03 19:01:50', '2024-08-04 01:20:43'),
+(1, 'Brayan Sánchez', 'admin@admin.com', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG', 'Administrador', 'vistas/img/usuarios/admin@admin.com/472.jpg', 1, '2024-08-04 22:55:36', '2024-08-05 04:55:36'),
 (2, 'Jazmin Santiago Jilote', 'jazmin@correo.com', '$2a$07$asxx54ahjppf45sd87a5aupiGnhl9.FyZzovOsxA7OB7y5DFUHCv2', 'Administrador', 'vistas/img/usuarios/jazmin@correo.com/175.jpg', 1, '0000-00-00 00:00:00', '2024-08-04 01:24:52'),
 (8, 'Sandra Gomez', 'sandra_gomez@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auC3pb4ToxZjdNYgW63UxMggr4pYKb.QK', 'Vendedor', 'vistas/img/usuarios/sandra_gomez@tuempresa.com/615.jpg', 1, '2024-08-03 17:53:57', '2024-08-04 01:20:44');
 
@@ -263,7 +266,7 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
@@ -275,13 +278,13 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`

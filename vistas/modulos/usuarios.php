@@ -167,7 +167,7 @@
 
           <div class="mb-2">
             <div class="panel">SUBIR FOTO</div>
-            <input type="file" class="form-control input-lg nuevaFoto" name="nuevaFoto" required />
+            <input type="file" class="form-control input-lg nuevaFoto" name="nuevaFoto" />
             <p class="help-block">Peso máximo del documento 4MB</p>
           </div>
         </div>
