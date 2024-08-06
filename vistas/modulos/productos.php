@@ -279,7 +279,7 @@
       <form role="form" method="post" enctype="multipart/form-data">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">
-            Agregar Producto
+            Editar Producto
           </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -293,14 +293,8 @@
                 <i class="fas fa-boxes"></i>
               </span>
             </div>
-            <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria">
-              <option value="">Seleccionar Categoria</option>
-              <option value="1">Equipos Electromecánicos</option>
-              <option value="2">Taladros</option>
-              <option value="3">Andamios</option>
-              <option value="4">Generadores de energía</option>
-              <option value="5">Equipos para construcción</option>
-              <option value="6">Martillos mecánicos</option>
+            <select class="form-control input-lg" id="editarCategoria" name="editarCategoria" readonly required>
+              <option id="editarCategoriaProducto"></option>
             </select>
           </div>
 
@@ -310,7 +304,7 @@
                 <i class="fas fa-hashtag"></i>
               </span>
             </div>
-            <input type="text" class="form-control input-lg" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar código" required />
+            <input type="text" class="form-control input-lg" id="editarCodigo" name="editarCodigo" readonly required />
           </div>
 
           <div class="input-group mb-2">
@@ -319,7 +313,7 @@
                 <i class="fas fa-info-circle"></i>
               </span>
             </div>
-            <input type="text" class="form-control input-lg" name="nuevaDescripcion" placeholder="Ingresar descripción" required />
+            <input type="text" class="form-control input-lg" id="editarDescripcion" name="editarDescripcion" required />
           </div>
 
           <div class="input-group mb-2">
@@ -328,7 +322,7 @@
                 <i class="fas fa-cubes"></i>
               </span>
             </div>
-            <input type="number" class="form-control input-lg" name="nuevoStock" min="0" placeholder="Stock" required>
+            <input type="number" class="form-control input-lg" id="editarStock" name="editarStock" min="0" required>
           </div>
 
           <div class="row">
@@ -338,7 +332,7 @@
                   <i class="fas fa-dollar-sign"></i>
                 </span>
               </div>
-              <input type="number" class="form-control input-lg" id="nuevoPrecioCompra" name="nuevoPrecioCompra" step="any" min="0" placeholder="Precio de compra" required>
+              <input type="number" class="form-control input-lg" id="editarPrecioCompra" name="editarPrecioCompra" step="any" min="0" required>
             </div>
 
             <div class="input-group mt-2 mb-2 col-12 col-md-6">
@@ -347,7 +341,7 @@
                   <i class="fas fa-tags"></i>
                 </span>
               </div>
-              <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" step="any" min="0" placeholder="Precio de venta" required>
+              <input type="number" class="form-control input-lg" id="editarPrecioVenta" name="editarPrecioVenta" step="any" min="0" readonly required>
             </div>
 
             <br>
@@ -355,9 +349,9 @@
             <!-- CHECKBOX PARA PORCENTAJE -->
             <div class="col-12 col-md-6 d-flex float-righ ml-auto">
               <div class="input-group mt-2 mb-2 col-6">
-                <div class="checkbox icheck-belizehole">
-                  <input type="checkbox" checked id="porcentaje" class="porcentaje" />
-                  <label for="porcentaje">Utilizar Porcentaje</label>
+                <div class="icheck-primary d-inline">
+                  <input type="checkbox" id="porcentaje" class="porcentaje" checked>
+                  <label for="porcentaje">Utilizar Procentaje</label>
                 </div>
               </div>
 
@@ -374,13 +368,14 @@
             </div>
           </div>
 
-          <div class="mb-2">
-            <img src="vistas/dist/img/avatar3.png" class="img-thumbnail previsualizar" width="200px" />
+          <div class="mb-2 mt-3">
+            <img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="150px" />
+            <input type="hidden" name="imagenActual" id="imagenActual">
           </div>
 
           <div class="mb-2">
             <div class="panel">SUBIR IMAGEN</div>
-            <input type="file" class="form-control input-lg nuevaFoto" name="nuevaFoto" />
+            <input type="file" class="form-control input-lg nuevaImagen" name="editarImagen" />
             <p class="help-block">Peso máximo del documento 4MB</p>
           </div>
         </div>
@@ -389,12 +384,21 @@
             Cerrar
           </button>
           <button type="submit" class="btn btn-primary">
-            Crear Producto
+            Editar Producto
           </button>
         </div>
+        <?php
+        $editarProducto = new ControladorProductos();
+        $editarProducto->ctrEditarProducto();
+        ?>
       </form>
     </div>
   </div>
 </div>
 
 <!-- ----------------------- End of MODAL EDITAR PRODUCTO ---------------------- -->
+
+<?php
+$eliminarProducto = new ControladorProductos();
+$eliminarProducto->ctrEliminarProducto();
+?>

@@ -186,3 +186,97 @@ $("#nuevaImagen, .nuevaImagen").change(function () {
 });
 
 /* ---------------------- SUBIENDO LA FOTO DEL PRODUCTO --------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                               EDITAR PRODUCTO                              */
+/* -------------------------------------------------------------------------- */
+
+$("#tablaProductos tbody").on("click", "button.btnEditarProducto", function () {
+  var idProducto = $(this).attr("idProducto");
+  var datos = new FormData();
+  datos.append("idProducto", idProducto);
+
+  $.ajax({
+    url: "ajax/productos.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType: "json",
+    success: function (respuesta) {
+      var datosCategoria = new FormData();
+      datosCategoria.append("idCategoria", btoa(respuesta["idCategoria"]));
+
+      $.ajax({
+        url: "ajax/categorias.ajax.php",
+        method: "POST",
+        data: datosCategoria,
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType: "json",
+        success: function (respuesta) {
+          console.log(respuesta);
+          $("#editarCategoriaProducto").val(respuesta["id"]);
+          $("#editarCategoriaProducto").html(respuesta["categoria"]);
+        },
+      });
+
+      $("#editarCodigo").val(respuesta["codigo"]);
+      $("#editarDescripcion").val(respuesta["descripcion"]);
+      $("#editarStock").val(respuesta["stock"]);
+      $("#editarPrecioCompra").val(respuesta["precioCompra"]);
+      $("#editarPrecioVenta").val(respuesta["precioVenta"]);
+
+      if (respuesta["imagen"] != "") {
+        $("#imagenActual").val(respuesta["imagen"]);
+        $(".previsualizar").attr("src", respuesta["imagen"]);
+      } else {
+        $(".previsualizar").attr(
+          "src",
+          "vistas/img/productos/default/anonymous.png"
+        );
+      }
+    },
+  });
+});
+
+/* ----------------------------- EDITAR PRODUCTO ---------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                              ELIMINAR PRODUCTO                             */
+/* -------------------------------------------------------------------------- */
+
+$("#tablaProductos tbody").on(
+  "click",
+  "button.btnEliminarProducto",
+  function () {
+    var idProducto = $(this).attr("idProducto");
+    var codigo = $(this).attr("codigo");
+    var imagen = $(this).attr("imagen");
+
+    Swal.fire({
+      title: "¿Está seguro de borrar el producto?",
+      text: "¡Si no lo está puede cancelar la accíón!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "Cancelar",
+      confirmButtonText: "Borrar producto",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location = window.location =
+          "index.php?ruta=productos&idProducto=" +
+          idProducto +
+          "&imagen=" +
+          imagen +
+          "&codigo=" +
+          codigo;
+      }
+    });
+  }
+);
+
+/* ---------------------------- ELIMINAR PRODUCTO --------------------------- */

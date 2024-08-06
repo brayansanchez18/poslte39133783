@@ -22,6 +22,39 @@ class AjaxProductos
   }
 
   /* ------------- FIN DE GENERAR CÓDIGO A PARTIR DE ID CATEGORIA ------------- */
+
+  /* -------------------------------------------------------------------------- */
+  /*                               EDITAR PRODUCTO                              */
+  /* -------------------------------------------------------------------------- */
+
+  public $idProducto;
+  public $traerProductos;
+  public $nombreProducto;
+
+  public function ajaxEditarProducto()
+  {
+
+    if ($this->traerProductos == 'ok') {
+      $item = null;
+      $valor = null;
+      $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+      echo json_encode($respuesta);
+    } else if ($this->nombreProducto != '') {
+
+      $item = 'descripcion';
+      $valor = $this->nombreProducto;
+      $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+      echo json_encode($respuesta);
+    } else {
+
+      $item = 'id';
+      $valor = $this->idProducto;
+      $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+      echo json_encode($respuesta);
+    }
+  }
+
+  /* ------------------------- FIN DE EDITAR PRODUCTO ------------------------- */
 }
 
 /* -------------------------------------------------------------------------- */
@@ -35,3 +68,15 @@ if (isset($_POST['idCategoria'])) {
 }
 
 /* ------------- FIN DE GENERAR CÓDIGO A PARTIR DE ID CATEGORIA ------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                               EDITAR PRODUCTO                              */
+/* -------------------------------------------------------------------------- */
+
+if (isset($_POST['idProducto'])) {
+  $editarProducto = new AjaxProductos();
+  $editarProducto->idProducto = base64_decode($_POST['idProducto']);
+  $editarProducto->ajaxEditarProducto();
+}
+
+/* ----------------------------- EDITAR PRODUCTO ---------------------------- */
