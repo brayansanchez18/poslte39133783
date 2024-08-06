@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-08-2024 a las 03:51:22
+-- Tiempo de generación: 06-08-2024 a las 04:53:04
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.1.17
 
@@ -53,11 +53,9 @@ INSERT INTO `categorias` (`id`, `categoria`, `fecha`) VALUES
 CREATE TABLE `clientes` (
   `id` int(11) NOT NULL,
   `nombre` text NOT NULL,
-  `documento` int(11) NOT NULL,
   `email` text NOT NULL,
   `telefono` text NOT NULL,
   `direccion` text NOT NULL,
-  `fechaNacimiento` date NOT NULL,
   `compras` int(11) NOT NULL,
   `ultimaCompra` datetime NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -67,11 +65,11 @@ CREATE TABLE `clientes` (
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id`, `nombre`, `documento`, `email`, `telefono`, `direccion`, `fechaNacimiento`, `compras`, `ultimaCompra`, `fecha`) VALUES
-(1, 'Juan Villegas', 2147483647, 'juan@hotmail.com', '(300) 341-2345', 'Calle 23 # 45 - 56', '1980-11-02', 7, '2021-04-14 17:39:19', '2021-04-14 22:39:19'),
-(3, 'Miguel Murillo Prez', 325235235, 'miguel@gmail.com', '(+52) 722-126-5399', 'calle 34 # 34 - 23', '1998-09-05', 10, '2021-04-15 15:30:17', '2021-04-16 03:18:35'),
-(4, 'Victor Gabriel', 1234567, 'vg@gmail.com', '(+52) 722-123-5699', 'AV. chapultepec #10', '2001-10-12', 3, '2021-04-15 16:57:24', '2021-04-15 21:57:24'),
-(5, 'Michelle Sandoval', 2147483647, 'michelle@cliente.com', '(+52) 722-883-8661', 'AV. chapultepec #10', '2001-12-10', 0, '0000-00-00 00:00:00', '2021-04-16 03:16:47');
+INSERT INTO `clientes` (`id`, `nombre`, `email`, `telefono`, `direccion`, `compras`, `ultimaCompra`, `fecha`) VALUES
+(1, 'Juan Villegas', 'juan@hotmail.com', '(+52) 722-883-8661', 'Calle 23 # 45 - 56', 7, '2021-04-14 17:39:19', '2024-08-06 02:19:54'),
+(3, 'Miguel Murillo Prez', 'miguel@gmail.com', '(+52) 722-883-8661', 'calle 34 # 34 - 23', 10, '2021-04-15 15:30:17', '2024-08-06 02:19:39'),
+(4, 'Victor Gabriel', 'vg@gmail.com', '(+52) 722-883-8661', 'AV. chapultepec #10', 3, '2021-04-15 16:57:24', '2024-08-06 02:19:11'),
+(5, 'Michelle Sandoval', 'michelle@cliente.com', '(+52) 722-883-8661', 'AV. chapultepec #10', 0, '0000-00-00 00:00:00', '2021-04-16 03:16:47');
 
 -- --------------------------------------------------------
 
@@ -267,7 +265,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`

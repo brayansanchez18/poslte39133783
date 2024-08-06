@@ -31,7 +31,7 @@
         </button>
       </div>
       <div class="card-body">
-        <table id="tables" class="table table-bordered table-striped dt-responsive tabla" width="100%">
+        <table id="tablaClientes" class="table table-bordered table-striped dt-responsive tabla" width="100%">
           <thead>
             <tr>
               <th style="width: 10px">#</th>
@@ -46,7 +46,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <!-- <tr>
               <td>1</td>
               <td>Gonzalo Pérez</td>
               <td>gonzalo@yahoo.com</td>
@@ -105,7 +105,7 @@
                   </button>
                 </div>
               </td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
@@ -150,7 +150,7 @@
                 <i class="fas fa-envelope"></i>
               </span>
             </div>
-            <input type="text" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar email" required />
+            <input type="email" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar email" required />
           </div>
 
           <div class="input-group mb-2">
@@ -180,6 +180,11 @@
             Crear Cliente
           </button>
         </div>
+
+        <?php
+        $crearCliente = new ControladorClientes;
+        $crearCliente->ctrCrearCliente();
+        ?>
       </form>
     </div>
   </div>
@@ -197,7 +202,7 @@
       <form role="form" method="post" enctype="multipart/form-data">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">
-            Editar Cliente
+            Agregar Cliente
           </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -211,7 +216,8 @@
                 <i class="fas fa-user"></i>
               </span>
             </div>
-            <input type="text" class="form-control input-lg" name="nuevoCliente" placeholder="Ingresar nombre" required />
+            <input type="text" class="form-control input-lg" name="editarCliente" id="editarCliente" required />
+            <input type="hidden" id="idCliente" name="idCliente">
           </div>
 
           <div class="input-group mb-2">
@@ -220,7 +226,7 @@
                 <i class="fas fa-envelope"></i>
               </span>
             </div>
-            <input type="text" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar email" required />
+            <input type="email" class="form-control input-lg" name="editarEmail" id="editarEmail" required />
           </div>
 
           <div class="input-group mb-2">
@@ -230,7 +236,7 @@
               </span>
             </div>
 
-            <input type="text" id="numeroCliente" name="nuevoTelefono" class="numeroCliente form-control input-lg" placeholder="Ingresar teléfono" required />
+            <input type="text" id="editarTelefono" name="editarTelefono" class="numeroCliente form-control input-lg" placeholder="Ingresar teléfono" required />
           </div>
 
           <div class="input-group mb-2">
@@ -239,7 +245,7 @@
                 <i class="fas fa-map-marker-alt"></i>
               </span>
             </div>
-            <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar dirección" required />
+            <input type="text" class="form-control input-lg" name="editarDireccion" id="editarDireccion" required />
           </div>
         </div>
         <div class="modal-footer">
@@ -250,9 +256,19 @@
             Editar Cliente
           </button>
         </div>
+
+        <?php
+        $editarCliente = new ControladorClientes();
+        $editarCliente->ctrEditarCliente();
+        ?>
       </form>
     </div>
   </div>
 </div>
 
 <!-- ----------------------- End of MODAL EDITAR CLIENTE ---------------------- -->
+
+<?php
+$eliminarCliente = new ControladorClientes();
+$eliminarCliente->ctrEliminarCliente();
+?>

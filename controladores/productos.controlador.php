@@ -78,7 +78,7 @@ class ControladorProductos
 
         $tabla = 'productos';
 
-        $datos = array(
+        $datos = [
           'idCategoria' => base64_decode($_POST['nuevaCategoria']),
           'codigo' => $_POST['nuevoCodigo'],
           'descripcion' => ucfirst($_POST['nuevaDescripcion']),
@@ -86,7 +86,7 @@ class ControladorProductos
           'precioCompra' => $_POST['nuevoPrecioCompra'],
           'precioVenta' => $_POST['nuevoPrecioVenta'],
           'imagen' => $ruta
-        );
+        ];
 
         $respuesta = ModeloProductos::mdlIngresoProducto($tabla, $datos);
 
@@ -190,7 +190,7 @@ class ControladorProductos
 
         $tabla = 'productos';
 
-        $datos = array(
+        $datos = [
           'idCategoria' => $_POST['editarCategoria'],
           'codigo' => $_POST['editarCodigo'],
           'descripcion' => $_POST['editarDescripcion'],
@@ -198,7 +198,7 @@ class ControladorProductos
           'precioCompra' => $_POST['editarPrecioCompra'],
           'precioVenta' => $_POST['editarPrecioVenta'],
           'imagen' => $ruta
-        );
+        ];
 
         $respuesta = ModeloProductos::mdlEditarProducto($tabla, $datos);
 

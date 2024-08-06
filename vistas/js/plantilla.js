@@ -30,7 +30,8 @@ $("#tables").DataTable({
   },
 });
 
-$("#numeroCliente").inputmask("999-999-9999");
+$("#numeroCliente").inputmask("(+99) 999-999-9999");
+$("#editarTelefono").inputmask("(+99) 999-999-9999");
 
 /*=============================================
  //iCheck for checkbox and radio inputs
