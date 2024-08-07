@@ -26,12 +26,14 @@
   <section class="content">
     <div class="card">
       <div class="card-header">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoria">
-          Agregar Categoria <i class="ml-2 fas fa-user-plus"></i>
-        </button>
+        <a href="/crear-venta">
+          <button class="btn btn-primary">
+            Crear Venta <i class="fas fa-cash-register ml-2"></i>
+          </button>
+        </a>
       </div>
       <div class="card-body">
-        <table id="tables" class="table table-bordered table-striped dt-responsive tabla" width="100%">
+        <table id="tablaAdministrarVentas" class="table table-bordered table-striped dt-responsive tabla" width="100%">
           <thead>
             <tr>
               <th style="width: 10px">#</th>
@@ -46,7 +48,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <!-- <tr>
               <td>1</td>
               <td>01548</td>
               <td>Juan Villegas</td>
@@ -149,7 +151,7 @@
                   </button>
                 </div>
               </td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
@@ -160,87 +162,3 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-
-<!-- -------------------------------------------------------------------------- */
-/*                            MODAL AGREGAR CATEGORIA                            */
-/* -------------------------------------------------------------------------- -->
-
-<div class="modal fade" id="modalAgregarCategoria" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <form role="form" method="post" enctype="multipart/form-data">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">
-            Agregar Categoria
-          </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <div class="modal-body">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">
-                <i class="fas fa-boxes"></i>
-              </span>
-            </div>
-            <input type="text" class="form-control input-lg" name="nuevaCategoria" placeholder="Nombre Categoria" required />
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Cerrar
-          </button>
-          <button type="submit" class="btn btn-primary">
-            Crear Categoria
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- ----------------------- End of MODAL AGREGAR CATEGORIA ---------------------- -->
-
-<!-- -------------------------------------------------------------------------- */
-/*                            MODAL EDITAR CATEGORIA                            */
-/* -------------------------------------------------------------------------- -->
-
-<div class="modal fade" id="modalEditarCategoria" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <form role="form" method="post" enctype="multipart/form-data">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">
-            Editar Categoria
-          </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <div class="modal-body">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">
-                <i class="fas fa-boxes"></i>
-              </span>
-            </div>
-            <input type="text" class="form-control input-lg" name="nuevaCategoria" placeholder="Nombre Categoria" required />
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Cerrar
-          </button>
-          <button type="submit" class="btn btn-primary">
-            Editar Categoria
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- ----------------------- End of MODAL EDITAR CATEGORIA ---------------------- -->

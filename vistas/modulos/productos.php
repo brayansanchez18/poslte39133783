@@ -6,7 +6,7 @@
       <!-- Small boxes (Stat box) -->
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Administrar Productos</h1>
+          <h1>Productos</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -27,7 +27,7 @@
     <div class="card">
       <div class="card-header">
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarProducto">
-          Agregar Productos <i class="ml-2 fas fa-user-plus"></i>
+          Agregar Producto <i class="fas fa-truck-loading ml-2"></i>
         </button>
       </div>
       <div class="card-body">
