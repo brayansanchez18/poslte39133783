@@ -25,6 +25,9 @@
   <link rel="stylesheet" href="vistas/plugins/icheck-bootstrap/icheck-bootstrap.css">
   <!-- SWEETALERT -->
   <link rel="stylesheet" href="vistas/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- select2 -->
+  <link rel="stylesheet" href="vistas/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="vistas/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 
   <!-- ------------------------------- PLUGINS CSS ------------------------------ -->
 
@@ -41,6 +44,9 @@
   <script src="vistas/plugins/chart.js/Chart.min.js"></script>
   <!-- SWEETALERT -->
   <script src="vistas/plugins/sweetalert2/sweetalert2.min.js"></script>
+  <!-- select2 -->
+  <script src="vistas/plugins/select2/js/select2.full.min.js"></script>
+
 
 
   <!-- <script src="vsitas/plugins/jszip/jszip.min.js"></script>
@@ -92,7 +98,7 @@ if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == 'ok') {
   include_once 'modulos/footer.php';
 
   /* -------------------------------- CONTENIDO ------------------------------- */
-  echo '</div';
+  echo '</div>';
 } else {
   echo '<body class="hold-transition sidebar-mini sidebar-collapse login-page">';
   include_once 'modulos/login.php';
@@ -114,6 +120,7 @@ if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == 'ok') {
 <script src="vistas/js/productos.js"></script>
 <script src="vistas/js/clientes.js"></script>
 <script src="vistas/js/administrarVentas.js"></script>
+<script src="vistas/js/ventas.js"></script>
 </body>
 
 </html>

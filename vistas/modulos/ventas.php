@@ -6,14 +6,14 @@
       <!-- Small boxes (Stat box) -->
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Administrar Categorias</h1>
+          <h1>Ventas</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item">
               <a href="/">Inicio</a>
             </li>
-            <li class="breadcrumb-item active">Categorias</li>
+            <li class="breadcrumb-item active">Ventas</li>
           </ol>
         </div>
       </div>

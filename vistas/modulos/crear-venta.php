@@ -36,7 +36,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
                   </div>
-                  <input type="text" class="form-control input-lg" placeholder="Nombre" readonly="readonly" value="Jazmin Montserrath Santiago Jilote" required />
+                  <input type="text" class="form-control input-lg" placeholder="Nombre" readonly="readonly" value="<?= $_SESSION['nombre'] ?>" required />
+                  <input type="hidden" name="idVendedor" value="<?= base64_encode($_SESSION['id']) ?>">
                 </div>
 
                 <!-- ------------------------ CODIGO DE LA VENTA ------------------------ -->
@@ -46,7 +47,22 @@
                       <i class="fas fa-barcode"></i>
                     </span>
                   </div>
-                  <input type="number" class="form-control input-lg" placeholder="1005" readonly="readonly" required />
+                  <?php
+                  $item = null;
+                  $valor = null;
+                  $ventas = ControladorVentas::ctrMostrarVentas($item, $valor);
+
+                  if (!$ventas) {
+                    $codigo = 1;
+                  } else {
+                    foreach ($ventas as $key => $value) {
+                    }
+
+                    $codigo = $value['codigo'] + 1;
+                  }
+
+                  ?>
+                  <input type="number" class="form-control input-lg" placeholder="<?= $codigo ?>" readonly="readonly" required />
                 </div>
 
                 <!-- ------------------------ ENTRADA DEL CLIENTE ----------------------- -->
@@ -57,8 +73,17 @@
                       <i class="fas fa-user-tag"></i>
                     </span>
                   </div>
-                  <select class="form-control" required>
-                    <option value="">Seleccionar cliente</option>
+                  <select class="form-control select2bs4" style="width:auto;">
+                    <option>Seleccionar Cliente</option>
+                    <?php
+                    $item = null;
+                    $valor = null;
+                    $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
+                    ?>
+
+                    <?php foreach ($clientes as $key => $value) : ?>
+                      <option value="<?= $value['id'] ?>"><?= $value['nombre'] ?></option>
+                    <?php endforeach ?>
                   </select>
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">
@@ -73,7 +98,7 @@
 
                   <!-- Descripción del producto -->
 
-                  <div class="col-12 col-xl-6" style="padding-right:0px">
+                  <!-- <div class="col-12 col-xl-6" style="padding-right:0px">
                     <div class="input-group mt-2 mb-2">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">
@@ -84,19 +109,19 @@
                       </div>
                       <input type="text" class="form-control" id="agregarProducto" name="agregarProducto" placeholder="Descripción del producto" required>
                     </div>
-                  </div>
+                  </div> -->
 
                   <!-- Cantidad del producto -->
 
-                  <div class="col-6 col-xl-3">
+                  <!-- <div class="col-6 col-xl-3">
                     <div class="input-group mt-2 mb-2">
                       <input type="number" class="form-control" id="nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" placeholder="0" required>
                     </div>
-                  </div>
+                  </div> -->
 
                   <!-- Precio del producto -->
 
-                  <div class="col-6 col-xl-3" style="padding-left:0px">
+                  <!-- <div class="col-6 col-xl-3" style="padding-left:0px">
                     <div class="input-group mt-2 mb-2">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">
@@ -105,7 +130,7 @@
                       </div>
                       <input type="number" min="1" class="form-control" id="nuevoPrecioProducto" name="nuevoPrecioProducto" placeholder="0.00" readonly required>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
 
                 <input type="hidden" id="listaProductos" name="listaProductos">
@@ -231,7 +256,7 @@
       <div class="d-none d-md-block col-lg-7">
         <div class="card card-warning card-outline">
           <div class="card-body">
-            <table id="tables" class="table table-bordered table-striped dt-responsive tabla" width="100%">
+            <table id="tablaVentas" class="table table-bordered table-striped dt-responsive tabla" width="100%">
               <thead>
                 <tr>
                   <th style="width: 10px">#</th>
@@ -239,68 +264,10 @@
                   <th>Código</th>
                   <th>Descripción</th>
                   <th>Stock</th>
-                  <th>Precio de venta</th>
+                  <th>Precio</th>
                   <th>Acciones</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>
-                    <img src="https://pos.tutorialesatualcance.com/vistas/img/productos/517/746.jpg" width="40px" alt="">
-                  </td>
-                  <td>515</td>
-                  <td>Equipos para construcción</td>
-                  <td>
-                    <button class="btn btn-warning">15</button>
-                  </td>
-                  <td>MX$ 2,000.00</td>
-                  <td>
-                    <div class="btn-group">
-                      <button class="btn btn-info">
-                        Agregar
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>
-                    <img src="https://pos.tutorialesatualcance.com/vistas/img/productos/516/228.jpg" width="40px" alt="">
-                  </td>
-                  <td>516</td>
-                  <td>Equipos para construcción</td>
-                  <td>
-                    <button class="btn btn-success">23</button>
-                  </td>
-                  <td>MX$ 2,000.00</td>
-                  <td>
-                    <div class="btn-group">
-                      <button class="btn btn-info">
-                        Agregar
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>
-                    <img src="https://pos.tutorialesatualcance.com/vistas/img/productos/515/174.jpg" width="40px" alt="">
-                  </td>
-                  <td>515</td>
-                  <td>Equipos para construcción</td>
-                  <td>
-                    <button class="btn btn-danger">15</button>
-                  </td>
-                  <td>MX$ 2,000.00</td>
-                  <td>
-                    <div class="btn-group">
-                      <button class="btn btn-info">
-                        Agregar
-                      </button>
-                    </div>
-                  </td>
-                </tr>
             </table>
           </div>
         </div>

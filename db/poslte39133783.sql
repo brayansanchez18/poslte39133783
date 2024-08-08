@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-08-2024 a las 04:53:04
+-- Tiempo de generación: 08-08-2024 a las 04:21:51
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.1.17
 
@@ -96,7 +96,7 @@ CREATE TABLE `productos` (
 
 INSERT INTO `productos` (`id`, `idCategoria`, `codigo`, `descripcion`, `imagen`, `stock`, `precioCompra`, `precioVenta`, `ventas`, `fecha`) VALUES
 (1, 1, '101', 'Aspiradora Industrial 2 editado', 'vistas/img/productos/101/711.png', 20, 90000, 126000, 6, '2024-08-06 01:42:02'),
-(2, 1, '102', 'Plato Flotante para Allanadora', 'vistas/img/productos/102/489.jpg', 17, 4500, 6300, 2, '2021-04-16 03:18:34'),
+(2, 1, '102', 'Plato Flotante para Allanadora', 'vistas/img/productos/102/506.jpg', 17, 4500, 6300, 2, '2024-08-07 00:48:01'),
 (3, 1, '103', 'Compresor de Aire para pintura', 'vistas/img/productos/103/642.jpg', 24, 3000, 4200, -3, '2021-04-16 03:18:34'),
 (4, 1, '104', 'Cortadora de Adobe sin Disco ', 'vistas/img/productos/104/274.jpg', 25, 4000, 5600, -5, '2021-04-14 22:39:19'),
 (5, 1, '105', 'Cortadora de Piso sin Disco ', 'vistas/img/productos/105/363.jpg', 9, 1540, 2156, 11, '2021-04-15 21:57:24'),
@@ -181,7 +181,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `pass`, `perfil`, `foto`, `estado`, `ultimologin`, `fecha`) VALUES
-(1, 'Brayan Sánchez', 'admin@admin.com', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG', 'Administrador', 'vistas/img/usuarios/admin@admin.com/472.jpg', 1, '2024-08-05 19:04:06', '2024-08-06 01:04:06'),
+(1, 'Brayan Sánchez', 'admin@admin.com', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG', 'Administrador', 'vistas/img/usuarios/admin@admin.com/472.jpg', 1, '2024-08-07 18:39:38', '2024-08-08 00:39:38'),
 (2, 'Jazmin Santiago Jilote', 'jazmin@correo.com', '$2a$07$asxx54ahjppf45sd87a5aupiGnhl9.FyZzovOsxA7OB7y5DFUHCv2', 'Administrador', 'vistas/img/usuarios/jazmin@correo.com/175.jpg', 1, '0000-00-00 00:00:00', '2024-08-04 01:24:52'),
 (8, 'Sandra Gomez', 'sandra_gomez@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auC3pb4ToxZjdNYgW63UxMggr4pYKb.QK', 'Vendedor', 'vistas/img/usuarios/sandra_gomez@tuempresa.com/615.jpg', 1, '2024-08-03 17:53:57', '2024-08-04 01:20:44');
 
@@ -209,13 +209,13 @@ CREATE TABLE `ventas` (
 --
 
 INSERT INTO `ventas` (`id`, `codigo`, `idCliente`, `idVendedor`, `productos`, `impuesto`, `neto`, `total`, `metodoPago`, `fecha`) VALUES
-(2, 10002, 3, 1, '[{\"id\":\"1\",\"descripcion\":\"Aspiradora Industrial 2\",\"cantidad\":\"4\",\"stock\":\"18\",\"precio\":\"126000\",\"total\":\"504000\"},{\"id\":\"3\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"2\",\"stock\":\"24\",\"precio\":\"4200\",\"total\":\"8400\"},{\"id\":\"2\",\"descripcion\":\"Plato Flotante para Allanadora\",\"cantidad\":\"2\",\"stock\":\"17\",\"precio\":\"6300\",\"total\":\"12600\"}]', 0, 520800, 677040, 'TC-1234567', '2021-04-16 03:18:51'),
-(3, 10002, 3, 1, '[{\"id\":\"1\",\"descripcion\":\"Aspiradora Industrial 2\",\"cantidad\":\"4\",\"stock\":\"18\",\"precio\":\"126000\",\"total\":\"504000\"},{\"id\":\"3\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"2\",\"stock\":\"24\",\"precio\":\"4200\",\"total\":\"8400\"},{\"id\":\"2\",\"descripcion\":\"Plato Flotante para Allanadora\",\"cantidad\":\"2\",\"stock\":\"17\",\"precio\":\"6300\",\"total\":\"12600\"}]', 0, 520800, 677040, 'TC-1234567', '2021-04-16 03:18:51'),
-(4, 10003, 4, 1, '[{\"id\":\"7\",\"descripcion\":\"Extractor de Aire \",\"cantidad\":\"2\",\"stock\":\"17\",\"precio\":\"2156\",\"total\":\"4312\"},{\"id\":\"3\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"1\",\"stock\":\"18\",\"precio\":\"4200\",\"total\":\"4200\"},{\"id\":\"4\",\"descripcion\":\"Cortadora de Adobe sin Disco \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"5600\",\"total\":\"5600\"}]', 4233.6, 14112, 18345.6, 'Efectivo', '2021-02-09 22:14:14'),
-(6, 10004, 1, 8, '[{\"id\":\"1\",\"descripcion\":\"Aspiradora Industrial 2\",\"cantidad\":\"1\",\"stock\":\"21\",\"precio\":\"126000\",\"total\":\"126000\"},{\"id\":\"6\",\"descripcion\":\"Disco Punta Diamante \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"1540\",\"total\":\"1540\"},{\"id\":\"5\",\"descripcion\":\"Cortadora de Piso sin Disco \",\"cantidad\":\"1\",\"stock\":\"33\",\"precio\":\"2156\",\"total\":\"2156\"},{\"id\":\"4\",\"descripcion\":\"Cortadora de Adobe sin Disco \",\"cantidad\":\"1\",\"stock\":\"25\",\"precio\":\"5600\",\"total\":\"5600\"}]', 46000.6, 135296, 181297, 'TC-123456789', '2021-02-14 23:39:19'),
-(7, 10005, 3, 8, '[{\"id\":\"8\",\"descripcion\":\"Guadañadora \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"2156\",\"total\":\"2156\"},{\"id\":\"7\",\"descripcion\":\"Extractor de Aire \",\"cantidad\":\"1\",\"stock\":\"20\",\"precio\":\"2156\",\"total\":\"2156\"}]', 1293.6, 4312, 5605.6, 'Efectivo', '2021-03-15 21:30:17'),
-(8, 10006, 4, 1, '[{\"id\":\"3\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"1\",\"stock\":\"25\",\"precio\":\"4200\",\"total\":\"4200\"},{\"id\":\"2\",\"descripcion\":\"Plato Flotante para Allanadora\",\"cantidad\":\"1\",\"stock\":\"22\",\"precio\":\"6300\",\"total\":\"6300\"},{\"id\":\"1\",\"descripcion\":\"Aspiradora Industrial 2\",\"cantidad\":\"1\",\"stock\":\"20\",\"precio\":\"126000\",\"total\":\"126000\"}]', 54600, 136500, 191100, 'TC-123456789', '2021-04-15 21:56:43'),
-(9, 10007, 4, 1, '[{\"id\":\"5\",\"descripcion\":\"Cortadora de Piso sin Disco \",\"cantidad\":\"24\",\"stock\":\"9\",\"precio\":\"2156\",\"total\":\"51744\"}]', 15523.2, 51744, 67267.2, 'TD-1234567890', '2021-04-15 21:57:24');
+(2, 1, 3, 1, '[{\"id\":\"1\",\"descripcion\":\"Aspiradora Industrial 2\",\"cantidad\":\"4\",\"stock\":\"18\",\"precio\":\"126000\",\"total\":\"504000\"},{\"id\":\"3\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"2\",\"stock\":\"24\",\"precio\":\"4200\",\"total\":\"8400\"},{\"id\":\"2\",\"descripcion\":\"Plato Flotante para Allanadora\",\"cantidad\":\"2\",\"stock\":\"17\",\"precio\":\"6300\",\"total\":\"12600\"}]', 0, 520800, 677040, 'TC-1234567', '2024-08-08 01:02:28'),
+(3, 2, 3, 1, '[{\"id\":\"1\",\"descripcion\":\"Aspiradora Industrial 2\",\"cantidad\":\"4\",\"stock\":\"18\",\"precio\":\"126000\",\"total\":\"504000\"},{\"id\":\"3\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"2\",\"stock\":\"24\",\"precio\":\"4200\",\"total\":\"8400\"},{\"id\":\"2\",\"descripcion\":\"Plato Flotante para Allanadora\",\"cantidad\":\"2\",\"stock\":\"17\",\"precio\":\"6300\",\"total\":\"12600\"}]', 0, 520800, 677040, 'TC-1234567', '2024-08-08 01:02:32'),
+(4, 3, 4, 1, '[{\"id\":\"7\",\"descripcion\":\"Extractor de Aire \",\"cantidad\":\"2\",\"stock\":\"17\",\"precio\":\"2156\",\"total\":\"4312\"},{\"id\":\"3\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"1\",\"stock\":\"18\",\"precio\":\"4200\",\"total\":\"4200\"},{\"id\":\"4\",\"descripcion\":\"Cortadora de Adobe sin Disco \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"5600\",\"total\":\"5600\"}]', 4233.6, 14112, 18345.6, 'Efectivo', '2024-08-08 01:02:35'),
+(6, 4, 1, 8, '[{\"id\":\"1\",\"descripcion\":\"Aspiradora Industrial 2\",\"cantidad\":\"1\",\"stock\":\"21\",\"precio\":\"126000\",\"total\":\"126000\"},{\"id\":\"6\",\"descripcion\":\"Disco Punta Diamante \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"1540\",\"total\":\"1540\"},{\"id\":\"5\",\"descripcion\":\"Cortadora de Piso sin Disco \",\"cantidad\":\"1\",\"stock\":\"33\",\"precio\":\"2156\",\"total\":\"2156\"},{\"id\":\"4\",\"descripcion\":\"Cortadora de Adobe sin Disco \",\"cantidad\":\"1\",\"stock\":\"25\",\"precio\":\"5600\",\"total\":\"5600\"}]', 46000.6, 135296, 181297, 'TC-123456789', '2024-08-08 01:02:40'),
+(7, 5, 3, 8, '[{\"id\":\"8\",\"descripcion\":\"Guadañadora \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"2156\",\"total\":\"2156\"},{\"id\":\"7\",\"descripcion\":\"Extractor de Aire \",\"cantidad\":\"1\",\"stock\":\"20\",\"precio\":\"2156\",\"total\":\"2156\"}]', 1293.6, 4312, 5605.6, 'Efectivo', '2024-08-08 01:02:42'),
+(8, 6, 4, 1, '[{\"id\":\"3\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"1\",\"stock\":\"25\",\"precio\":\"4200\",\"total\":\"4200\"},{\"id\":\"2\",\"descripcion\":\"Plato Flotante para Allanadora\",\"cantidad\":\"1\",\"stock\":\"22\",\"precio\":\"6300\",\"total\":\"6300\"},{\"id\":\"1\",\"descripcion\":\"Aspiradora Industrial 2\",\"cantidad\":\"1\",\"stock\":\"20\",\"precio\":\"126000\",\"total\":\"126000\"}]', 54600, 136500, 191100, 'TC-123456789', '2024-08-08 01:02:45'),
+(9, 7, 4, 1, '[{\"id\":\"5\",\"descripcion\":\"Cortadora de Piso sin Disco \",\"cantidad\":\"24\",\"stock\":\"9\",\"precio\":\"2156\",\"total\":\"51744\"}]', 15523.2, 51744, 67267.2, 'TD-1234567890', '2024-08-08 01:02:48');
 
 --
 -- Índices para tablas volcadas
