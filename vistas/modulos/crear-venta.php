@@ -96,41 +96,52 @@
 
                 <div class="form-group row nuevoProducto">
 
+                  <!-- <div class="row"> -->
+
                   <!-- Descripción del producto -->
 
                   <!-- <div class="col-12 col-xl-6" style="padding-right:0px">
-                    <div class="input-group mt-2 mb-2">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">
-                          <button type="button" class="btn btn-danger btn-xs">
-                            <i class="fa fa-times"></i>
-                          </button>
-                        </span>
+                      <div class="input-group mt-2 mb-2">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">
+                            <button type="button" class="btn btn-danger btn-xs">
+                              <i class="fa fa-times"></i>
+                            </button>
+                          </span>
+                        </div>
+                        <select class="form-control select2bs4" style="width:auto;">
+                          <option>Seleccionar Cliente</option>
+                          <option>Seleccionar Cliente</option>
+                          <option>Seleccionar Cliente</option>
+                          <option>Seleccionar Cliente</option>
+                          <option>Seleccionar Cliente</option>
+                          <option>Seleccionar Cliente</option>
+                        </select>
                       </div>
-                      <input type="text" class="form-control" id="agregarProducto" name="agregarProducto" placeholder="Descripción del producto" required>
-                    </div>
-                  </div> -->
+                    </div> -->
 
                   <!-- Cantidad del producto -->
 
                   <!-- <div class="col-6 col-xl-3">
-                    <div class="input-group mt-2 mb-2">
-                      <input type="number" class="form-control" id="nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" placeholder="0" required>
-                    </div>
-                  </div> -->
+                      <div class="input-group mt-2 mb-2">
+                        <input type="number" class="form-control" id="nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" placeholder="0" required>
+                      </div>
+                    </div> -->
 
                   <!-- Precio del producto -->
 
                   <!-- <div class="col-6 col-xl-3" style="padding-left:0px">
-                    <div class="input-group mt-2 mb-2">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">
-                          <i class="fas fa-dollar-sign"></i>
-                        </span>
+                      <div class="input-group mt-2 mb-2">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-dollar-sign"></i>
+                          </span>
+                        </div>
+                        <input type="number" min="1" class="form-control" id="nuevoPrecioProducto" name="nuevoPrecioProducto" placeholder="0.00" readonly required>
                       </div>
-                      <input type="number" min="1" class="form-control" id="nuevoPrecioProducto" name="nuevoPrecioProducto" placeholder="0.00" readonly required>
                     </div>
                   </div> -->
+
                 </div>
 
                 <input type="hidden" id="listaProductos" name="listaProductos">

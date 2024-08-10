@@ -80,3 +80,21 @@ if (isset($_POST['idProducto'])) {
 }
 
 /* ----------------------------- EDITAR PRODUCTO ---------------------------- */
+
+/* ------------------------------------------------------------------------- */
+/*                               TRAER PRODUCTO                              */
+/* ------------------------------------------------------------------------- */
+
+if (isset($_POST['traerProductos'])) {
+  $traerProductos = new AjaxProductos();
+  $traerProductos->traerProductos = $_POST['traerProductos'];
+  $traerProductos->ajaxEditarProducto();
+}
+
+if (isset($_POST['nombreProducto'])) {
+  $traerProductos = new AjaxProductos();
+  $traerProductos->nombreProducto = $_POST['nombreProducto'];
+  $traerProductos->ajaxEditarProducto();
+}
+
+/* ------------------------- FIN DE TRAER PRODUCTO ------------------------- */
