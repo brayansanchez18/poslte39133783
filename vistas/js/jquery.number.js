@@ -1,5 +1,5 @@
 /**
- * jQuery number plug-in 2.1.0
+ * jQuery number plug-in 2.1.3
  * Copyright 2012, Digital Fusion
  * Licensed under the MIT license.
  * http://opensource.teamdf.com/license/
@@ -11,6 +11,8 @@
  * @docs	http://www.teamdf.com/web/jquery-number-format-redux/196/
  */
 (function($){
+	
+	"use strict";
 	
 	/**
 	 * Method for selecting a range of characters in an input/textarea.
@@ -195,6 +197,9 @@
 					        
 					        if( chara == '' ) chara = String.fromCharCode(code);
 //	    				}
+						
+
+			
 	    				
 	    				// Stop executing if the user didn't type a number key, a decimal character, or backspace.
 	    				if( code !== 8 && chara != dec_point && !chara.match(/[0-9]/) )
@@ -205,6 +210,8 @@
 	    						key == 46 || key == 8 || key == 9 || key == 27 || key == 13 || 
 	    						// Allow: Ctrl+A, Ctrl+R
 	    						( (key == 65 || key == 82 ) && ( e.ctrlKey || e.metaKey ) === true ) || 
+	    						// Allow: Ctrl+V, Ctrl+C
+	    						( (key == 86 || key == 67 ) && ( e.ctrlKey || e.metaKey ) === true ) || 
 	    						// Allow: home, end, left, right
 	    						( (key >= 35 && key <= 39) )
 							){
@@ -215,19 +222,35 @@
 							return false;
 	    				}
 	    				
-	    				//console.log('Continuing on: ', code, chara);
-	    				
-	    				// The whole lot has been selected, or if the field is empty, and the character
-	    				if( ( start == 0 && end == this.value.length || $this.val() == 0 ) && !e.metaKey && !e.ctrlKey && !e.altKey && chara.length === 1 && chara != 0 )
+	    				// The whole lot has been selected, or if the field is empty...
+	    				if( start == 0 && end == this.value.length || $this.val() == 0 )
 	    				{
-	    					// Blank out the field, but only if the data object has already been instanciated.
-    						start = end = 1;
-    						this.value = '';
-    						
-    						// Reset the cursor position.
-	    					data.init = (decimals>0?-1:0);
-	    					data.c = (decimals>0?-(decimals+1):0);
-	    					setSelectionRange.apply(this, [0,0]);
+	    					if( code === 8 )
+	    					{
+		    					// Blank out the field, but only if the data object has already been instanciated.
+	    						start = end = 1;
+	    						this.value = '';
+	    						
+	    						// Reset the cursor position.
+		    					data.init = (decimals>0?-1:0);
+		    					data.c = (decimals>0?-(decimals+1):0);
+		    					setSelectionRange.apply(this, [0,0]);
+		    				}
+		    				else if( chara === dec_point )
+		    				{
+		    					start = end = 1;
+		    					this.value = '0'+ dec_point + (new Array(decimals+1).join('0'));
+		    					
+		    					// Reset the cursor position.
+		    					data.init = (decimals>0?1:0);
+		    					data.c = (decimals>0?-(decimals+1):0);
+		    				}
+		    				else if( this.value.length === 0 )
+		    				{
+		    					// Reset the cursor position.
+		    					data.init = (decimals>0?-1:0);
+		    					data.c = (decimals>0?-(decimals):0);
+		    				}
 	    				}
 	    				
 	    				// Otherwise, we need to reset the caret position
@@ -362,7 +385,7 @@
 	    				
 	    				// Re-format the textarea.
 	    				$this.val($this.val());
-	    				
+
 	    				if( decimals > 0 )
 	    				{
 		    				// If we haven't marked this item as 'initialised'
@@ -470,13 +493,13 @@
 	var origHookGet = null, origHookSet = null;
 	 
 	// Check if a text valHook already exists.
-	if( $.valHooks.text )
+	if( $.isPlainObject( $.valHooks.text ) )
 	{
 	    // Preserve the original valhook function
 	    // we'll call this for values we're not 
 	    // explicitly handling.
-	    origHookGet = $.valHooks.text.get;
-	    origHookSet = $.valHooks.text.set;
+	    if( $.isFunction( $.valHooks.text.get ) ) origHookGet = $.valHooks.text.get;
+	    if( $.isFunction( $.valHooks.text.set ) ) origHookSet = $.valHooks.text.set;
 	}
 	else
 	{
@@ -524,7 +547,7 @@
 			num = +(el.value
 				.replace( data.regex_dec_num, '' )
 				.replace( data.regex_dec, '.' ));
-			
+		
 			// If we've got a finite number, return it.
 			// Otherwise, simply return 0.
 			// Return as a string... thats what we're
@@ -552,7 +575,8 @@
 		// Does this element have our data field?
 		if( !data )
 		{
-		    // Check if the valhook function already existed
+		    
+		    // Check if the valhook function already exists
 		    if( $.isFunction( origHookSet ) )
 		    {
 		        // There was, so go ahead and call it
@@ -567,7 +591,8 @@
 		}
 		else
 		{
-			return el.value = $.number( val, data.decimals, data.dec_point, data.thousands_sep )
+			// Otherwise, don't worry about other valhooks, just run ours.
+			return el.value = $.number( val, data.decimals, data.dec_point, data.thousands_sep );
 		}
 	};
 	
@@ -590,17 +615,19 @@
 	 * @return string : The formatted number as a string.
 	 */
 	$.number = function( number, decimals, dec_point, thousands_sep ){
-		
 		// Set the default values here, instead so we can use them in the replace below.
 		thousands_sep	= (typeof thousands_sep === 'undefined') ? ',' : thousands_sep;
 		dec_point		= (typeof dec_point === 'undefined') ? '.' : dec_point;
 		decimals		= !isFinite(+decimals) ? 0 : Math.abs(decimals);
 		
-		// Work out the unicode representation for the decimal place.	
+		// Work out the unicode representation for the decimal place and thousand sep.	
 		var u_dec = ('\\u'+('0000'+(dec_point.charCodeAt(0).toString(16))).slice(-4));
+		var u_sep = ('\\u'+('0000'+(thousands_sep.charCodeAt(0).toString(16))).slice(-4));
 		
 		// Fix the number, so that it's an actual number.
 		number = (number + '')
+			.replace('\.', dec_point) // because the number if passed in as a float (having . as decimal point per definition) we need to replace this with the passed in decimal point character
+			.replace(new RegExp(u_sep,'g'),'')
 			.replace(new RegExp(u_dec,'g'),'.')
 			.replace(new RegExp('[^0-9+\-Ee.]','g'),'');
 		

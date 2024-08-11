@@ -170,7 +170,7 @@
                                 <i class="fas fa-dollar-sign"></i>
                               </span>
                             </div>
-                            <input type="number" class="form-control" min="0" id="subtotalVenta" value="" placeholder="0.00" required readonly>
+                            <input type="text" class="form-control itotal" min="0" id="subtotalVenta" value="" placeholder="0.00" required readonly>
                           </div>
                         </td>
                       </tbody>
@@ -195,7 +195,7 @@
 
                           <td style="width: 50%">
                             <div class="input-group mt-2 mb-2">
-                              <input type="number" class="form-control" min="0" id="nuevoImpuestoVenta" name="nuevoImpuestoVenta" value="16" required readonly>
+                              <input type="number" class="form-control" id="nuevoImpuestoVenta" name="nuevoImpuestoVenta" value="16" required readonly>
                               <input type="hidden" name="nuevoPrecioImpuesto" id="nuevoPrecioImpuesto">
                               <input type="hidden" name="nuevoPrecioNeto" id="nuevoPrecioNeto">
                               <div class="input-group-prepend">
@@ -213,7 +213,7 @@
                                   <i class="fas fa-dollar-sign"></i>
                                 </span>
                               </div>
-                              <input type="number" min="1" class="form-control" id="nuevoTotalVenta" name="nuevoTotalVenta" placeholder="0.00" readonly required>
+                              <input type="text" class="form-control itotal" id="nuevoTotalVenta" name="nuevoTotalVenta" placeholder="0.00" readonly required>
                               <input type="hidden" name="totalVenta" id="totalVenta">
                             </div>
                           </td>

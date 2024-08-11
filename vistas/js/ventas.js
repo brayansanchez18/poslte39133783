@@ -177,7 +177,7 @@ $("#tablaVentas tbody").on("click", "button.agregarProducto", function () {
           '<i class="fas fa-dollar-sign"></i>' +
           "</span>" +
           "</div>" +
-          '<input type="number" min="1" class="form-control nuevoPrecioProducto" precioReal="' +
+          '<input type="text" class="form-control nuevoPrecioProducto" precioReal="' +
           precio +
           '" id="nuevoPrecioProducto" name="nuevoPrecioProducto" value="' +
           precio +
@@ -190,8 +190,7 @@ $("#tablaVentas tbody").on("click", "button.agregarProducto", function () {
       sumarTotalPrecios();
       agregarImpuesto();
       // listarProductos();
-
-      $("#nuevoPrecioProducto").number(true, 2);
+      $(".nuevoPrecioProducto").number(true, 2);
     },
   });
 });
@@ -302,7 +301,7 @@ $(".btnAgregarProducto").click(function () {
           '<i class="fas fa-dollar-sign"></i>' +
           "</span>" +
           "</div>" +
-          '<input type="number" min="1" class="form-control nuevoPrecioProducto" id="nuevoPrecioProducto" precioReal="" value="" readonly required>' +
+          '<input type="text" class="form-control nuevoPrecioProducto" id="nuevoPrecioProducto" precioReal="" value="" readonly required>' +
           "</div>" +
           "</div>" +
           "</div>"
@@ -332,7 +331,7 @@ $(".btnAgregarProducto").click(function () {
 
       sumarTotalPrecios();
       agregarImpuesto();
-      $("#nuevoPrecioProducto").number(true, 2);
+      $(".nuevoPrecioProducto").number(true, 2);
     },
   });
 });

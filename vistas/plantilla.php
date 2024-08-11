@@ -37,7 +37,6 @@
 
   <!-- jQuery -->
   <script src="vistas/plugins/jquery/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery-number@2.1.6/jquery.number.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="vistas/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
@@ -47,7 +46,8 @@
   <script src="vistas/plugins/sweetalert2/sweetalert2.min.js"></script>
   <!-- select2 -->
   <script src="vistas/plugins/select2/js/select2.full.min.js"></script>
-
+  <!-- JQUERY NUMBER -->
+  <script src="vistas/js/jquery.number.min.js"></script>
 
 
   <!-- <script src="vsitas/plugins/jszip/jszip.min.js"></script>
