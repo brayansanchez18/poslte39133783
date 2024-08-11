@@ -201,7 +201,7 @@
                 <!-- ---------------------- ENTRADA MÉTODO DE PAGO ---------------------- -->
 
                 <div class="form-group row">
-                  <div class="col-5 mr-auto" style="padding-right:0px">
+                  <div class="col-12 col-md-5 mr-auto" style="padding-right:0px">
                     <div class="input-group mt-2 mb-2">
                       <select class="form-control" id="nuevoMetodoPago" name="nuevoMetodoPago" required>
                         <option value="">Seleccione método de pago</option>
@@ -226,7 +226,7 @@
                     </div>
                   </div> -->
 
-                  <div class="col-3" style="padding-left:0px">
+                  <div class="col-6 col-md-3" style="padding-left:0px">
                     <div class="input-group mt-2 mb-2">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">
@@ -237,7 +237,7 @@
                     </div>
                   </div>
 
-                  <div class="col-3" style="padding-left:0px">
+                  <div class="col-6 col-md-3" style="padding-left:0px">
                     <div class="input-group mt-2 mb-2">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">
