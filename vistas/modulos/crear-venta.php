@@ -155,6 +155,30 @@
                 <hr>
 
                 <div class="row justify-content-xl-end">
+                  <div class="col-12 col-xl-4">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Sub Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <td style="width: 50%">
+                          <div class="input-group mt-2 mb-2">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon1">
+                                <i class="fas fa-dollar-sign"></i>
+                              </span>
+                            </div>
+                            <input type="number" class="form-control" min="0" id="subtotalVenta" value="" placeholder="0.00" required readonly>
+                          </div>
+                        </td>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="row justify-content-xl-end">
 
                   <!-- --------------------- ENTRADA IMPUESTOS Y TOTAL -------------------- -->
 
@@ -162,7 +186,7 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th>Impuesto</th>
+                          <th>IVA</th>
                           <th>Total</th>
                         </tr>
                       </thead>
@@ -171,7 +195,9 @@
 
                           <td style="width: 50%">
                             <div class="input-group mt-2 mb-2">
-                              <input type="number" class="form-control" min="0" id="nuevoImpuestoVenta" name="nuevoImpuestoVenta" placeholder="0" required>
+                              <input type="number" class="form-control" min="0" id="nuevoImpuestoVenta" name="nuevoImpuestoVenta" value="16" required readonly>
+                              <input type="hidden" name="nuevoPrecioImpuesto" id="nuevoPrecioImpuesto">
+                              <input type="hidden" name="nuevoPrecioNeto" id="nuevoPrecioNeto">
                               <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">
                                   <i class="fas fa-percentage"></i>
@@ -188,6 +214,7 @@
                                 </span>
                               </div>
                               <input type="number" min="1" class="form-control" id="nuevoTotalVenta" name="nuevoTotalVenta" placeholder="0.00" readonly required>
+                              <input type="hidden" name="totalVenta" id="totalVenta">
                             </div>
                           </td>
                         </tr>
