@@ -53,7 +53,7 @@
                   $ventas = ControladorVentas::ctrMostrarVentas($item, $valor);
 
                   if (!$ventas) {
-                    $codigo = 1;
+                    $codigo = 1001;
                   } else {
                     foreach ($ventas as $key => $value) {
                     }
@@ -62,7 +62,7 @@
                   }
 
                   ?>
-                  <input type="number" class="form-control input-lg" placeholder="<?= $codigo ?>" readonly="readonly" required />
+                  <input type="text" class="form-control input-lg" id="nuevaVenta" name="nuevaVenta" value="<?= $codigo ?>" readonly="readonly" required />
                 </div>
 
                 <!-- ------------------------ ENTRADA DEL CLIENTE ----------------------- -->
@@ -73,7 +73,7 @@
                       <i class="fas fa-user-tag"></i>
                     </span>
                   </div>
-                  <select class="form-control select2bs4" style="width:auto;">
+                  <select class="form-control select2bs4" id="seleccionarCliente" name="seleccionarCliente" style="width:auto;" required="required">
                     <option>Seleccionar Cliente</option>
                     <?php
                     $item = null;
@@ -82,7 +82,7 @@
                     ?>
 
                     <?php foreach ($clientes as $key => $value) : ?>
-                      <option value="<?= $value['id'] ?>"><?= $value['nombre'] ?></option>
+                      <option value="<?= base64_encode($value['id']) ?>"><?= $value['nombre'] ?></option>
                     <?php endforeach ?>
                   </select>
                   <div class="input-group-prepend">
@@ -230,7 +230,7 @@
                 <div class="form-group row">
                   <div class="col-12 col-md-5 mr-auto" style="padding-right:0px">
                     <div class="input-group mt-2 mb-2">
-                      <select class="form-control" id="nuevoMetodoPago" name="nuevoMetodoPago" required>
+                      <select class="form-control" id="nuevoMetodoPago" required>
                         <option value="">Seleccione método de pago</option>
                         <option value="Efectivo">Efectivo</option>
                         <option value="Tarjeta Credito">Tarjeta crédito</option>
@@ -277,6 +277,9 @@
                     </div> -->
                   </div>
 
+                  <input type="hidden" id="metodoPago" name="metodoPago">
+                  <input type="hidden" id="codigoPago" name="codigoPago">
+
 
                 </div>
 
@@ -290,6 +293,10 @@
               </button>
             </div>
           </form>
+          <?php
+          $guardarVenta = new ControladorVentas();
+          $guardarVenta->ctrCrearVenta();
+          ?>
         </div>
       </div>
 

@@ -578,7 +578,7 @@ $("#nuevoMetodoPago").change(function () {
           '<i class="fas fa-hand-holding-usd"></i>' +
           "</span>" +
           "</div>" +
-          '<input type="text" class="form-control" id="nuevoCambioEfectivo" placeholder="0.00" required readonly>' +
+          '<input type="text" class="form-control" id="nuevoCambioEfectivo" placeholder="0.00" readonly>' +
           "</div>" +
           "</div>"
       );
@@ -588,7 +588,7 @@ $("#nuevoMetodoPago").change(function () {
     $("#nuevoValorEfectivo").number(true, 2);
     $("#nuevoCambioEfectivo").number(true, 2);
 
-    // listarMetodos();
+    listarMetodos();
   } else {
     $(this)
       .parent()
@@ -598,7 +598,7 @@ $("#nuevoMetodoPago").change(function () {
       .html(
         '<div class="col-12" style="padding-left:0px">' +
           '<div class="input-group mt-2 mb-2">' +
-          '<input type="text" class="form-control" id="nuevoCodigoTransaccion" name="nuevoCodigoTransaccion" placeholder="Referencia" required>' +
+          '<input type="text" class="form-control" id="nuevoCodigoTransaccion" placeholder="Referencia" required>' +
           '<div class="input-group-prepend">' +
           '<span class="input-group-text" id="basic-addon1">' +
           '<i class="fas fa-lock"></i>' +
@@ -636,10 +636,10 @@ $(".formularioVenta").on("keyup", "input#nuevoValorEfectivo", function () {
 /*                             CAMBIO TRANSACCIÓN                             */
 /* -------------------------------------------------------------------------- */
 
-// $(".formularioVenta").on("change", "input#nuevoCodigoTransaccion", function () {
-//   // Listar método en la entrada
-//   listarMetodos();
-// });
+$(".formularioVenta").on("keyup", "input#nuevoCodigoTransaccion", function () {
+  // Listar método en la entrada
+  listarMetodos();
+});
 
 /* ------------------------ FIN DE CAMBIO TRANSACCIÓN ----------------------- */
 
@@ -655,7 +655,7 @@ function listarProductos() {
 
   for (var i = 0; i < descripcion.length; i++) {
     listaProductos.push({
-      id: $(descripcion[i]).attr("idProducto"),
+      id: atob($(descripcion[i]).attr("idProducto")),
       descripcion: $(descripcion[i]).val(),
       cantidad: $(cantidad[i]).val(),
       stock: $(cantidad[i]).attr("nuevoStock"),
@@ -674,14 +674,18 @@ function listarProductos() {
 /* -------------------------------------------------------------------------- */
 
 function listarMetodos() {
-  var listaMetodos = "";
-
   if ($("#nuevoMetodoPago").val() == "Efectivo") {
-    $("#listaMetodoPago").val("Efectivo");
+    // $("#listaMetodoPago").val("Efectivo");
+
+    $("#metodoPago").val("Efectivo");
+    $("#codigoPago").val("Sin Referencia");
   } else {
-    $("#listaMetodoPago").val(
-      $("#nuevoMetodoPago").val() + "-" + $("#nuevoCodigoTransaccion").val()
-    );
+    // $("#listaMetodoPago").val(
+    //   $("#nuevoMetodoPago").val() + "-" + $("#nuevoCodigoTransaccion").val()
+    // );
+
+    $("#metodoPago").val($("#nuevoMetodoPago").val());
+    $("#codigoPago").val($("#nuevoCodigoTransaccion").val());
   }
 }
 

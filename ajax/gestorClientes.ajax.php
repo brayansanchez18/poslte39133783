@@ -39,7 +39,6 @@ class TablaClientes
         "' . $clientes[$i]['direccion'] . '",
         "' . $clientes[$i]['compras'] . '",
         "' . $clientes[$i]['ultimaCompra'] . '",
-        "' . $clientes[$i]['fecha'] . '",
         "' . $botones . '"
       ],';
     }

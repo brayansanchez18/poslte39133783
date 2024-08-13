@@ -41,7 +41,7 @@
               <th>Direccion</th>
               <th>Total Compras</th>
               <th>Ultima Compra</th>
-              <th>Fecha de Registro</th>
+              <!-- <th>Fecha de Registro</th> -->
               <th>Acciones</th>
             </tr>
           </thead>

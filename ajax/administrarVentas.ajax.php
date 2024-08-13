@@ -34,6 +34,17 @@ class AjaxTabladeVentas
 
       $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
 
+      if (is_array($respuestaCliente)) {
+        if ($respuestaCliente) {
+          $cliente = $respuestaCliente['nombre'];
+        } else {
+          $cliente = 'John Doe';
+        }
+      } else {
+        $cliente = 'John Doe';
+      }
+
+
       $itemUsuario = 'id';
       $valorUsuario = $respuesta[$i]['idVendedor'];
 
@@ -60,7 +71,7 @@ class AjaxTabladeVentas
       $datosJson .= '[
                     "' . ($i + 1) . '",
                     "' . $respuesta[$i]['codigo'] . '",
-                    "' . $respuestaCliente['nombre'] . '",
+                    "' . $cliente . '",
                     "' . $respuestaUsuario['nombre'] . '",
                     "' . $respuesta[$i]['metodoPago'] . '",
                     "' . $ref . '",
