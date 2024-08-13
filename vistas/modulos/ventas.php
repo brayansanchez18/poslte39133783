@@ -40,7 +40,8 @@
               <th>Codigo Venta</th>
               <th>Cliente</th>
               <th>Vendedor</th>
-              <th>Forma de Pago</th>
+              <th>Metodo de Pago</th>
+              <th>Referencia</th>
               <th>Subtotal</th>
               <th>Total</th>
               <th>Fecha</th>

@@ -234,7 +234,7 @@ $(".formularioVenta").on("click", "button.quitarProducto", function () {
 
   if ($(".nuevoProducto").children().length == 0) {
     $("#subtotalVenta").val(0);
-    $("#nuevoImpuestoVenta").val(0);
+    $("#nuevoImpuestoVenta").val(16);
     $("#nuevoTotalVenta").val(0);
     $("#totalVenta").val(0);
     $("#nuevoTotalVenta").attr("total", 0);
@@ -505,3 +505,88 @@ $("#nuevoImpuestoVenta").change(function () {
 });
 
 /* -------------------- FIN DE CUANDO CAMBIA EL IMPUESTO -------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                         SELECCIONAR MÉTODO DE PAGO                         */
+/* -------------------------------------------------------------------------- */
+
+$("#nuevoMetodoPago").change(function () {
+  var metodo = $(this).val();
+
+  if (metodo == "Efectivo") {
+    $(this)
+      .parent()
+      .parent()
+      .parent()
+      .children(".cajasMetodoPago")
+      .html(
+        '<div class="col-6" style="padding-left:0px">' +
+          '<div class="input-group mt-2 mb-2">' +
+          '<div class="input-group-prepend">' +
+          '<span class="input-group-text" id="basic-addon1">' +
+          '<i class="fas fa-dollar-sign"></i>' +
+          "</span>" +
+          "</div>" +
+          '<input type="text" class="form-control" id="nuevoValorEfectivo" placeholder="0.00" required>' +
+          "</div>" +
+          "</div>" +
+          '<div class="col-6" id="capturarCambioEfectivo" style="padding-left:0px">' +
+          '<div class="input-group mt-2 mb-2">' +
+          '<div class="input-group-prepend">' +
+          '<span class="input-group-text" id="basic-addon1">' +
+          '<i class="fas fa-hand-holding-usd"></i>' +
+          "</span>" +
+          "</div>" +
+          '<input type="text" class="form-control" id="nuevoCambioEfectivo" placeholder="0.00" required readonly>' +
+          "</div>" +
+          "</div>"
+      );
+
+    /* ------------------------ AGREGAR FORMATO AL PRECIO ----------------------- */
+
+    $("#nuevoValorEfectivo").number(true, 2);
+    $("#nuevoCambioEfectivo").number(true, 2);
+
+    // listarMetodos();
+  } else {
+    $(this)
+      .parent()
+      .parent()
+      .parent()
+      .children(".cajasMetodoPago")
+      .html(
+        '<div class="col-12" style="padding-left:0px">' +
+          '<div class="input-group mt-2 mb-2">' +
+          '<input type="text" class="form-control" id="nuevoCodigoTransaccion" name="nuevoCodigoTransaccion" placeholder="Referencia" required>' +
+          '<div class="input-group-prepend">' +
+          '<span class="input-group-text" id="basic-addon1">' +
+          '<i class="fas fa-lock"></i>' +
+          "</span>" +
+          "</div>" +
+          "</div>" +
+          "</div>"
+      );
+  }
+});
+
+/* -------------------- FIN DE SELECCIONAR MÉTODO DE PAGO ------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                             CAMBIO EN EFECTIVO                             */
+/* -------------------------------------------------------------------------- */
+
+$(".formularioVenta").on("keyup", "input#nuevoValorEfectivo", function () {
+  var efectivo = $(this).val();
+  var cambio = Number(efectivo) - Number($("#nuevoTotalVenta").val());
+  var nuevoCambioEfectivo = $(this)
+    .parent()
+    .parent()
+    .parent()
+    .children("#capturarCambioEfectivo")
+    .children()
+    .children("#nuevoCambioEfectivo");
+
+  nuevoCambioEfectivo.val(cambio);
+});
+
+/* ------------------------ FIN DE CAMBIO EN EFECTIVO ----------------------- */

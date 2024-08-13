@@ -232,48 +232,52 @@
                     <div class="input-group mt-2 mb-2">
                       <select class="form-control" id="nuevoMetodoPago" name="nuevoMetodoPago" required>
                         <option value="">Seleccione método de pago</option>
-                        <option value="efectivo">Efectivo</option>
-                        <option value="tarjetaCredito">Tarjeta crédito</option>
-                        <option value="tarjetaDebito">Tarjeta débito</option>
-                        <option value="tranferencia">Transferencia de fondos</option>
-                        <option value="cheque">Cheque nominativo</option>
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Tarjeta Credito">Tarjeta crédito</option>
+                        <option value="Tarjeta Debito">Tarjeta débito</option>
+                        <option value="Transferencia Electronica">Transferencia de fondos</option>
+                        <option value="Cheque">Cheque nominativo</option>
                       </select>
                     </div>
                   </div>
 
-                  <!-- <div class="col-6" style="padding-left:0px">
-                    <div class="input-group mt-2 mb-2">
-                      <input type="text" class="form-control" id="nuevoCodigoTransaccion" name="nuevoCodigoTransaccion" placeholder="Código transacción" required>
+                  <div class="col-12 col-md-6 d-flex cajasMetodoPago">
+                    <!-- <div class="col-12" style="padding-left:0px">
+                      <div class="input-group mt-2 mb-2">
+                        <input type="text" class="form-control" id="nuevoCodigoTransaccion" name="nuevoCodigoTransaccion" placeholder="Código transacción" required>
 
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">
-                          <i class="fas fa-lock"></i>
-                        </span>
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-lock"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div> -->
+
+                    <!-- <div class="col-6" style="padding-left:0px">
+                      <div class="input-group mt-2 mb-2">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-dollar-sign"></i>
+                          </span>
+                        </div>
+                        <input type="text" class="form-control" id="nuevoCodigoTransaccion" name="nuevoCodigoTransaccion" placeholder="0.00" required>
                       </div>
                     </div>
-                  </div> -->
 
-                  <div class="col-6 col-md-3" style="padding-left:0px">
-                    <div class="input-group mt-2 mb-2">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">
-                          <i class="fas fa-dollar-sign"></i>
-                        </span>
+                    <div class="col-6" id="capturarCambioEfectivo" style="padding-left:0px">
+                      <div class="input-group mt-2 mb-2">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">
+                            <i class="fas fa-hand-holding-usd"></i>
+                          </span>
+                        </div>
+                        <input type="text" class="form-control" id="nuevoCodigoTransaccion" name="nuevoCodigoTransaccion" placeholder="0.00" required readonly>
                       </div>
-                      <input type="text" class="form-control" id="nuevoCodigoTransaccion" name="nuevoCodigoTransaccion" placeholder="0.00" required>
-                    </div>
+                    </div> -->
                   </div>
 
-                  <div class="col-6 col-md-3" style="padding-left:0px">
-                    <div class="input-group mt-2 mb-2">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">
-                          <i class="fas fa-hand-holding-usd"></i>
-                        </span>
-                      </div>
-                      <input type="text" class="form-control" id="nuevoCodigoTransaccion" name="nuevoCodigoTransaccion" placeholder="0.00" required readonly>
-                    </div>
-                  </div>
+
                 </div>
 
                 <br>

@@ -42,10 +42,20 @@ class AjaxTabladeVentas
       if ($_SESSION['perfil'] == 'Administrador') {
         // $botones =  "<div class='btn-group'><button class='btn btn-info btnImprimirFactura' codigoVenta='" . $respuesta[$i]['codigo'] . "'><i class='fa fa-print'></i></button><button class='btn btn-warning btnEditarVenta' idVenta='" . $respuesta[$i]['id'] . "'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarVenta' idVenta='" . $respuesta[$i]['id'] . "'><i class='fa fa-times'></i></button></div>";
 
-        $botones = "<div class='btn-group'><button class='btn btn-success'><i class='fas fa-file-invoice-dollar'></i></button><button class='btn btn-info btnImprimirRecibo' codigoVenta='" . base64_encode($respuesta[$i]['codigo']) . "'><i class='fas fa-print'></i></button><button class='btn btn-warning btnEditarVenta' idVenta='" . base64_encode($respuesta[$i]['id']) . "'><i class='fa fa-edit'></i></button><button class='btn btn-danger btnEliminarVenta' idVenta='" . base64_encode($respuesta[$i]['id']) . "'><i class='fas fa-trash-alt'></i></button></div>";
+        // $botones = "<div class='btn-group'><button class='btn btn-success'><i class='fas fa-file-invoice-dollar'></i></button><button class='btn btn-info btnImprimirRecibo' codigoVenta='" . base64_encode($respuesta[$i]['codigo']) . "'><i class='fas fa-print'></i></button><button class='btn btn-warning btnEditarVenta' idVenta='" . base64_encode($respuesta[$i]['id']) . "'><i class='fa fa-edit'></i></button><button class='btn btn-danger btnEliminarVenta' idVenta='" . base64_encode($respuesta[$i]['id']) . "'><i class='fas fa-trash-alt'></i></button></div>";
+
+        // SIN BOTON DE FACTORA
+        $botones = "<div class='btn-group'><button class='btn btn-info btnImprimirRecibo' codigoVenta='" . base64_encode($respuesta[$i]['codigo']) . "'><i class='fas fa-print'></i></button><button class='btn btn-warning btnEditarVenta' idVenta='" . base64_encode($respuesta[$i]['id']) . "'><i class='fa fa-edit'></i></button><button class='btn btn-danger btnEliminarVenta' idVenta='" . base64_encode($respuesta[$i]['id']) . "'><i class='fas fa-trash-alt'></i></button></div>";
       } else {
         $botones = "<div class='btn-group'><button class='btn btn-info btnImprimirRecibo' codigoVenta='" . base64_encode($respuesta[$i]['codigo']) . "'><i class='fas fa-print'></i></button></div>";
       }
+
+      if ($respuesta[$i]['referencia'] != "") {
+        $ref = $respuesta[$i]['referencia'];
+      } else {
+        $ref = 'Sin referencia';
+      }
+
 
       $datosJson .= '[
                     "' . ($i + 1) . '",
@@ -53,6 +63,7 @@ class AjaxTabladeVentas
                     "' . $respuestaCliente['nombre'] . '",
                     "' . $respuestaUsuario['nombre'] . '",
                     "' . $respuesta[$i]['metodoPago'] . '",
+                    "' . $ref . '",
                     "MX$ ' . number_format($respuesta[$i]['neto'], 2) . '",
                     "MX$ ' . number_format($respuesta[$i]['total'], 2) . '",
                     "' . $respuesta[$i]['fecha'] . '",
