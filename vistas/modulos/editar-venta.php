@@ -211,7 +211,7 @@
                                   <i class="fas fa-dollar-sign"></i>
                                 </span>
                               </div>
-                              <input type="text" class="form-control itotal" id="nuevoTotalVenta" name="nuevoTotalVenta" value="<?= $ventas['total'] ?>" readonly required>
+                              <input type="text" class="form-control itotal" id="nuevoTotalVenta" name="nuevoTotalVenta" total=<?= $ventas['neto'] ?> value="<?= $ventas['total'] ?>" readonly required>
                               <input type="hidden" name="totalVenta" id="totalVenta" value="<?= $ventas['total'] ?>">
                             </div>
                           </td>

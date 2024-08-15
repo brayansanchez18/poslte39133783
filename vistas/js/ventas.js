@@ -536,6 +536,10 @@ function agregarImpuesto() {
   $("#nuevoPrecioNeto").val(precioTotal);
 }
 
+$(".formularioVenta").on("keyup", "input#nuevoImpuestoVenta", function () {
+  agregarImpuesto();
+});
+
 /* --------------------- FIN DE FUNCIÓN AGREGAR IMPUESTO -------------------- */
 
 /* -------------------------------------------------------------------------- */
