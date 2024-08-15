@@ -48,6 +48,7 @@ $("#tablaVentas").DataTable({
 /* -------------------------------------------------------------------------- */
 
 $(".itotal").number(true, 2);
+$(".nuevoPrecioProducto").number(true, 2);
 
 /* --------------------- FIN DE FORMATO AL PRECIO FINAL --------------------- */
 
@@ -384,7 +385,7 @@ $(".formularioVenta").on(
       processData: false,
       dataType: "json",
       success: function (respuesta) {
-        $(nuevaDescripcionProducto).attr("idProducto", respuesta["id"]);
+        $(nuevaDescripcionProducto).attr("idProducto", btoa(respuesta["id"]));
         $(nuevaCantidadProducto).attr("stock", respuesta["stock"]);
         $(nuevaCantidadProducto).attr(
           "nuevoStock",
@@ -655,7 +656,7 @@ function listarProductos() {
 
   for (var i = 0; i < descripcion.length; i++) {
     listaProductos.push({
-      id: atob($(descripcion[i]).attr("idProducto")),
+      id: $(descripcion[i]).attr("idProducto"),
       descripcion: $(descripcion[i]).val(),
       cantidad: $(cantidad[i]).val(),
       stock: $(cantidad[i]).attr("nuevoStock"),
@@ -690,3 +691,54 @@ function listarMetodos() {
 }
 
 /* ----------------------- FIN DE LSITAR METDO DE PAGO ---------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                                EDITAR VENTA                                */
+/* -------------------------------------------------------------------------- */
+
+$("#tablaAdministrarVentas").on("click", ".btnEditarVenta", function () {
+  var idVenta = $(this).attr("idVenta");
+  window.location = "index.php?ruta=editar-venta&idVenta=" + idVenta;
+});
+
+/* --------------------------- FIN DE EDITAR VENTA -------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*    DESACTIVAR LOS BOTONES CUANDO EL PRODUCTO YA HABÍA SIDO SELECCIONADO    */
+/* -------------------------------------------------------------------------- */
+
+function quitarAgregarProducto() {
+  //Capturamos todos los id de productos que fueron elegidos en la venta
+  var idProductos = $(".quitarProducto");
+
+  //Capturamos todos los botones de agregar que aparecen en la tabla
+  var botonesTabla = $("#tablaVentas tbody button.agregarProducto");
+
+  //Recorremos en un ciclo para obtener los diferentes idProductos que fueron agregados a la venta
+  for (var i = 0; i < idProductos.length; i++) {
+    //Capturamos los Id de los productos agregados a la venta
+    var boton = $(idProductos[i]).attr("idProducto");
+    boton = atob(boton);
+
+    //Hacemos un recorrido por la tabla que aparece para desactivar los botones de agregar
+    for (var j = 0; j < botonesTabla.length; j++) {
+      if (atob($(botonesTabla[j]).attr("idProducto")) == atob(boton)) {
+        $(botonesTabla[j]).removeClass("btn-primary agregarProducto");
+        $(botonesTabla[j]).addClass("btn-default");
+        $(botonesTabla[j]).prop("disabled", false);
+        // $("button.recuperarBoton[idProducto='" + idProducto + "']").removeClass(
+        //   "btn-default"
+        // );
+        // $("button.recuperarBoton[idProducto='" + idProducto + "']").addClass(
+        //   "btn-primary agregarProducto"
+        // );
+      }
+    }
+  }
+}
+
+/* -- DESACTIVAR LOS BOTONES CUANDO EL PRODUCTO YA HABÍA SIDO SELECCIONADO -- */
+
+$("#tablaVentas").on("draw.dt", function () {
+  quitarAgregarProducto();
+});
