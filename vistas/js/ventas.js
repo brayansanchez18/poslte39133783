@@ -741,8 +741,47 @@ function quitarAgregarProducto() {
   }
 }
 
-/* -- DESACTIVAR LOS BOTONES CUANDO EL PRODUCTO YA HABÍA SIDO SELECCIONADO -- */
-
 $("#tablaVentas").on("draw.dt", function () {
   quitarAgregarProducto();
 });
+
+/* -- DESACTIVAR LOS BOTONES CUANDO EL PRODUCTO YA HABÍA SIDO SELECCIONADO -- */
+
+/* -------------------------------------------------------------------------- */
+/*                                BORRAR VENTA                                */
+/* -------------------------------------------------------------------------- */
+
+$("#tablaAdministrarVentas").on("click", ".btnEliminarVenta", function () {
+  var idVenta = $(this).attr("idVenta");
+
+  Swal.fire({
+    title: "¿Está seguro de borrar la venta?",
+    text: "¡Si no lo está puede cancelar la accíón!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    cancelButtonText: "Cancelar",
+    confirmButtonText: "Borrar Venta",
+  }).then((result) => {
+    if (result.value) {
+      window.location = "index.php?ruta=ventas&idVenta=" + idVenta;
+    }
+  });
+});
+
+/* ------------------------------ BORRAR VENTA ------------------------------ */
+
+/* -------------------------------------------------------------------------- */
+/*                               IMPRIMIR RECIBO                              */
+/* -------------------------------------------------------------------------- */
+
+$("#tablaAdministrarVentas").on("click", ".btnImprimirRecibo", function () {
+  var codigoVenta = $(this).attr("codigoVenta");
+  window.open(
+    "extensiones/tcpdf/examples/factura.php?codigo=" + codigoVenta,
+    "_blank"
+  );
+});
+
+/* ----------------------------- IMPRIMIR RECIBO ---------------------------- */

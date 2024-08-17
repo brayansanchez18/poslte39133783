@@ -163,3 +163,8 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<?php
+$eliminarVenta = new ControladorVentas();
+$eliminarVenta->ctrEliminarVenta();
+?>
