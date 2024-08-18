@@ -31,6 +31,13 @@
             Crear Venta <i class="fas fa-cash-register ml-2"></i>
           </button>
         </a>
+
+        <button type="button" class="btn btn-default float-right" id="daterange-btn">
+          <span>
+            <i class="far fa-calendar-alt"></i> Ordenar por fechas
+          </span>
+          <i class="fas fa-caret-down"></i>
+        </button>
       </div>
       <div class="card-body">
         <table id="tablaAdministrarVentas" class="table table-bordered table-striped dt-responsive tabla" width="100%">
@@ -49,110 +56,89 @@
             </tr>
           </thead>
           <tbody>
-            <!-- <tr>
-              <td>1</td>
-              <td>01548</td>
-              <td>Juan Villegas</td>
-              <td>Administrador</td>
-              <td>Efectivo</td>
-              <td>MX$ 1,498.00</td>
-              <td>MX$ 4,407.00</td>
-              <td>2021-10-08 15:18:40</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-success">
-                    <i class="fas fa-file-invoice-dollar"></i>
-                  </button>
-                  <button class="btn btn-info">
-                    <i class="fas fa-print"></i>
-                  </button>
-                  <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditarCategoria">
-                    <i class="fa fa-edit"></i>
-                  </button>
-                  <button class="btn btn-danger">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>01548</td>
-              <td>Juan Villegas</td>
-              <td>Administrador</td>
-              <td>Efectivo</td>
-              <td>MX$ 1,498.00</td>
-              <td>MX$ 4,407.00</td>
-              <td>2021-10-08 15:18:40</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-success">
-                    <i class="fas fa-file-invoice-dollar"></i>
-                  </button>
-                  <button class="btn btn-info">
-                    <i class="fas fa-print"></i>
-                  </button>
-                  <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditarCategoria">
-                    <i class="fa fa-edit"></i>
-                  </button>
-                  <button class="btn btn-danger">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>01548</td>
-              <td>Juan Villegas</td>
-              <td>Administrador</td>
-              <td>Efectivo</td>
-              <td>MX$ 1,498.00</td>
-              <td>MX$ 4,407.00</td>
-              <td>2021-10-08 15:18:40</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-success">
-                    <i class="fas fa-file-invoice-dollar"></i>
-                  </button>
-                  <button class="btn btn-info">
-                    <i class="fas fa-print"></i>
-                  </button>
-                  <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditarCategoria">
-                    <i class="fa fa-edit"></i>
-                  </button>
-                  <button class="btn btn-danger">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>01548</td>
-              <td>Juan Villegas</td>
-              <td>Administrador</td>
-              <td>Efectivo</td>
-              <td>MX$ 1,498.00</td>
-              <td>MX$ 4,407.00</td>
-              <td>2021-10-08 15:18:40</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-success">
-                    <i class="fas fa-file-invoice-dollar"></i>
-                  </button>
-                  <button class="btn btn-info">
-                    <i class="fas fa-print"></i>
-                  </button>
-                  <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditarCategoria">
-                    <i class="fa fa-edit"></i>
-                  </button>
-                  <button class="btn btn-danger">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </div>
-              </td>
-            </tr> -->
+
+            <?php
+            if (isset($_GET['fechaInicial'])) {
+              $fechaInicial = $_GET["fechaInicial"];
+              $fechaFinal = $_GET["fechaFinal"];
+            } else {
+
+              $fechaInicial = null;
+              $fechaFinal = null;
+            }
+
+            $respuesta = ControladorVentas::ctrRangoFechasVentas($fechaInicial, $fechaFinal);
+            // var_dump($respuesta);
+            ?>
+
+            <?php foreach ($respuesta as $key => $value): ?>
+              <tr>
+                <td><?= $key + 1 ?></td>
+                <td><?= $value['codigo'] ?></td>
+
+                <?php
+                $itemCliente = "id";
+                $valorCliente = $value["idCliente"];
+
+                $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+
+                if (is_array($respuestaCliente)) {
+                  $cliente = $respuestaCliente["nombre"];
+                } else {
+                  $cliente = 'Jhon Doe';
+                }
+
+                ?>
+                <td><?= $cliente ?></td>
+
+                <?php
+                $itemUsuario = "id";
+                $valorUsuario = $value["idVendedor"];
+
+                $respuestaUsuario = ControladorUsuarios::ctrMostrarUsuario($itemUsuario, $valorUsuario);
+                ?>
+                <td><?= $respuestaUsuario["nombre"] ?></td>
+                <td><?= $value['metodoPago'] ?></td>
+
+                <?php
+                if ($value['referencia'] != "") {
+                  $ref = $value['referencia'];
+                } else {
+                  $ref = 'Sin referencia';
+                }
+                ?>
+                <td><?= $ref ?></td>
+                <td>MX$ <?= number_format($value["neto"], 2) ?></td>
+                <td>MX$ <?= number_format($value["total"], 2) ?></td>
+                <td><?= $value['fecha'] ?></td>
+                <td>
+                  <div class="btn-group">
+                    <button
+                      class="btn btn-info btnImprimirRecibo"
+                      codigoVenta="<?= base64_encode($value['codigo']) ?>">
+                      <i
+                        class="fas fa-print">
+                      </i>
+                    </button>
+                    <button
+                      class="btn btn-warning btnEditarVenta"
+                      idVenta="<?= base64_encode($value['id']) ?>">
+                      <i
+                        class="fa fa-edit">
+                      </i>
+                    </button>
+                    <button
+                      class="btn btn-danger btnEliminarVenta"
+                      idVenta="<?= base64_encode($value['id']) ?>">
+                      <i
+                        class="fas fa-trash-alt">
+                      </i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            <?php endforeach ?>
+
           </tbody>
         </table>
       </div>

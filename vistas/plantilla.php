@@ -28,6 +28,8 @@
   <!-- select2 -->
   <link rel="stylesheet" href="vistas/plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="vistas/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- DATERANGEPICKER -->
+  <link rel="stylesheet" href="vistas/plugins/daterangepicker/daterangepicker.css">
 
   <!-- ------------------------------- PLUGINS CSS ------------------------------ -->
 
@@ -48,6 +50,9 @@
   <script src="vistas/plugins/select2/js/select2.full.min.js"></script>
   <!-- JQUERY NUMBER -->
   <script src="vistas/js/jquery.number.min.js"></script>
+  <!-- DATERANGEPICKER -->
+  <script src="vistas/plugins/moment/moment.min.js"></script>
+  <script src="vistas/plugins/daterangepicker/daterangepicker.js"></script>
 
 
   <!-- <script src="vsitas/plugins/jszip/jszip.min.js"></script>
