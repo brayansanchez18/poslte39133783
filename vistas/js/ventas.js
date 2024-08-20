@@ -815,6 +815,7 @@ $("#daterange-btn").daterangepicker(
     },
     startDate: moment(),
     endDate: moment(),
+    opens: "left",
   },
   function (start, end) {
     $("#daterange-btn span").html(
@@ -843,13 +844,16 @@ $("#daterange-btn").daterangepicker(
 /*                          CANCELAR RANGO DE FECHAS                          */
 /* -------------------------------------------------------------------------- */
 
-$(".daterangepicker .drp-buttons .cancelBtn").on("click", function () {
-  localStorage.removeItem("capturarRango");
-  localStorage.removeItem("fechaInicial");
-  localStorage.removeItem("fechaFinal");
-  localStorage.clear();
-  window.location = "ventas";
-});
+$(".daterangepicker.opensleft .drp-buttons .cancelBtn").on(
+  "click",
+  function () {
+    localStorage.removeItem("capturarRango");
+    localStorage.removeItem("fechaInicial");
+    localStorage.removeItem("fechaFinal");
+    localStorage.clear();
+    window.location = "ventas";
+  }
+);
 
 /* ------------------------ CANCELAR RANGO DE FECHAS ------------------------ */
 
@@ -857,7 +861,7 @@ $(".daterangepicker .drp-buttons .cancelBtn").on("click", function () {
 /*                                CAPTURAR HOY                                */
 /* -------------------------------------------------------------------------- */
 
-$(".daterangepicker .ranges li").on("click", function () {
+$(".daterangepicker.opensleft .ranges li").on("click", function () {
   var textoHoy = $(this).attr("data-range-key");
 
   if (textoHoy == "Hoy") {

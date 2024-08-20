@@ -1,3 +1,34 @@
+<?php
+error_reporting(0);
+if (isset($_GET['fechaInicial'])) {
+  $fechaInicial = $_GET['fechaInicial'];
+  $fechaFinal = $_GET['fechaFinal'];
+} else {
+  $fechaInicial = null;
+  $fechaFinal = null;
+}
+
+$respuesta = ControladorVentas::ctrRangoFechasVentas($fechaInicial, $fechaFinal);
+$arrayFechas = [];
+$arrayVentas = [];
+$sumaPagosMes = [];
+
+foreach ($respuesta as $key => $value) {
+
+  $fecha = substr($value['fecha'], 0, 7);
+  array_push($arrayFechas, $fecha);
+
+  $arrayVentas = array($fecha => $value['total']);
+
+  foreach ($arrayVentas as $key => $value) {
+    $sumaPagosMes[$key] += $value;
+  }
+}
+
+#Evitamos repetir fecha
+$noRepetirFechas = array_unique($arrayFechas);
+
+?>
 <!-- solid sales graph -->
 <div class="card bg-gradient-info">
   <div class="card-header border-0">
@@ -20,16 +51,11 @@
 
     var salesGraphChartData = {
       labels: [
-        "2023 09",
-        "2023 10",
-        "2023 11",
-        "2023 12",
-        "2024 01",
-        "2024 02",
-        "2024 03",
-        "2024 04",
-        "2024 05",
-        "2024 06",
+        <?php if ($noRepetirFechas != null) : ?>
+          <?php foreach ($noRepetirFechas as $value): ?> '<?= $value ?>',
+          <?php endforeach ?>
+        <?php else : ?> '0'
+        <?php endif; ?>
       ],
       datasets: [{
         label: "Recaudado MXN$",
@@ -43,8 +69,11 @@
         pointColor: "#efefef",
         pointBackgroundColor: "#efefef",
         data: [
-          2666, 2778, 4912, 3767, 6810, 5670, 35000, 15073, 10687,
-          8432,
+          <?php if ($noRepetirFechas != null) : ?>
+            <?php foreach ($noRepetirFechas as $value): ?> '<?= $sumaPagosMes[$value] ?>',
+            <?php endforeach ?>
+          <?php else : ?> '0'
+          <?php endif; ?>
         ],
       }, ],
     };
@@ -68,6 +97,12 @@
         }, ],
         yAxes: [{
           ticks: {
+            callback: (value, index, values) => {
+              return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'MXN',
+              }).format(value)
+            },
             stepSize: 5000,
             fontColor: "#efefef",
           },

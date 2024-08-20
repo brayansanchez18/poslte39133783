@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-08-2024 a las 07:05:53
+-- Tiempo de generación: 20-08-2024 a las 04:34:21
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.1.17
 
@@ -96,15 +96,15 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `idCategoria`, `codigo`, `descripcion`, `imagen`, `stock`, `precioCompra`, `precioVenta`, `ventas`, `fecha`) VALUES
-(1, 1, '101', 'Aspiradora Industrial 2 editado', 'vistas/img/productos/101/711.png', 156, 90000, 126000, -87, '2024-08-17 05:55:18'),
-(2, 1, '102', 'Plato Flotante para Allanadora', 'vistas/img/productos/102/506.jpg', 90, 4500, 6300, -21, '2024-08-18 03:30:20'),
+(1, 1, '101', 'Aspiradora Industrial 2 editado', 'vistas/img/productos/101/711.png', 166, 90000, 126000, -97, '2024-08-20 02:20:31'),
+(2, 1, '102', 'Plato Flotante para Allanadora', 'vistas/img/productos/102/506.jpg', 91, 4500, 6300, -22, '2024-08-20 02:20:31'),
 (3, 1, '103', 'Compresor de Aire para pintura', 'vistas/img/productos/103/642.jpg', 81, 3000, 4200, 1, '2024-08-18 04:34:43'),
 (4, 1, '104', 'Cortadora de Adobe sin Disco', 'vistas/img/productos/104/274.jpg', 18, 4000, 5600, 8, '2024-08-18 04:34:42'),
 (5, 1, '105', 'Cortadora de Piso sin Disco ', 'vistas/img/productos/105/363.jpg', 9, 1540, 2156, 11, '2021-04-15 21:57:24'),
 (6, 1, '106', 'Disco Punta Diamante ', 'vistas/img/productos/106/686.jpg', 15, 1100, 1540, 5, '2024-08-18 04:34:42'),
 (7, 1, '107', 'Extractor de Aire ', 'vistas/img/productos/107/133.jpg', 15, 1540, 2156, 16, '2024-08-14 04:49:15'),
-(8, 1, '108', 'Guadañadora ', 'vistas/img/productos/108/882.jpg', 54, 1540, 2156, -34, '2024-08-18 04:35:04'),
-(9, 1, '109', 'Hidrolavadora Eléctrica ', 'vistas/img/productos/109/467.jpg', 24, 2600, 3640, -8, '2024-08-18 04:35:04'),
+(8, 1, '108', 'Guadañadora ', 'vistas/img/productos/108/882.jpg', 59, 1540, 2156, -39, '2024-08-20 02:20:31'),
+(9, 1, '109', 'Hidrolavadora Eléctrica ', 'vistas/img/productos/109/467.jpg', 25, 2600, 3640, -9, '2024-08-20 02:20:31'),
 (10, 1, '110', 'Hidrolavadora Gasolina', 'vistas/img/productos/110/566.jpg', 18, 2210, 3094, 2, '2024-08-18 04:35:04'),
 (11, 1, '111', 'Motobomba a Gasolina', 'vistas/img/productos/111/724.jpg', 20, 2860, 4004, 0, '2021-03-29 01:02:26'),
 (12, 1, '112', 'Motobomba El?ctrica', '', 20, 2400, 3360, 0, '2021-03-27 23:32:02'),
@@ -182,7 +182,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `pass`, `perfil`, `foto`, `estado`, `ultimologin`, `fecha`) VALUES
-(1, 'Brayan Sánchez', 'admin@admin.com', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG', 'Administrador', 'vistas/img/usuarios/admin@admin.com/472.jpg', 1, '2024-08-17 20:16:17', '2024-08-18 02:16:17'),
+(1, 'Brayan Sánchez', 'admin@admin.com', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG', 'Administrador', 'vistas/img/usuarios/admin@admin.com/472.jpg', 1, '2024-08-19 18:41:24', '2024-08-20 00:41:24'),
 (2, 'Jazmin Santiago Jilote', 'jazmin@correo.com', '$2a$07$asxx54ahjppf45sd87a5aupiGnhl9.FyZzovOsxA7OB7y5DFUHCv2', 'Administrador', 'vistas/img/usuarios/jazmin@correo.com/175.jpg', 1, '0000-00-00 00:00:00', '2024-08-04 01:24:52'),
 (8, 'Sandra Gomez', 'sandra_gomez@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auC3pb4ToxZjdNYgW63UxMggr4pYKb.QK', 'Vendedor', 'vistas/img/usuarios/sandra_gomez@tuempresa.com/615.jpg', 1, '2024-08-03 17:53:57', '2024-08-04 01:20:44');
 
@@ -211,11 +211,10 @@ CREATE TABLE `ventas` (
 --
 
 INSERT INTO `ventas` (`id`, `codigo`, `idCliente`, `idVendedor`, `productos`, `impuesto`, `neto`, `total`, `metodoPago`, `referencia`, `fecha`) VALUES
-(31, 1002, 0, 1, '[{\"id\":\"MQ==\",\"descripcion\":\"Aspiradora Industrial 2 editado\",\"cantidad\":\"10\",\"stock\":\"60\",\"precio\":\"126000\",\"total\":\"1260000\"},{\"id\":\"Mg==\",\"descripcion\":\"Plato Flotante para Allanadora\",\"cantidad\":\"1\",\"stock\":\"69\",\"precio\":\"6300\",\"total\":\"6300\"},{\"id\":\"OQ==\",\"descripcion\":\"Hidrolavadora Eléctrica \",\"cantidad\":\"1\",\"stock\":\"16\",\"precio\":\"3640\",\"total\":\"3640\"},{\"id\":\"OA==\",\"descripcion\":\"Guadañadora \",\"cantidad\":\"5\",\"stock\":\"10\",\"precio\":\"2156\",\"total\":\"10780\"}]', 204915, 1280720, 1485640, 'Transferencia Electronica', '0000', '2023-10-16 06:24:40'),
 (33, 1003, 1, 1, '[{\"id\":\"Mg==\",\"descripcion\":\"Plato Flotante para Allanadora\",\"cantidad\":\"1\",\"stock\":\"73\",\"precio\":\"6300\",\"total\":\"6300\"},{\"id\":\"Mw==\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"1\",\"stock\":\"72\",\"precio\":\"4200\",\"total\":\"4200\"}]', 1680, 10500, 12180, 'Tarjeta Credito', '0000', '2024-07-17 06:24:44'),
 (36, 1004, 3, 1, '[{\"id\":\"Ng==\",\"descripcion\":\"Disco Punta Diamante \",\"cantidad\":\"1\",\"stock\":\"15\",\"precio\":\"1540\",\"total\":\"1540\"},{\"id\":\"NA==\",\"descripcion\":\"Cortadora de Adobe sin Disco\",\"cantidad\":\"1\",\"stock\":\"18\",\"precio\":\"5600\",\"total\":\"5600\"},{\"id\":\"Mw==\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"1\",\"stock\":\"81\",\"precio\":\"4200\",\"total\":\"4200\"}]', 1814.4, 11340, 13154.4, 'Efectivo', 'Sin Referencia', '2024-08-17 04:34:43'),
 (37, 1005, 5, 1, '[{\"id\":\"MTA=\",\"descripcion\":\"Hidrolavadora Gasolina\",\"cantidad\":\"1\",\"stock\":\"18\",\"precio\":\"3094\",\"total\":\"3094\"},{\"id\":\"OQ==\",\"descripcion\":\"Hidrolavadora Eléctrica \",\"cantidad\":\"1\",\"stock\":\"24\",\"precio\":\"3640\",\"total\":\"3640\"},{\"id\":\"OA==\",\"descripcion\":\"Guadañadora \",\"cantidad\":\"1\",\"stock\":\"54\",\"precio\":\"2156\",\"total\":\"2156\"}]', 1422.4, 8890, 10312.4, 'Tarjeta Credito', '123', '2024-08-17 04:35:04'),
-(38, 1006, 0, 1, '[{\"id\":\"NTA=\",\"descripcion\":\"Polea 2 canales\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"1260\",\"total\":\"1260\"},{\"id\":\"NDk=\",\"descripcion\":\"Manila por Metro\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"840\",\"total\":\"840\"},{\"id\":\"NDg=\",\"descripcion\":\"Llave de Tubo\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"672\",\"total\":\"672\"},{\"id\":\"NDc=\",\"descripcion\":\"Lamina Cubre Brecha \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"532\",\"total\":\"532\"},{\"id\":\"NDY=\",\"descripcion\":\"Gato tensor\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"532\",\"total\":\"532\"},{\"id\":\"NDU=\",\"descripcion\":\"Extension Electrica \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"518\",\"total\":\"518\"},{\"id\":\"NDQ=\",\"descripcion\":\"Escalera de Tijera Aluminio \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"490\",\"total\":\"490\"},{\"id\":\"NDM=\",\"descripcion\":\"Planta Electrica Diesel 120 Kva\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"5390\",\"total\":\"5390\"},{\"id\":\"NDI=\",\"descripcion\":\"Planta Electrica Diesel 100 Kva\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"5320\",\"total\":\"5320\"},{\"id\":\"NDE=\",\"descripcion\":\"Planta Electrica Diesel 75 Kva\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"5250\",\"total\":\"5250\"}]', 3328.64, 20804, 24132.6, 'Tarjeta Debito', '2423', '2024-08-18 04:35:23');
+(38, 1006, 0, 1, '[{\"id\":\"NTA=\",\"descripcion\":\"Polea 2 canales\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"1260\",\"total\":\"1260\"},{\"id\":\"NDk=\",\"descripcion\":\"Manila por Metro\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"840\",\"total\":\"840\"},{\"id\":\"NDg=\",\"descripcion\":\"Llave de Tubo\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"672\",\"total\":\"672\"},{\"id\":\"NDc=\",\"descripcion\":\"Lamina Cubre Brecha \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"532\",\"total\":\"532\"},{\"id\":\"NDY=\",\"descripcion\":\"Gato tensor\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"532\",\"total\":\"532\"},{\"id\":\"NDU=\",\"descripcion\":\"Extension Electrica \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"518\",\"total\":\"518\"},{\"id\":\"NDQ=\",\"descripcion\":\"Escalera de Tijera Aluminio \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"490\",\"total\":\"490\"},{\"id\":\"NDM=\",\"descripcion\":\"Planta Electrica Diesel 120 Kva\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"5390\",\"total\":\"5390\"},{\"id\":\"NDI=\",\"descripcion\":\"Planta Electrica Diesel 100 Kva\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"5320\",\"total\":\"5320\"},{\"id\":\"NDE=\",\"descripcion\":\"Planta Electrica Diesel 75 Kva\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"5250\",\"total\":\"5250\"}]', 3328.64, 20804, 24132.6, 'Tarjeta Debito', '2423', '2024-08-19 04:35:23');
 
 --
 -- Índices para tablas volcadas

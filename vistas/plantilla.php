@@ -127,6 +127,7 @@ if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == 'ok') {
 <script src="vistas/js/clientes.js"></script>
 <script src="vistas/js/administrarVentas.js"></script>
 <script src="vistas/js/ventas.js"></script>
+<script src="vistas/js/reportes.js"></script>
 </body>
 
 </html>
