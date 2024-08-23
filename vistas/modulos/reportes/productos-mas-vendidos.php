@@ -1,3 +1,38 @@
+<?php
+$item = null;
+$valor = null;
+$orden = 'ventas';
+
+$productos = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
+
+$colores = [
+  "#dc3545", // ROJO
+  "#51a74b", // VERDE
+  "#ffc11e", // AMARILLO
+  "#9471b8",
+  "#6f42c1", // MORADO
+  "#0090ff", // 
+  "#35a2b8", //
+  "#8ed4c8", //
+  "#fd7e49", // 
+  "#d48ead"
+];
+
+$coloresText = [
+  'red',
+  'green',
+  'yellow',
+  'aqua',
+  'purple',
+  'blue',
+  'cyan',
+  'magenta',
+  'orange',
+  'gold'
+];
+$totalVentas = ControladorProductos::ctrMostrarSumaVentas();
+
+?>
 <div class="card">
   <div class="card-header">
     <h3 class="card-title">Productos más vendidos</h3>
@@ -14,12 +49,12 @@
       <!-- /.col -->
       <div class="col-md-4">
         <ul class="chart-legend clearfix">
-          <li><i class="far fa-circle text-danger"></i> Chrome</li>
-          <li><i class="far fa-circle text-success"></i> IE</li>
-          <li><i class="far fa-circle text-warning"></i> FireFox</li>
-          <li><i class="far fa-circle text-info"></i> Safari</li>
-          <li><i class="far fa-circle text-primary"></i> Opera</li>
-          <li><i class="far fa-circle text-secondary"></i> Navigator</li>
+          <?php for ($i = 0; $i < 10; $i++): ?>
+            <li>
+              <i class="far fa-circle text-<?= $coloresText[$i] ?>"></i>
+              <?= $productos[$i]['descripcion'] ?>
+            </li>
+          <?php endfor ?>
         </ul>
       </div>
       <!-- /.col -->
@@ -29,30 +64,18 @@
   <!-- /.card-body -->
   <div class="card-footer p-0">
     <ul class="nav nav-pills flex-column">
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          United States of America
-          <span class="float-right text-danger">
-            <i class="fas fa-arrow-down text-sm"></i>
-            12%</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          India
-          <span class="float-right text-success">
-            <i class="fas fa-arrow-up text-sm"></i> 4%
-          </span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          China
-          <span class="float-right text-warning">
-            <i class="fas fa-arrow-left text-sm"></i> 0%
-          </span>
-        </a>
-      </li>
+
+      <?php for ($i = 0; $i < 5; $i++): ?>
+        <li class="nav-item">
+          <a>
+            <img src="<?= $productos[$i]['imagen'] ?>" class="img-thumbnail" width="60px" style="margin-right:10px">
+            <?= $productos[$i]['descripcion'] ?>
+            <span class="mr-4 mt-3 float-right text-<?= $coloresText[$i] ?>">
+              <?= ceil($productos[$i]['ventas'] * 100 / $totalVentas['total']) ?>%
+            </span>
+          </a>
+        </li>
+      <?php endfor ?>
     </ul>
   </div>
   <!-- /.footer -->
@@ -67,16 +90,18 @@
   var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
   var pieData = {
     labels: [
-      'Chrome',
-      'IE',
-      'FireFox',
-      'Safari',
-      'Opera',
-      'Navigator'
+      <?php for ($i = 0; $i < 10; $i++): ?> '<?= $productos[$i]['descripcion'] ?>',
+      <?php endfor ?>
     ],
     datasets: [{
-      data: [700, 500, 400, 600, 300, 100],
-      backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de']
+      data: [
+        <?php for ($i = 0; $i < 10; $i++): ?> '<?= $productos[$i]['ventas'] ?>',
+        <?php endfor ?>
+      ],
+      backgroundColor: [
+        <?php for ($i = 0; $i < 10; $i++): ?> '<?= $colores[$i] ?>',
+        <?php endfor ?>
+      ]
     }]
   }
   var pieOptions = {
@@ -91,7 +116,7 @@
     type: 'doughnut',
     data: pieData,
     options: pieOptions
-  })
+  });
 
   //-----------------
   // - END PIE CHART -

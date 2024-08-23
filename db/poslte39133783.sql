@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-08-2024 a las 04:34:21
+-- Tiempo de generación: 23-08-2024 a las 03:19:47
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.1.17
 
@@ -96,15 +96,15 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `idCategoria`, `codigo`, `descripcion`, `imagen`, `stock`, `precioCompra`, `precioVenta`, `ventas`, `fecha`) VALUES
-(1, 1, '101', 'Aspiradora Industrial 2 editado', 'vistas/img/productos/101/711.png', 166, 90000, 126000, -97, '2024-08-20 02:20:31'),
-(2, 1, '102', 'Plato Flotante para Allanadora', 'vistas/img/productos/102/506.jpg', 91, 4500, 6300, -22, '2024-08-20 02:20:31'),
+(1, 1, '101', 'Aspiradora Industrial 2 editado', 'vistas/img/productos/101/711.png', 166, 90000, 126000, 97, '2024-08-23 00:46:44'),
+(2, 1, '102', 'Plato Flotante para Allanadora', 'vistas/img/productos/102/506.jpg', 91, 4500, 6300, 22, '2024-08-23 00:46:57'),
 (3, 1, '103', 'Compresor de Aire para pintura', 'vistas/img/productos/103/642.jpg', 81, 3000, 4200, 1, '2024-08-18 04:34:43'),
 (4, 1, '104', 'Cortadora de Adobe sin Disco', 'vistas/img/productos/104/274.jpg', 18, 4000, 5600, 8, '2024-08-18 04:34:42'),
 (5, 1, '105', 'Cortadora de Piso sin Disco ', 'vistas/img/productos/105/363.jpg', 9, 1540, 2156, 11, '2021-04-15 21:57:24'),
 (6, 1, '106', 'Disco Punta Diamante ', 'vistas/img/productos/106/686.jpg', 15, 1100, 1540, 5, '2024-08-18 04:34:42'),
 (7, 1, '107', 'Extractor de Aire ', 'vistas/img/productos/107/133.jpg', 15, 1540, 2156, 16, '2024-08-14 04:49:15'),
-(8, 1, '108', 'Guadañadora ', 'vistas/img/productos/108/882.jpg', 59, 1540, 2156, -39, '2024-08-20 02:20:31'),
-(9, 1, '109', 'Hidrolavadora Eléctrica ', 'vistas/img/productos/109/467.jpg', 25, 2600, 3640, -9, '2024-08-20 02:20:31'),
+(8, 1, '108', 'Guadañadora ', 'vistas/img/productos/108/882.jpg', 59, 1540, 2156, 39, '2024-08-23 00:46:53'),
+(9, 1, '109', 'Hidrolavadora Eléctrica ', 'vistas/img/productos/109/467.jpg', 25, 2600, 3640, 9, '2024-08-23 00:47:02'),
 (10, 1, '110', 'Hidrolavadora Gasolina', 'vistas/img/productos/110/566.jpg', 18, 2210, 3094, 2, '2024-08-18 04:35:04'),
 (11, 1, '111', 'Motobomba a Gasolina', 'vistas/img/productos/111/724.jpg', 20, 2860, 4004, 0, '2021-03-29 01:02:26'),
 (12, 1, '112', 'Motobomba El?ctrica', '', 20, 2400, 3360, 0, '2021-03-27 23:32:02'),
@@ -182,7 +182,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `pass`, `perfil`, `foto`, `estado`, `ultimologin`, `fecha`) VALUES
-(1, 'Brayan Sánchez', 'admin@admin.com', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG', 'Administrador', 'vistas/img/usuarios/admin@admin.com/472.jpg', 1, '2024-08-19 18:41:24', '2024-08-20 00:41:24'),
+(1, 'Brayan Sánchez', 'admin@admin.com', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG', 'Administrador', 'vistas/img/usuarios/admin@admin.com/472.jpg', 1, '2024-08-22 18:30:15', '2024-08-23 00:30:15'),
 (2, 'Jazmin Santiago Jilote', 'jazmin@correo.com', '$2a$07$asxx54ahjppf45sd87a5aupiGnhl9.FyZzovOsxA7OB7y5DFUHCv2', 'Administrador', 'vistas/img/usuarios/jazmin@correo.com/175.jpg', 1, '0000-00-00 00:00:00', '2024-08-04 01:24:52'),
 (8, 'Sandra Gomez', 'sandra_gomez@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auC3pb4ToxZjdNYgW63UxMggr4pYKb.QK', 'Vendedor', 'vistas/img/usuarios/sandra_gomez@tuempresa.com/615.jpg', 1, '2024-08-03 17:53:57', '2024-08-04 01:20:44');
 
