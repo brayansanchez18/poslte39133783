@@ -33,11 +33,18 @@
           <i class="fas fa-caret-down"></i>
         </button>
 
-        <button type="button" class="btn btn-success float-right">
-          <span>
-            Descargar reporte en Excel <i class="fas fa-file-excel ml-2"></i>
-          </span>
-        </button>
+        <?php if (isset($_GET['fechaInicial'])): ?>
+          <a href="vistas/modulos/descargar-reporte.php?reporte=reporte&fechaInicial=<?= $_GET['fechaInicial'] ?>&fechaFinal=<?= $_GET['fechaFinal'] ?>">
+          <?php else: ?>
+            <a href="vistas/modulos/descargar-reporte.php?reporte=reporte">';
+            <?php endif ?>
+
+            <button type="button" class="btn btn-success float-right">
+              <span>
+                Descargar reporte en Excel <i class="fas fa-file-excel ml-2"></i>
+              </span>
+            </button>
+            </a>
       </div>
       <div class="card-body">
         <div class="row">
