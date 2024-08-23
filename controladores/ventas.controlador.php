@@ -516,8 +516,6 @@ class ControladorVentas
 					<td style='border:1px solid #eee;'>" . substr($item['fecha'], 0, 10) . "</td>		
         </tr>");
       }
-
-
       echo "</table>";
     }
   }
