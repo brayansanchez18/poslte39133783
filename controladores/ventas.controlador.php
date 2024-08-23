@@ -426,18 +426,22 @@ class ControladorVentas
   public function ctrDescargarReporte()
   {
 
-    if (isset($_GET["reporte"])) {
+    if (isset($_GET['reporte'])) {
 
-      $tabla = "ventas";
+      $tabla = 'ventas';
 
-      if (isset($_GET["fechaInicial"]) && isset($_GET["fechaFinal"])) {
-
-        $ventas = ModeloVentas::mdlRangoFechasVentas($tabla, $_GET["fechaInicial"], $_GET["fechaFinal"]);
+      if (
+        isset($_GET['fechaInicial']) &&
+        isset($_GET['fechaFinal'])
+      ) {
+        $ventas = ModeloVentas::mdlRangoFechasVentas(
+          $tabla,
+          $_GET['fechaInicial'],
+          $_GET['fechaFinal']
+        );
       } else {
-
         $item = null;
         $valor = null;
-
         $ventas = ModeloVentas::mdlMostrarVentas($tabla, $item, $valor);
       }
 
@@ -446,7 +450,7 @@ class ControladorVentas
       /*                         CREAMOS EL ARCHIVO DE EXCEL                        */
       /* -------------------------------------------------------------------------- */
 
-      $Name = $_GET["reporte"] . '.xls';
+      $Name = $_GET['reporte'] . '.xls';
 
       header('Expires: 0');
       header('Cache-control: private');
@@ -475,44 +479,41 @@ class ControladorVentas
 					</tr>");
 
       foreach ($ventas as $row => $item) {
-
-        $cliente = ControladorClientes::ctrMostrarClientes("id", $item["idCliente"]);
-        $vendedor = ControladorUsuarios::ctrMostrarUsuario("id", $item["idVendedor"]);
+        $cliente = ControladorClientes::ctrMostrarClientes('id', $item['idCliente']);
+        $vendedor = ControladorUsuarios::ctrMostrarUsuario('id', $item['idVendedor']);
 
         if (is_array($cliente)) {
-          $nombreCliente = $cliente["nombre"];
+          $nombreCliente = $cliente['nombre'];
         } else {
           $nombreCliente = 'Sin Nombre';
         }
 
 
         echo utf8_decode("<tr>
-          <td style='border:1px solid #eee;'>" . $item["codigo"] . "</td> 
+          <td style='border:1px solid #eee;'>" . $item['codigo'] . "</td> 
           <td style='border:1px solid #eee;'>" . $nombreCliente . "</td>
-          <td style='border:1px solid #eee;'>" . $vendedor["nombre"] . "</td>
+          <td style='border:1px solid #eee;'>" . $vendedor['nombre'] . "</td>
           <td style='border:1px solid #eee;'>");
 
-        $productos =  json_decode($item["productos"], true);
+        $productos =  json_decode($item['productos'], true);
 
         foreach ($productos as $key => $valueProductos) {
-
-          echo utf8_decode($valueProductos["cantidad"] . "<br>");
+          echo utf8_decode($valueProductos['cantidad'] . "<br>");
         }
 
         echo utf8_decode("</td><td style='border:1px solid #eee;'>");
 
         foreach ($productos as $key => $valueProductos) {
-
-          echo utf8_decode($valueProductos["descripcion"] . "<br>");
+          echo utf8_decode($valueProductos['descripcion'] . "<br>");
         }
 
         echo utf8_decode("</td>
-					<td style='border:1px solid #eee;'>$ " . number_format($item["impuesto"], 2) . "</td>
-					<td style='border:1px solid #eee;'>$ " . number_format($item["neto"], 2) . "</td>	
-					<td style='border:1px solid #eee;'>$ " . number_format($item["total"], 2) . "</td>
-					<td style='border:1px solid #eee;'>" . $item["metodoPago"] . "</td>
-          <td style='border:1px solid #eee;'>" . $item["referencia"] . "</td>
-					<td style='border:1px solid #eee;'>" . substr($item["fecha"], 0, 10) . "</td>		
+					<td style='border:1px solid #eee;'>$ " . number_format($item['impuesto'], 2) . "</td>
+					<td style='border:1px solid #eee;'>$ " . number_format($item['neto'], 2) . "</td>	
+					<td style='border:1px solid #eee;'>$ " . number_format($item['total'], 2) . "</td>
+					<td style='border:1px solid #eee;'>" . $item['metodoPago'] . "</td>
+          <td style='border:1px solid #eee;'>" . $item['referencia'] . "</td>
+					<td style='border:1px solid #eee;'>" . substr($item['fecha'], 0, 10) . "</td>		
         </tr>");
       }
 
