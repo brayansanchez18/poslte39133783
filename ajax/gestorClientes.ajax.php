@@ -34,7 +34,7 @@ class TablaClientes
       if ($_SESSION['perfil'] == 'Administrador') {
         $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarCliente' idCliente='" . base64_encode($clientes[$i]['id']) . "' data-toggle='modal' data-target='#modalEditarCliente'><i class='fa fa-edit'></i></button><button class='btn btn-danger btnEliminarCliente' idCliente='" . base64_encode($clientes[$i]['id']) . "'><i class='fas fa-trash-alt'></i></button></div>";
       } else {
-        $botones =  "<div class='btn-group'><button class='btn btn-warning btnEditarCliente' idCliente='" . base64_encode($clientes[$i]['id']) . "' data-toggle='modal' data-target='#modalEditarCliente'><i class='fa fa-edit'></i></button></div>";
+        $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarCliente' idCliente='" . base64_encode($clientes[$i]['id']) . "' data-toggle='modal' data-target='#modalEditarCliente'><i class='fa fa-edit'></i></button><button class='btn btn-danger disabled'><i class='fas fa-trash-alt'></i></button></div>";
       }
 
       $datosJsonClientes .= '[

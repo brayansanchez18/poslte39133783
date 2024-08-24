@@ -61,6 +61,8 @@ class AjaxTabladeVentas
         $botones = "<div class='btn-group'><button class='btn btn-info btnImprimirRecibo' codigoVenta='" . base64_encode($respuesta[$i]['codigo']) . "'><i class='fas fa-print'></i></button></div>";
       }
 
+
+
       if ($respuesta[$i]['referencia'] != "") {
         $ref = $respuesta[$i]['referencia'];
       } else {

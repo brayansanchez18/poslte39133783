@@ -29,7 +29,15 @@ class TablaCategorias
       /*                            TRAEMOS LAS ACCIONES                            */
       /* -------------------------------------------------------------------------- */
 
-      $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarCategoria' idCategoria='" . base64_encode($categorias[$i]["id"]) . "' data-toggle='modal' data-target='#modalEditarCategoria'><i) class='fa fa-edit'></i></button><button class='btn btn-danger btnEliminarCategoria' idCategoria='" . base64_encode($categorias[$i]["id"]) . "'><i class='fas fa-trash-alt'></i></button></div>";
+      if ($_SESSION['perfil'] == 'Administrador') {
+        $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarCategoria' idCategoria='" . base64_encode($categorias[$i]["id"]) . "' data-toggle='modal' data-target='#modalEditarCategoria'><i) class='fa fa-edit'></i></button><button class='btn btn-danger btnEliminarCategoria' idCategoria='" . base64_encode($categorias[$i]["id"]) . "'><i class='fas fa-trash-alt'></i></button></div>";
+      } else if ($_SESSION['perfil'] == 'Especial') {
+        $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarCategoria' idCategoria='" . base64_encode($categorias[$i]["id"]) . "' data-toggle='modal' data-target='#modalEditarCategoria'><i) class='fa fa-edit'></i></button><button class='btn btn-danger disabled'><i class='fas fa-trash-alt'></i></button></div>";
+      } else {
+        $botones = "<div class='btn-group'><button class='btn btn-warning disabled'><i) class='fa fa-edit'></i></button><button class='btn btn-danger disabled'><i class='fas fa-trash-alt'></i></button></div>";
+      }
+
+
 
       /* -------------------------- TRAEMOS LAS ACCIONES -------------------------- */
 

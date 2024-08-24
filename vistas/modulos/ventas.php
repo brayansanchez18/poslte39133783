@@ -113,27 +113,70 @@
                 <td><?= $value['fecha'] ?></td>
                 <td>
                   <div class="btn-group">
-                    <button
-                      class="btn btn-info btnImprimirRecibo"
-                      codigoVenta="<?= base64_encode($value['codigo']) ?>">
-                      <i
-                        class="fas fa-print">
-                      </i>
-                    </button>
-                    <button
-                      class="btn btn-warning btnEditarVenta"
-                      idVenta="<?= base64_encode($value['id']) ?>">
-                      <i
-                        class="fa fa-edit">
-                      </i>
-                    </button>
-                    <button
-                      class="btn btn-danger btnEliminarVenta"
-                      idVenta="<?= base64_encode($value['id']) ?>">
-                      <i
-                        class="fas fa-trash-alt">
-                      </i>
-                    </button>
+                    <?php if ($_SESSION['perfil'] == 'Administrador') : ?>
+                      <button
+                        class="btn btn-info btnImprimirRecibo"
+                        codigoVenta="<?= base64_encode($value['codigo']) ?>">
+                        <i
+                          class="fas fa-print">
+                        </i>
+                      </button>
+                      <button
+                        class="btn btn-warning btnEditarVenta"
+                        idVenta="<?= base64_encode($value['id']) ?>">
+                        <i
+                          class="fa fa-edit">
+                        </i>
+                      </button>
+                      <button
+                        class="btn btn-danger btnEliminarVenta"
+                        idVenta="<?= base64_encode($value['id']) ?>">
+                        <i
+                          class="fas fa-trash-alt">
+                        </i>
+                      </button>
+                    <?php elseif ($_SESSION['perfil'] == 'Especial') : ?>
+                      <button
+                        class="btn btn-info btnImprimirRecibo"
+                        codigoVenta="<?= base64_encode($value['codigo']) ?>">
+                        <i
+                          class="fas fa-print">
+                        </i>
+                      </button>
+                      <button
+                        class="btn btn-warning btnEditarVenta"
+                        idVenta="<?= base64_encode($value['id']) ?>">
+                        <i
+                          class="fa fa-edit">
+                        </i>
+                      </button>
+                      <button
+                        class="btn btn-danger disabled">
+                        <i
+                          class="fas fa-trash-alt">
+                        </i>
+                      </button>
+                    <?php else: ?>
+                      <button
+                        class="btn btn-info btnImprimirRecibo"
+                        codigoVenta="<?= base64_encode($value['codigo']) ?>">
+                        <i
+                          class="fas fa-print">
+                        </i>
+                      </button>
+                      <button
+                        class="btn btn-warning disabled">
+                        <i
+                          class="fa fa-edit">
+                        </i>
+                      </button>
+                      <button
+                        class="btn btn-danger disabled">
+                        <i
+                          class="fas fa-trash-alt">
+                        </i>
+                      </button>
+                    <?php endif ?>
                   </div>
                 </td>
               </tr>

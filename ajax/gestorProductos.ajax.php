@@ -5,6 +5,8 @@ require_once '../modelos/productos.modelo.php';
 require_once '../controladores/categorias.controlador.php';
 require_once '../modelos/categorias.modelo.php';
 
+session_start();
+
 class TablaProductos
 {
   /* -------------------------------------------------------------------------- */
@@ -67,7 +69,15 @@ class TablaProductos
       /*                            TRAEMOS LAS ACCIONES                            */
       /* -------------------------------------------------------------------------- */
 
-      $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idproducto='" . base64_encode($productos[$i]['id']) . "' data-toggle='modal' data-target='#modalEditarProducto'><i class='fa fa-edit'></i></button><button class='btn btn-danger btnEliminarProducto' idproducto='" . base64_encode($productos[$i]["id"]) . "' codigo='" . base64_encode($productos[$i]["codigo"]) . "' imagen='" . base64_encode($productos[$i]["imagen"]) . "'><i class='fas fa-trash-alt'></i></button></div>";
+      if ($_SESSION['perfil'] == 'Administrador') {
+        $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idproducto='" . base64_encode($productos[$i]['id']) . "' data-toggle='modal' data-target='#modalEditarProducto'><i class='fa fa-edit'></i></button><button class='btn btn-danger btnEliminarProducto' idproducto='" . base64_encode($productos[$i]["id"]) . "' codigo='" . base64_encode($productos[$i]["codigo"]) . "' imagen='" . base64_encode($productos[$i]["imagen"]) . "'><i class='fas fa-trash-alt'></i></button></div>";
+      } else if ($_SESSION['perfil'] == 'Especial') {
+        $botones = "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idproducto='" . base64_encode($productos[$i]['id']) . "' data-toggle='modal' data-target='#modalEditarProducto'><i class='fa fa-edit'></i></button><button class='btn btn-danger disabled'><i class='fas fa-trash-alt'></i></button></div>";
+      } else {
+        $botones = "<div class='btn-group'><button class='btn btn-warning disabled'><i class='fa fa-edit'></i></button><button class='btn btn-danger disabled'><i class='fas fa-trash-alt'></i></button></div>";
+      }
+
+
 
       /* ----------------------- FIN DE TRAEMOS LAS ACCIONES ---------------------- */
 

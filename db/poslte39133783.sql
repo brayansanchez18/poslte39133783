@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-08-2024 a las 23:17:29
+-- Tiempo de generación: 24-08-2024 a las 23:54:49
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.1.17
 
@@ -137,8 +137,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `pass`, `perfil`, `foto`, `estado`, `ultimologin`, `fecha`) VALUES
 (1, 'Brayan Sánchez', 'admin@admin.com', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG', 'Administrador', 'vistas/img/usuarios/admin@admin.com/603.png', 1, '2024-08-24 15:16:48', '2024-08-24 21:16:48'),
-(2, 'Jazmin Santiago Jilote', 'jazmin@correo.com', '$2a$07$asxx54ahjppf45sd87a5auf9Eiqdn10E7o/jsGFivN12XE.wRwyp6', 'Especial', 'vistas/img/usuarios/jazmin@correo.com/274.png', 1, '2024-08-24 15:06:54', '2024-08-24 21:17:02'),
-(8, 'Sandra Gomez', 'sandra_gomez@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auC3pb4ToxZjdNYgW63UxMggr4pYKb.QK', 'Vendedor', 'vistas/img/usuarios/sandra_gomez@tuempresa.com/662.png', 1, '2024-08-03 17:53:57', '2024-08-23 04:15:48');
+(2, 'Jazmin Santiago Jilote', 'jazmin@correo.com', '$2a$07$asxx54ahjppf45sd87a5auf9Eiqdn10E7o/jsGFivN12XE.wRwyp6', 'Especial', 'vistas/img/usuarios/jazmin@correo.com/274.png', 1, '2024-08-24 15:23:05', '2024-08-24 21:23:05'),
+(8, 'Sandra Gomez', 'sandra_gomez@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auF3SxTPxKrykQWP2opioJ/PI/QjcniEW', 'Vendedor', 'vistas/img/usuarios/sandra_gomez@tuempresa.com/662.png', 1, '2024-08-24 15:46:31', '2024-08-24 21:46:31');
 
 -- --------------------------------------------------------
 

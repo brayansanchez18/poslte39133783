@@ -26,9 +26,11 @@
   <section class="content">
     <div class="card">
       <div class="card-header">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarProducto">
-          Agregar Producto <i class="fas fa-truck-loading ml-2"></i>
-        </button>
+        <?php if ($_SESSION['perfil'] != 'Vendedor') : ?>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarProducto">
+            Agregar Producto <i class="fas fa-truck-loading ml-2"></i>
+          </button>
+        <?php endif ?>
       </div>
       <div class="card-body">
         <table id="tablaProductos" class="table table-bordered table-striped dt-responsive tabla" width="100%">
