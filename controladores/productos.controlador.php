@@ -21,8 +21,9 @@ class ControladorProductos
 
   static public function ctrCrearProducto()
   {
-
     if (isset($_POST['nuevaDescripcion'])) {
+      // var_dump($_FILES['nuevaImagen']);
+      // return;
 
       if (
         preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST['nuevaDescripcion']) &&

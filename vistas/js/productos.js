@@ -62,7 +62,7 @@ $("#nuevaCategoria").change(function () {
     dataType: "json",
     success: function (respuesta) {
       if (!respuesta) {
-        var nuevoCodigo = idCategoria + "01";
+        var nuevoCodigo = atob(idCategoria) + "01";
         $("#nuevoCodigo").val(nuevoCodigo);
       } else {
         var nuevoCodigo = Number(respuesta["codigo"]) + 1;
@@ -158,12 +158,12 @@ $("#nuevaImagen, .nuevaImagen").change(function () {
 
   /* ----------- VALIDATOS QUE EL FORMATO DE LA IMGAEN SEA JPG O PNG ---------- */
 
-  if (imagen["type"] != "image/jpeg" && imagen["type"] != "image/png") {
+  if (imagen["type"] != "image/jpeg") {
     $("#nuevaImagen").val("");
 
     Swal.fire({
       title: "Error al subir la imagen",
-      text: "La imagen debe estar en formato JPG o PNG!",
+      text: "La imagen debe estar en formato JPG!",
       icon: "error",
       confirmButtonText: "Cerrar",
     });

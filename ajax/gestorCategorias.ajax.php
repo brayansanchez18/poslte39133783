@@ -15,6 +15,11 @@ class TablaCategorias
     $valor = null;
     $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
+    if (count($categorias) == 0) {
+      echo '{"data": []}';
+      return;
+    }
+
     $datosJsonCategorias = '{
             "data": [';
 

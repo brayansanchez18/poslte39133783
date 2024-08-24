@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-08-2024 a las 03:19:47
+-- Tiempo de generación: 24-08-2024 a las 23:17:29
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.1.17
 
@@ -38,11 +38,21 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id`, `categoria`, `fecha`) VALUES
-(1, 'Equipos Electromecanicos editado', '2024-08-04 03:09:29'),
-(2, 'Taladros', '2021-03-27 19:23:47'),
-(3, 'Andamios', '2021-03-27 19:24:07'),
-(4, 'Generadores de energía', '2021-03-27 19:24:23'),
-(5, 'Equipos para construcción', '2021-03-27 19:24:45');
+(13, 'Industria', '2024-08-23 05:31:04'),
+(14, 'Construcción y Madera', '2024-08-23 05:31:22'),
+(15, 'Sellantes Fijación y Tirafondos', '2024-08-23 05:31:45'),
+(16, 'Pintura y Complementos', '2024-08-23 05:31:58'),
+(17, 'Protección y Vestuario', '2024-08-23 05:32:08'),
+(18, 'Equipos de Trabajo', '2024-08-23 05:32:18'),
+(19, 'Electroportátiles', '2024-08-23 05:32:27'),
+(20, 'Jardín Agricultura y Trefilados', '2024-08-23 05:32:46'),
+(21, 'Mobiliario Jardín Playa Camping y Piscinas', '2024-08-23 05:33:05'),
+(22, 'Material Eléctrico y Electrónica', '2024-08-23 05:33:16'),
+(23, 'Calefacción y Ventilación', '2024-08-23 05:33:31'),
+(24, 'Baño y Fontanería', '2024-08-23 05:33:42'),
+(25, 'Cerrajería', '2024-08-23 05:33:48'),
+(26, 'Ferretería Doméstica', '2024-08-23 05:33:55'),
+(27, 'Menaje', '2024-08-23 05:34:02');
 
 -- --------------------------------------------------------
 
@@ -66,11 +76,7 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `nombre`, `email`, `telefono`, `direccion`, `compras`, `ultimaCompra`, `fecha`) VALUES
-(1, 'Juan Villegas', 'juan@hotmail.com', '(+52) 722-883-8661', 'Calle 23 # 45 - 56', 2, '0000-00-00 00:00:00', '2024-08-17 05:53:45'),
-(3, 'Miguel Murillo Prez', 'miguel@gmail.com', '(+52) 722-883-8661', 'calle 34 # 34 - 23', 20, '2024-08-17 22:34:43', '2024-08-18 04:34:43'),
-(4, 'Victor Gabriel', 'vg@gmail.com', '(+52) 722-883-8661', 'AV. chapultepec #10', -12, '0000-00-00 00:00:00', '2024-08-18 03:30:20'),
-(5, 'Michelle Sandoval', 'michelle@cliente.com', '(+52) 722-883-8661', 'AV. chapultepec #10', 4, '2024-08-17 22:35:04', '2024-08-18 04:35:04'),
-(9, 'POSLTE39133783', 'correo@correo.com', '(+55) 555-555-5555', 'Direccion de negocio', 0, '0000-00-00 00:00:00', '2024-08-14 04:14:56');
+(10, 'cliente de prueba', 'cliente.prueba@gmail.com', '(+52) 777-777-7777', 'direccion de usuarios de prueba #34', 11, '2024-08-24 15:09:45', '2024-08-24 21:09:45');
 
 -- --------------------------------------------------------
 
@@ -96,68 +102,16 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `idCategoria`, `codigo`, `descripcion`, `imagen`, `stock`, `precioCompra`, `precioVenta`, `ventas`, `fecha`) VALUES
-(1, 1, '101', 'Aspiradora Industrial 2 editado', 'vistas/img/productos/101/711.png', 166, 90000, 126000, 97, '2024-08-23 00:46:44'),
-(2, 1, '102', 'Plato Flotante para Allanadora', 'vistas/img/productos/102/506.jpg', 91, 4500, 6300, 22, '2024-08-23 00:46:57'),
-(3, 1, '103', 'Compresor de Aire para pintura', 'vistas/img/productos/103/642.jpg', 81, 3000, 4200, 1, '2024-08-18 04:34:43'),
-(4, 1, '104', 'Cortadora de Adobe sin Disco', 'vistas/img/productos/104/274.jpg', 18, 4000, 5600, 8, '2024-08-18 04:34:42'),
-(5, 1, '105', 'Cortadora de Piso sin Disco ', 'vistas/img/productos/105/363.jpg', 9, 1540, 2156, 11, '2021-04-15 21:57:24'),
-(6, 1, '106', 'Disco Punta Diamante ', 'vistas/img/productos/106/686.jpg', 15, 1100, 1540, 5, '2024-08-18 04:34:42'),
-(7, 1, '107', 'Extractor de Aire ', 'vistas/img/productos/107/133.jpg', 15, 1540, 2156, 16, '2024-08-14 04:49:15'),
-(8, 1, '108', 'Guadañadora ', 'vistas/img/productos/108/882.jpg', 59, 1540, 2156, 39, '2024-08-23 00:46:53'),
-(9, 1, '109', 'Hidrolavadora Eléctrica ', 'vistas/img/productos/109/467.jpg', 25, 2600, 3640, 9, '2024-08-23 00:47:02'),
-(10, 1, '110', 'Hidrolavadora Gasolina', 'vistas/img/productos/110/566.jpg', 18, 2210, 3094, 2, '2024-08-18 04:35:04'),
-(11, 1, '111', 'Motobomba a Gasolina', 'vistas/img/productos/111/724.jpg', 20, 2860, 4004, 0, '2021-03-29 01:02:26'),
-(12, 1, '112', 'Motobomba El?ctrica', '', 20, 2400, 3360, 0, '2021-03-27 23:32:02'),
-(13, 1, '113', 'Sierra Circular ', '', 20, 1100, 1540, 0, '2021-03-27 23:32:02'),
-(14, 1, '114', 'Disco de tugsteno para Sierra circular', '', 20, 4500, 6300, 0, '2021-03-27 23:32:02'),
-(15, 1, '115', 'Soldador Electrico ', '', 20, 1980, 2772, 0, '2021-03-27 23:32:02'),
-(16, 1, '116', 'Careta para Soldador', '', 20, 4200, 5880, 0, '2021-03-27 23:32:02'),
-(17, 1, '117', 'Torre de iluminacion ', '', 20, 1800, 2520, 0, '2021-03-27 23:32:02'),
-(18, 2, '201', 'Martillo Demoledor de Piso 110V', '', 20, 5600, 7840, 0, '2021-03-27 23:32:02'),
-(19, 2, '202', 'Muela o cincel martillo demoledor piso', '', 20, 9600, 13440, 0, '2021-03-27 23:32:02'),
-(20, 2, '203', 'Taladro Demoledor de muro 110V', '', 20, 3850, 5390, 0, '2021-03-27 23:32:02'),
-(21, 2, '204', 'Muela o cincel martillo demoledor muro', '', 20, 9600, 13440, 0, '2021-03-27 23:32:02'),
-(22, 2, '205', 'Taladro Percutor de 1/2 Madera y Metal', '', 20, 8000, 11200, 0, '2021-03-28 04:33:20'),
-(23, 2, '206', 'Taladro Percutor SDS Plus 110V', '', 20, 3900, 5460, 0, '2021-03-27 23:32:02'),
-(24, 2, '207', 'Taladro Percutor SDS Max 110V (Mineria)', '', 20, 4600, 6440, 0, '2021-03-27 23:32:02'),
-(25, 3, '301', 'Andamio colgante', '', 20, 1440, 2016, 0, '2021-03-27 23:32:02'),
-(26, 3, '302', 'Distanciador andamio colgante', '', 20, 1600, 2240, 0, '2021-03-27 23:32:02'),
-(27, 3, '303', 'Marco andamio modular ', '', 20, 900, 1260, 0, '2021-03-27 23:32:02'),
-(28, 3, '304', 'Marco andamio tijera', '', 20, 100, 140, 0, '2021-03-27 23:32:02'),
-(29, 3, '305', 'Tijera para andamio', '', 20, 162, 226, 0, '2021-03-27 23:32:02'),
-(30, 3, '306', 'Escalera interna para andamio', '', 20, 270, 378, 0, '2021-03-27 23:32:02'),
-(31, 3, '307', 'Pasamanos de seguridad', '', 20, 75, 105, 0, '2021-03-27 23:32:02'),
-(32, 3, '308', 'Rueda giratoria para andamio', '', 20, 168, 235, 0, '2021-03-27 23:32:02'),
-(33, 3, '309', 'Arnes de seguridad', '', 20, 1750, 2450, 0, '2021-03-27 23:32:02'),
-(34, 3, '310', 'Eslinga para arnes', '', 20, 175, 245, 0, '2021-03-27 23:32:02'),
-(35, 3, '311', 'Plataforma Met?lica', '', 20, 420, 588, 0, '2021-03-27 23:32:02'),
-(36, 4, '401', 'Planta Electrica Diesel 6 Kva', '', 20, 3500, 4900, 0, '2021-03-27 23:32:02'),
-(37, 4, '402', 'Planta Electrica Diesel 10 Kva', '', 20, 3550, 4970, 0, '2021-03-27 23:32:02'),
-(38, 4, '403', 'Planta Electrica Diesel 20 Kva', '', 20, 3600, 5040, 0, '2021-03-27 23:32:02'),
-(39, 4, '404', 'Planta Electrica Diesel 30 Kva', '', 20, 3650, 5110, 0, '2021-03-27 23:32:02'),
-(40, 4, '405', 'Planta Electrica Diesel 60 Kva', '', 20, 3700, 5180, 0, '2021-03-27 23:32:02'),
-(41, 4, '406', 'Planta Electrica Diesel 75 Kva', '', 19, 3750, 5250, 1, '2024-08-18 04:35:23'),
-(42, 4, '407', 'Planta Electrica Diesel 100 Kva', '', 19, 3800, 5320, 1, '2024-08-18 04:35:23'),
-(43, 4, '408', 'Planta Electrica Diesel 120 Kva', '', 19, 3850, 5390, 1, '2024-08-18 04:35:23'),
-(44, 5, '501', 'Escalera de Tijera Aluminio ', '', 19, 350, 490, 1, '2024-08-18 04:35:23'),
-(45, 5, '502', 'Extension Electrica ', '', 19, 370, 518, 1, '2024-08-18 04:35:23'),
-(46, 5, '503', 'Gato tensor', '', 19, 380, 532, 1, '2024-08-18 04:35:23'),
-(47, 5, '504', 'Lamina Cubre Brecha ', '', 19, 380, 532, 1, '2024-08-18 04:35:23'),
-(48, 5, '505', 'Llave de Tubo', '', 19, 480, 672, 1, '2024-08-18 04:35:23'),
-(49, 5, '506', 'Manila por Metro', '', 19, 600, 840, 1, '2024-08-18 04:35:23'),
-(50, 5, '507', 'Polea 2 canales', '', 19, 900, 1260, 1, '2024-08-18 04:35:23'),
-(51, 5, '508', 'Tensor', '', 20, 100, 140, 0, '2021-03-27 23:32:02'),
-(52, 5, '509', 'Bascula ', '', 20, 130, 182, 0, '2021-03-27 23:32:02'),
-(53, 5, '510', 'Bomba Hidrostatica', '', 20, 770, 1078, 0, '2021-03-27 23:32:02'),
-(54, 5, '511', 'Chapeta', '', 20, 660, 924, 0, '2021-03-27 23:32:02'),
-(55, 5, '512', 'Cilindro muestra de concreto', '', 20, 400, 560, 0, '2021-03-27 23:32:02'),
-(56, 5, '513', 'Cizalla de Palanca', '', 20, 450, 630, 0, '2021-03-27 23:32:02'),
-(57, 5, '514', 'Cizalla de Tijera', '', 20, 580, 812, 0, '2021-03-27 23:32:02'),
-(58, 5, '515', 'Coche llanta neumatica', '', 20, 420, 588, 0, '2021-03-27 23:32:02'),
-(59, 5, '516', 'Cono slump', '', 20, 140, 196, 0, '2021-03-27 23:32:02'),
-(60, 5, '517', 'Cortadora de Baldosin', '', 20, 930, 1302, 0, '2021-03-27 23:32:02'),
-(61, 2, '208', 'taladro truper', '', 399, 500, 845, 1, '2024-08-14 04:51:29'),
-(63, 2, '209', 'taladro de piso', 'vistas/img/productos/209/245.jpg', 233, 1450, 2175, 1, '2024-08-14 04:51:29');
+(69, 13, '1301', 'Juego de Llaves Fijas', 'vistas/img/productos/1301/597.jpg', 61, 799, 1598, 4, '2024-08-24 21:07:05'),
+(70, 13, '1302', 'Juego de Llaves Combinadas', 'vistas/img/productos/1302/812.jpg', 53, 815, 1141, 4, '2024-08-24 21:07:05'),
+(71, 13, '1303', 'Llave ajustable Perico', 'vistas/img/productos/1303/658.jpg', 21, 80, 112, 4, '2024-08-24 21:07:05'),
+(72, 13, '1304', 'Llave de cruz', 'vistas/img/productos/1304/307.jpg', 84, 299, 320, 1, '2024-08-24 21:03:25'),
+(73, 13, '1305', 'Juego de llaves de tubo', 'vistas/img/productos/1305/464.jpg', 96, 455, 637, 0, '2024-08-24 18:14:26'),
+(74, 14, '1401', 'Martillo uña', 'vistas/img/productos/1401/190.jpg', 82, 335, 469, 3, '2024-08-24 21:03:50'),
+(75, 14, '1402', 'Alcotana 815', 'vistas/img/productos/1402/780.jpg', 22, 355, 497, 3, '2024-08-24 21:05:37'),
+(77, 18, '1801', 'Tenazas rusas', 'vistas/img/productos/1801/625.jpg', 35, 995, 1393, 0, '2024-08-24 20:59:02'),
+(78, 18, '1802', 'Pala de punta', 'vistas/img/productos/1802/455.jpg', 115, 505, 707, 5, '2024-08-24 21:06:07'),
+(79, 25, '2501', 'Cortarremaches', 'vistas/img/productos/2501/936.jpg', 83, 85, 119, 2, '2024-08-24 21:06:07');
 
 -- --------------------------------------------------------
 
@@ -182,9 +136,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `pass`, `perfil`, `foto`, `estado`, `ultimologin`, `fecha`) VALUES
-(1, 'Brayan Sánchez', 'admin@admin.com', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG', 'Administrador', 'vistas/img/usuarios/admin@admin.com/472.jpg', 1, '2024-08-22 18:30:15', '2024-08-23 00:30:15'),
-(2, 'Jazmin Santiago Jilote', 'jazmin@correo.com', '$2a$07$asxx54ahjppf45sd87a5aupiGnhl9.FyZzovOsxA7OB7y5DFUHCv2', 'Administrador', 'vistas/img/usuarios/jazmin@correo.com/175.jpg', 1, '0000-00-00 00:00:00', '2024-08-04 01:24:52'),
-(8, 'Sandra Gomez', 'sandra_gomez@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auC3pb4ToxZjdNYgW63UxMggr4pYKb.QK', 'Vendedor', 'vistas/img/usuarios/sandra_gomez@tuempresa.com/615.jpg', 1, '2024-08-03 17:53:57', '2024-08-04 01:20:44');
+(1, 'Brayan Sánchez', 'admin@admin.com', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG', 'Administrador', 'vistas/img/usuarios/admin@admin.com/603.png', 1, '2024-08-24 15:16:48', '2024-08-24 21:16:48'),
+(2, 'Jazmin Santiago Jilote', 'jazmin@correo.com', '$2a$07$asxx54ahjppf45sd87a5auf9Eiqdn10E7o/jsGFivN12XE.wRwyp6', 'Especial', 'vistas/img/usuarios/jazmin@correo.com/274.png', 1, '2024-08-24 15:06:54', '2024-08-24 21:17:02'),
+(8, 'Sandra Gomez', 'sandra_gomez@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auC3pb4ToxZjdNYgW63UxMggr4pYKb.QK', 'Vendedor', 'vistas/img/usuarios/sandra_gomez@tuempresa.com/662.png', 1, '2024-08-03 17:53:57', '2024-08-23 04:15:48');
 
 -- --------------------------------------------------------
 
@@ -211,10 +165,15 @@ CREATE TABLE `ventas` (
 --
 
 INSERT INTO `ventas` (`id`, `codigo`, `idCliente`, `idVendedor`, `productos`, `impuesto`, `neto`, `total`, `metodoPago`, `referencia`, `fecha`) VALUES
-(33, 1003, 1, 1, '[{\"id\":\"Mg==\",\"descripcion\":\"Plato Flotante para Allanadora\",\"cantidad\":\"1\",\"stock\":\"73\",\"precio\":\"6300\",\"total\":\"6300\"},{\"id\":\"Mw==\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"1\",\"stock\":\"72\",\"precio\":\"4200\",\"total\":\"4200\"}]', 1680, 10500, 12180, 'Tarjeta Credito', '0000', '2024-07-17 06:24:44'),
-(36, 1004, 3, 1, '[{\"id\":\"Ng==\",\"descripcion\":\"Disco Punta Diamante \",\"cantidad\":\"1\",\"stock\":\"15\",\"precio\":\"1540\",\"total\":\"1540\"},{\"id\":\"NA==\",\"descripcion\":\"Cortadora de Adobe sin Disco\",\"cantidad\":\"1\",\"stock\":\"18\",\"precio\":\"5600\",\"total\":\"5600\"},{\"id\":\"Mw==\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"1\",\"stock\":\"81\",\"precio\":\"4200\",\"total\":\"4200\"}]', 1814.4, 11340, 13154.4, 'Efectivo', 'Sin Referencia', '2024-08-17 04:34:43'),
-(37, 1005, 5, 1, '[{\"id\":\"MTA=\",\"descripcion\":\"Hidrolavadora Gasolina\",\"cantidad\":\"1\",\"stock\":\"18\",\"precio\":\"3094\",\"total\":\"3094\"},{\"id\":\"OQ==\",\"descripcion\":\"Hidrolavadora Eléctrica \",\"cantidad\":\"1\",\"stock\":\"24\",\"precio\":\"3640\",\"total\":\"3640\"},{\"id\":\"OA==\",\"descripcion\":\"Guadañadora \",\"cantidad\":\"1\",\"stock\":\"54\",\"precio\":\"2156\",\"total\":\"2156\"}]', 1422.4, 8890, 10312.4, 'Tarjeta Credito', '123', '2024-08-17 04:35:04'),
-(38, 1006, 0, 1, '[{\"id\":\"NTA=\",\"descripcion\":\"Polea 2 canales\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"1260\",\"total\":\"1260\"},{\"id\":\"NDk=\",\"descripcion\":\"Manila por Metro\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"840\",\"total\":\"840\"},{\"id\":\"NDg=\",\"descripcion\":\"Llave de Tubo\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"672\",\"total\":\"672\"},{\"id\":\"NDc=\",\"descripcion\":\"Lamina Cubre Brecha \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"532\",\"total\":\"532\"},{\"id\":\"NDY=\",\"descripcion\":\"Gato tensor\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"532\",\"total\":\"532\"},{\"id\":\"NDU=\",\"descripcion\":\"Extension Electrica \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"518\",\"total\":\"518\"},{\"id\":\"NDQ=\",\"descripcion\":\"Escalera de Tijera Aluminio \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"490\",\"total\":\"490\"},{\"id\":\"NDM=\",\"descripcion\":\"Planta Electrica Diesel 120 Kva\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"5390\",\"total\":\"5390\"},{\"id\":\"NDI=\",\"descripcion\":\"Planta Electrica Diesel 100 Kva\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"5320\",\"total\":\"5320\"},{\"id\":\"NDE=\",\"descripcion\":\"Planta Electrica Diesel 75 Kva\",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"5250\",\"total\":\"5250\"}]', 3328.64, 20804, 24132.6, 'Tarjeta Debito', '2423', '2024-08-19 04:35:23');
+(39, 1001, 0, 1, '[{\"id\":\"Njk=\",\"descripcion\":\"Juego de Llaves Fijas\",\"cantidad\":\"1\",\"stock\":\"64\",\"precio\":\"1598\",\"total\":\"1598\"},{\"id\":\"NzY=\",\"descripcion\":\"Taladro de prueba 2\",\"cantidad\":\"1\",\"stock\":\"84\",\"precio\":\"497\",\"total\":\"497\"}]', 335.2, 2095, 2430.2, 'Efectivo', 'Sin Referencia', '2024-04-19 19:12:59'),
+(40, 1002, 10, 1, '[{\"id\":\"Njk=\",\"descripcion\":\"Juego de Llaves Fijas\",\"cantidad\":\"1\",\"stock\":\"63\",\"precio\":\"1598\",\"total\":\"1598\"},{\"id\":\"NzU=\",\"descripcion\":\"Alcotana 815\",\"cantidad\":\"1\",\"stock\":\"24\",\"precio\":\"497\",\"total\":\"497\"},{\"id\":\"NzQ=\",\"descripcion\":\"Martillo uña\",\"cantidad\":\"1\",\"stock\":\"84\",\"precio\":\"469\",\"total\":\"469\"}]', 410.24, 2564, 2974.24, 'Tarjeta Debito', '2423', '2024-05-20 19:25:02'),
+(41, 1003, 10, 1, '[{\"id\":\"NzI=\",\"descripcion\":\"Llave de cruz\",\"cantidad\":\"1\",\"stock\":\"84\",\"precio\":\"320\",\"total\":\"320\"},{\"id\":\"NzA=\",\"descripcion\":\"Juego de Llaves Combinadas\",\"cantidad\":\"1\",\"stock\":\"56\",\"precio\":\"1141\",\"total\":\"1141\"},{\"id\":\"NzE=\",\"descripcion\":\"Llave ajustable Perico\",\"cantidad\":\"1\",\"stock\":\"24\",\"precio\":\"112\",\"total\":\"112\"}]', 251.68, 1573, 1824.68, 'Cheque', '4568', '2024-06-24 21:03:25'),
+(42, 1004, 0, 1, '[{\"id\":\"Nzk=\",\"descripcion\":\"Cortarremaches\",\"cantidad\":\"1\",\"stock\":\"84\",\"precio\":\"119\",\"total\":\"119\"},{\"id\":\"NzQ=\",\"descripcion\":\"Martillo uña\",\"cantidad\":\"1\",\"stock\":\"83\",\"precio\":\"469\",\"total\":\"469\"},{\"id\":\"NzU=\",\"descripcion\":\"Alcotana 815\",\"cantidad\":\"1\",\"stock\":\"23\",\"precio\":\"497\",\"total\":\"497\"}]', 173.6, 1085, 1258.6, 'Cheque', '0000', '2024-07-24 21:03:39'),
+(43, 1005, 0, 1, '[{\"id\":\"NzQ=\",\"descripcion\":\"Martillo uña\",\"cantidad\":\"1\",\"stock\":\"82\",\"precio\":\"469\",\"total\":\"469\"}]', 75.04, 469, 544.04, 'Efectivo', 'Sin Referencia', '2024-08-24 21:03:50'),
+(44, 1006, 10, 1, '[{\"id\":\"NzA=\",\"descripcion\":\"Juego de Llaves Combinadas\",\"cantidad\":\"1\",\"stock\":\"55\",\"precio\":\"1141\",\"total\":\"1141\"},{\"id\":\"NzE=\",\"descripcion\":\"Llave ajustable Perico\",\"cantidad\":\"1\",\"stock\":\"23\",\"precio\":\"112\",\"total\":\"112\"},{\"id\":\"Njk=\",\"descripcion\":\"Juego de Llaves Fijas\",\"cantidad\":\"1\",\"stock\":\"62\",\"precio\":\"1598\",\"total\":\"1598\"},{\"id\":\"NzU=\",\"descripcion\":\"Alcotana 815\",\"cantidad\":\"1\",\"stock\":\"22\",\"precio\":\"497\",\"total\":\"497\"}]', 535.68, 3348, 3883.68, 'Tarjeta Credito', '2423', '2024-08-24 21:05:37'),
+(45, 1007, 0, 1, '[{\"id\":\"NzA=\",\"descripcion\":\"Juego de Llaves Combinadas\",\"cantidad\":\"1\",\"stock\":\"54\",\"precio\":\"1141\",\"total\":\"1141\"},{\"id\":\"NzE=\",\"descripcion\":\"Llave ajustable Perico\",\"cantidad\":\"1\",\"stock\":\"22\",\"precio\":\"112\",\"total\":\"112\"}]', 200.48, 1253, 1453.48, 'Efectivo', 'Sin Referencia', '2024-08-24 21:05:50'),
+(46, 1008, 0, 1, '[{\"id\":\"Nzk=\",\"descripcion\":\"Cortarremaches\",\"cantidad\":\"1\",\"stock\":\"83\",\"precio\":\"119\",\"total\":\"119\"},{\"id\":\"Nzg=\",\"descripcion\":\"Pala de punta\",\"cantidad\":\"5\",\"stock\":\"115\",\"precio\":\"707\",\"total\":\"3535\"}]', 584.64, 3654, 4238.64, 'Tarjeta Debito', '2423', '2024-08-24 21:06:07'),
+(47, 1009, 0, 2, '[{\"id\":\"NzE=\",\"descripcion\":\"Llave ajustable Perico\",\"cantidad\":\"1\",\"stock\":\"21\",\"precio\":\"112\",\"total\":\"112\"},{\"id\":\"NzA=\",\"descripcion\":\"Juego de Llaves Combinadas\",\"cantidad\":\"1\",\"stock\":\"53\",\"precio\":\"1141\",\"total\":\"1141\"},{\"id\":\"Njk=\",\"descripcion\":\"Juego de Llaves Fijas\",\"cantidad\":\"1\",\"stock\":\"61\",\"precio\":\"1598\",\"total\":\"1598\"}]', 456.16, 2851, 3307.16, 'Cheque', '0000', '2024-08-24 21:07:05');
 
 --
 -- Índices para tablas volcadas
@@ -258,19 +217,19 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -282,7 +241,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

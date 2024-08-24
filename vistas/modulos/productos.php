@@ -240,6 +240,14 @@
             </div>
           </div>
 
+          <hr>
+          <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> SOLO IMAGENES JPG!</h5>
+            Antes de subir una imagen asegurese de que estas estan en formato JPG
+            puedes usar la siguiente herramienta para hacer la conversion: <a href="https://imagen.online-convert.com/es/convertir-a-jpg" target="_blank">https://imagen.online-convert.com/es/convertir-a-jpg</a>
+          </div>
+
           <div class="mb-2 mt-3">
             <img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="150px" />
           </div>
@@ -366,6 +374,14 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <hr>
+          <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> SOLO IMAGENES JPG!</h5>
+            Antes de subir una imagen asegurese de que estas estan en formato JPG
+            puedes usar la siguiente herramienta para hacer la conversion: <a href="https://imagen.online-convert.com/es/convertir-a-jpg" target="_blank">https://imagen.online-convert.com/es/convertir-a-jpg</a>
           </div>
 
           <div class="mb-2 mt-3">

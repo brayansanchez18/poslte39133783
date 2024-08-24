@@ -1,8 +1,23 @@
+<?php
+$item = null;
+$valor = null;
+$orden = 'id';
+$ventas = ControladorVentas::ctrSumaTotalVentas();
+
+$categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+$totalCategorias = count($categorias);
+
+$clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
+$totalClientes = count($clientes);
+
+$productos = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
+$totalProductos = count($productos);
+?>
 <div class="col-lg-3 col-6">
   <!-- small box -->
   <div class="small-box bg-info">
     <div class="inner">
-      <h3>$227,212.00</h3>
+      <h3>$<?= number_format($ventas['total'], 2) ?></h3>
       <p>Ventas</p>
     </div>
     <div class="icon">
@@ -16,7 +31,7 @@
   <!-- small box -->
   <div class="small-box bg-success">
     <div class="inner">
-      <h3>53</h3>
+      <h3><?= number_format($totalCategorias) ?></h3>
       <p>Categorias</p>
     </div>
     <div class="icon">
@@ -30,7 +45,7 @@
   <!-- small box -->
   <div class="small-box bg-warning">
     <div class="inner">
-      <h3>44</h3>
+      <h3><?= number_format($totalProductos) ?></h3>
       <p>Productos</p>
     </div>
     <div class="icon">
@@ -44,7 +59,7 @@
   <!-- small box -->
   <div class="small-box bg-danger">
     <div class="inner">
-      <h3>65</h3>
+      <h3><?= number_format($totalClientes) ?></h3>
       <p>Clientes</p>
     </div>
     <div class="icon">

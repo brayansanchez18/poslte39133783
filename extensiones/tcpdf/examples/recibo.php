@@ -158,7 +158,12 @@ EOF;
 
 			$respuestaProducto = ControladorProductos::ctrMostrarProductos($itemProducto, $valorProducto, $orden);
 
-			$valorUnitario = number_format($respuestaProducto['precioVenta'], 2);
+			if ($respuestaProducto) {
+				$valorUnitario = number_format($respuestaProducto['precioVenta'], 2);
+			} else {
+				$valorUnitario = 0;
+			}
+
 
 			$precioTotal = number_format($item['total'], 2);
 

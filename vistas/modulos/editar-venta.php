@@ -97,11 +97,19 @@
 
                   <?php foreach ($listaProductos as $key => $value): ?>
                     <?php
+
                     $item = 'id';
                     $valor = base64_decode($value['id']);
 
                     $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
-                    $stockAntiguo = $respuesta['stock'] + $value['cantidad'];
+
+                    if ($respuesta) {
+                      $descipcion = $value['descripcion'];
+                      $stockAntiguo = $respuesta['stock'] + $value['cantidad'];
+                    } else {
+                      $descipcion = 'PRODUCTO ELIMINADO';
+                    }
+
                     ?>
                     <!-- Descripción del producto -->
                     <!-- TODO: ARRGLAR EL EDITAR VENTA EN DISPOSITIVOS MOVILES -->
@@ -115,7 +123,7 @@
                               </button>
                             </span>
                           </div>
-                          <input type="text" class="form-control nuevaDescripcionProducto" id="agregarProducto" name="agregarProducto" idProducto="<?= $value['id'] ?>" value="<?= $value['descripcion'] ?>" readonly required>
+                          <input type="text" class="form-control nuevaDescripcionProducto" id="agregarProducto" name="agregarProducto" idProducto="<?= $value['id'] ?>" value="<?= $descipcion ?>" readonly required>
                         </div>
                       </div>
 

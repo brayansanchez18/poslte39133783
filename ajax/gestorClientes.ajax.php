@@ -18,6 +18,12 @@ class TablaClientes
     $item = null;
     $valor = null;
     $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
+
+    if (count($clientes) == 0) {
+      echo '{"data": []}';
+      return;
+    }
+
     $datosJsonClientes = '{
             "data": [';
 
