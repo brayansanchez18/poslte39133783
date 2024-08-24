@@ -2,12 +2,12 @@
 /*                    CARGAR LA TABLA DINÁMICA DE PRODUCTOS                   */
 /* -------------------------------------------------------------------------- */
 
-$.ajax({
-  url: "ajax/gestorProductos.ajax.php",
-  success: function (respuesta) {
-    console.log("respuesta", respuesta);
-  },
-});
+// $.ajax({
+//   url: "ajax/gestorProductos.ajax.php",
+//   success: function (respuesta) {
+//     console.log("respuesta", respuesta);
+//   },
+// });
 
 $("#tablaProductos").DataTable({
   ajax: "ajax/gestorProductos.ajax.php",
