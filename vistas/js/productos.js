@@ -158,12 +158,12 @@ $("#nuevaImagen, .nuevaImagen").change(function () {
 
   /* ----------- VALIDATOS QUE EL FORMATO DE LA IMGAEN SEA JPG O PNG ---------- */
 
-  if (imagen["type"] != "image/jpeg") {
+  if (imagen["type"] != "image/jpeg" && imagen["type"] != "image/png") {
     $("#nuevaImagen").val("");
 
     Swal.fire({
       title: "Error al subir la imagen",
-      text: "La imagen debe estar en formato JPG!",
+      text: "La imagen debe estar en formato JPG o PNG!",
       icon: "error",
       confirmButtonText: "Cerrar",
     });

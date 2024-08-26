@@ -68,7 +68,7 @@ class ControladorProductos
             /* ------------------ GUARDAMOS LA IMAGEN EN EL DIRECTORIO ------------------ */
             $aleatorio = mt_rand(100, 999);
             $ruta = 'vistas/img/productos/' . $_POST['nuevoCodigo'] . '/' . $aleatorio . '.png';
-            $origen = imagecreateFromjpeg($_FILES['nuevaImagen']['tmp_name']);
+            $origen = imagecreatefrompng($_FILES['nuevaImagen']['tmp_name']);
             $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
             imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAlto, $nuevoAlto, $ancho, $alto);
             imagejpeg($destino, $ruta);
